@@ -14,6 +14,7 @@ from __future__ import annotations
 import json
 import logging
 import os
+import re
 import tempfile
 from dataclasses import dataclass
 from datetime import date, datetime, timedelta, timezone
@@ -177,15 +178,33 @@ class DatabricksSource:
     def t(self, name: str) -> str:
         return self.s.table(TABLES[name])
 
-    def query(self, sql: str, params: dict | None = None) -> list[dict]:
+    def _connect(self):
         from databricks import sql as dbsql
 
         host = self.host.replace("https://", "").replace("http://", "")
-        with dbsql.connect(server_hostname=host, http_path=self.http_path, access_token=self.token) as conn:
-            with conn.cursor() as cur:
-                cur.execute(sql, params or {})
-                cols = [c[0] for c in cur.description]
-                return [dict(zip(cols, row, strict=True)) for row in cur.fetchall()]
+        return dbsql.connect(server_hostname=host, http_path=self.http_path, access_token=self.token)
+
+    def query(self, sql: str, params: dict | None = None) -> list[dict]:
+        """One warehouse connection per source, reused across queries; reconnects once on failure."""
+        for attempt in (1, 2):
+            try:
+                conn = getattr(self, "_conn", None)
+                if conn is None:
+                    conn = self._conn = self._connect()
+                with conn.cursor() as cur:
+                    cur.execute(sql, params or {})
+                    cols = [c[0] for c in cur.description]
+                    return [dict(zip(cols, row, strict=True)) for row in cur.fetchall()]
+            except Exception:
+                try:
+                    if getattr(self, "_conn", None) is not None:
+                        self._conn.close()
+                except Exception:
+                    pass
+                self._conn = None
+                if attempt == 2:
+                    raise
+        return []  # unreachable
 
     def _ws(self):
         from databricks.sdk import WorkspaceClient
@@ -219,12 +238,20 @@ class DatabricksSource:
         return self._model
 
     def now(self) -> date:
+        """The data day that counts as today (replay cursor or latest scored day); cached for two minutes."""
+        import time
+
         from driveguard import replay
 
+        cached = getattr(self, "_now_cache", None)
+        if cached and time.time() - cached[0] < 120:
+            return cached[1]
         latest = self.query(f"SELECT MAX(date) AS d FROM {self.t('alerts')}")[0]["d"]
         if latest is None:
             latest = self.query(f"SELECT MAX(date) AS d FROM {self.t('gold')}")[0]["d"]
-        return replay.resolve_as_of(None, latest)
+        value = replay.resolve_as_of(None, latest)
+        self._now_cache = (time.time(), value)
+        return value
 
     # ---- API shapes --------------------------------------------------------------------------------------------
     def status(self) -> dict:
@@ -379,6 +406,69 @@ class DatabricksSource:
                 for r in reversed(hist)
             ],
         }
+
+    def drives_bulk(self, serials: list[str], history_days: int = 120) -> dict[str, dict]:
+        """Lifecycle + recent history for many drives in a handful of queries (used by the snapshot export)."""
+        now = self.now()
+        g, lc, a = self.t("gold"), self.t("lifecycle"), self.t("alerts")
+        out: dict[str, dict] = {}
+        cols = ", ".join(f"g.{c}" for c in HISTORY_COLUMNS)
+        for i in range(0, len(serials), 150):
+            chunk = [re.sub(r"[^A-Za-z0-9_\-]", "", x) for x in serials[i : i + 150]]
+            in_list = ", ".join(f"'{x}'" for x in chunk)
+            life = {r["serial_number"]: r for r in self.query(f"SELECT * FROM {lc} WHERE serial_number IN ({in_list})")}
+            hist = self.query(
+                f"""SELECT * FROM (
+                      SELECT g.serial_number, g.date, {cols}, a.score, a.flagged,
+                             ROW_NUMBER() OVER (PARTITION BY g.serial_number ORDER BY g.date DESC) AS rn
+                      FROM {g} g LEFT JOIN {a} a ON a.serial_number = g.serial_number AND a.date = g.date
+                      WHERE g.serial_number IN ({in_list}) AND g.date <= :d)
+                    WHERE rn <= {int(history_days)} ORDER BY serial_number, date""",
+                {"d": now},
+            )
+            by_serial: dict[str, list] = {}
+            for r in hist:
+                by_serial.setdefault(r["serial_number"], []).append(r)
+            for sn in chunk:
+                lf = life.get(sn)
+                if lf is None:
+                    continue
+                failed_visible = lf["failure_date"] is not None and lf["failure_date"] <= now
+                out[sn] = {
+                    "serial": sn,
+                    "model": lf["model"],
+                    "capacity_tb": _f((lf["capacity_bytes"] or 0) / 1e12),
+                    "first_seen": _d(lf["first_seen"]),
+                    "last_seen": _d(min(lf["last_seen"], now)),
+                    "failed": bool(failed_visible),
+                    "failure_date": _d(lf["failure_date"]) if failed_visible else None,
+                    "history": [
+                        {
+                            "date": _d(r["date"]),
+                            **{c: _f(r[c]) for c in HISTORY_COLUMNS},
+                            "score": _f(r["score"]),
+                            "flagged": int(r["flagged"] or 0),
+                        }
+                        for r in by_serial.get(sn, [])
+                    ],
+                }
+        return out
+
+    def latest_features_bulk(self, serials: list[str]) -> dict[str, dict]:
+        now = self.now()
+        out: dict[str, dict] = {}
+        for i in range(0, len(serials), 150):
+            chunk = [re.sub(r"[^A-Za-z0-9_\-]", "", x) for x in serials[i : i + 150]]
+            in_list = ", ".join(f"'{x}'" for x in chunk)
+            rows = self.query(
+                f"""SELECT * FROM (SELECT g.*, ROW_NUMBER() OVER (PARTITION BY serial_number ORDER BY date DESC) AS rn
+                                   FROM {self.t("gold")} g WHERE serial_number IN ({in_list}) AND date <= :d) WHERE rn = 1""",
+                {"d": now},
+            )
+            for r in rows:
+                r.pop("rn", None)
+                out[r["serial_number"]] = r
+        return out
 
     def latest_features(self, serial: str) -> pd.DataFrame | None:
         now = self.now()

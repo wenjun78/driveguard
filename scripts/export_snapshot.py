@@ -16,6 +16,7 @@ import argparse
 import json
 import os
 import shutil
+import sys
 import tempfile
 from datetime import datetime, timezone
 
@@ -72,27 +73,41 @@ def main() -> None:
     json.dump(overview, open(os.path.join(a.out, "overview.json"), "w"), indent=0, default=str)
 
     alerts = {}
-    drives = {}
-    for d in src.alert_dates():
-        day = src.alerts(d)
-        alerts[d] = day["rows"]
-        for row in day["rows"]:
-            sn = row["serial"]
-            if sn not in drives:
-                drives[sn] = src.drive(sn)
-                feats = src.latest_features(sn)
-                lf = feats.iloc[0].to_dict() if feats is not None else {}
+    dates = src.alert_dates()
+    print(f"overview ok; {len(dates)} alert dates", file=sys.stderr)
+    for d in dates:
+        alerts[d] = src.alerts(d)["rows"]
+    serials = sorted({row["serial"] for rows in alerts.values() for row in rows})
+    print(f"alerts ok; {len(serials)} distinct flagged drives", file=sys.stderr)
+    if hasattr(src, "drives_bulk"):
+        drives = src.drives_bulk(serials)
+        latest = src.latest_features_bulk(serials)
+        for sn, lf in latest.items():
+            if sn in drives:
                 drives[sn]["latest_features"] = {
                     k: _compact(v) for k, v in lf.items() if _compact(v) is not None
                 } or None
-                for h in drives[sn]["history"]:
-                    for k, v in h.items():
-                        h[k] = _compact(v)
+    else:
+        drives = {}
+        for sn in serials:
+            drives[sn] = src.drive(sn)
+            feats = src.latest_features(sn)
+            lf = feats.iloc[0].to_dict() if feats is not None else {}
+            drives[sn]["latest_features"] = {k: _compact(v) for k, v in lf.items() if _compact(v) is not None} or None
+    for dr in drives.values():
+        dr.setdefault("latest_features", None)
+        for h in dr["history"]:
+            for k, v in h.items():
+                h[k] = _compact(v)
+    print(f"drives ok; {len(drives)} histories", file=sys.stderr)
     json.dump(alerts, open(os.path.join(a.out, "alerts.json"), "w"), indent=0, default=str)
     json.dump(drives, open(os.path.join(a.out, "drives.json"), "w"), indent=0, default=str)
     json.dump(src.monitoring(), open(os.path.join(a.out, "monitoring.json"), "w"), indent=0, default=str)
+    print("monitoring ok", file=sys.stderr)
     json.dump(src.model_info(), open(os.path.join(a.out, "model.json"), "w"), indent=0, default=str)
+    print("model ok", file=sys.stderr)
     json.dump(src.pipeline(), open(os.path.join(a.out, "pipeline.json"), "w"), indent=0, default=str)
+    print("pipeline ok", file=sys.stderr)
 
     _, name, mv = src._champion()
     local = mlflow.artifacts.download_artifacts(
