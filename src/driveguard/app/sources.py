@@ -668,14 +668,27 @@ class DatabricksSource:
 def healthy_baseline(
     numeric: list[str], power_on_hours: float = 20000.0, temperature: float = 30.0, capacity_tb: float = 12.0
 ) -> dict[str, float]:
-    """A plausible healthy drive: every counter and delta at zero, age/thermal/capacity as given.
+    """A plausible healthy drive: error counters and their deltas at zero, wear/workload counters at ordinary values,
+    normalized attributes at 100, age/thermal/capacity as given.
 
-    Used for hand-entered what-if scoring so that unspecified features mean "nothing wrong" rather than
-    "unknown" (NaN), which the model would otherwise route down whatever branch missing values took in training.
+    Used for hand-entered what-if scoring so that unspecified features mean "nothing wrong" rather than "unknown"
+    (NaN) or an implausible zero (a drive with zero load cycles or a normalized value of 0 looks odd to the model).
     """
     base: dict[str, float] = {c: 0.0 for c in numeric}
+    days = power_on_hours / 24.0
+    workload = {  # typical magnitudes for a drive of this age; deltas scale with the window length
+        "smart_4_raw": 20.0,
+        "smart_12_raw": 20.0,
+        "smart_192_raw": 10.0,
+        "smart_193_raw": max(100.0, 4.0 * days),
+        "smart_240_raw": 0.9 * power_on_hours,
+        "smart_241_raw": 2.0e7 * days,
+        "smart_242_raw": 3.0e7 * days,
+    }
     for c in numeric:
-        if c.startswith("smart_194_"):
+        if c.endswith("_normalized"):
+            base[c] = 100.0 - temperature if c.startswith("smart_194_") else 100.0
+        elif c.startswith("smart_194_"):
             base[c] = temperature
         elif c == "smart_9_raw":
             base[c] = power_on_hours
@@ -683,6 +696,12 @@ def healthy_baseline(
             base[c] = 24.0 * 7
         elif c == "smart_9_delta_30d":
             base[c] = 24.0 * 30
+        elif c in workload:
+            base[c] = workload[c]
+        elif c.startswith(("smart_193_delta_", "smart_240_delta_", "smart_241_delta_", "smart_242_delta_")):
+            attr = c.split("_delta_")[0] + "_raw"
+            window = 7 if c.endswith("_7d") else 30
+            base[c] = workload[attr] / max(1.0, days) * window
         elif c == "capacity_tb":
             base[c] = capacity_tb
         elif c == "gap_since_prev_obs":

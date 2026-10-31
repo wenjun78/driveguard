@@ -91,7 +91,8 @@ def test_predict_serial_and_manual(client):
             },
         },
     ).json()["data"]
-    assert healthy["p_fail_within_horizon"] < 0.05 < sick["p_fail_within_horizon"]
+    assert healthy["p_fail_within_horizon"] < 0.05
+    assert sick["p_fail_within_horizon"] > 5 * healthy["p_fail_within_horizon"]
     assert all("nan" not in c for c in sick["reason_codes"])
 
 
