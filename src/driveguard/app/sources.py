@@ -55,6 +55,20 @@ def _list(v) -> list:
     return [str(x) for x in v]
 
 
+def _aliases(mv) -> list[str]:
+    """ModelVersion.aliases is a property in some MLflow versions and a method in others; UC search may omit it."""
+    v = getattr(mv, "aliases", None)
+    if callable(v):
+        try:
+            v = v()
+        except Exception:
+            v = None
+    try:
+        return [str(x) for x in (v or [])]
+    except TypeError:
+        return []
+
+
 def _f(v) -> float | None:
     try:
         if v is None or (isinstance(v, float) and v != v):
@@ -541,7 +555,7 @@ class DatabricksSource:
                     "created": datetime.fromtimestamp(mv.creation_timestamp / 1000, tz=timezone.utc).isoformat(),
                     "val_pr_auc": _f(m.get("val_pr_auc")),
                     "test_pr_auc": _f(m.get("test_pr_auc")),
-                    "aliases": list(getattr(mv, "aliases", []) or []),
+                    "aliases": _aliases(mv) or (["champion"] if str(mv.version) == str(champ.version) else []),
                     "run_id": mv.run_id,
                 }
             )
