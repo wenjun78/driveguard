@@ -19,41 +19,53 @@ jobs:
   daily:
     runs-on: ubuntu-latest
     timeout-minutes: 120
-    if: ${{ vars.DATABRICKS_HOST != '' }}
     env:
-      DATABRICKS_HOST: ${{ vars.DATABRICKS_HOST }}
+      DATABRICKS_HOST: ${{ vars.DATABRICKS_HOST || secrets.DATABRICKS_HOST }}
       DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
       DG_CATALOG: workspace
       DG_SCHEMA: driveguard
-      DG_REPLAY_ANCHOR: ${{ vars.DG_REPLAY_ANCHOR }}
+      DG_REPLAY_ANCHOR: ${{ vars.DG_REPLAY_ANCHOR || secrets.DG_REPLAY_ANCHOR }}
       MLFLOW_DISABLE_AGENT_HINT: "1"
       MLFLOW_TRACKING_URI: databricks
       MLFLOW_REGISTRY_URI: databricks-uc
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - name: Skip when Databricks is not configured
+        id: cfg
+        run: |
+          if [ -z "$DATABRICKS_HOST" ] || [ -z "$DATABRICKS_TOKEN" ]; then echo "configured=false" >> "$GITHUB_OUTPUT"; echo "Databricks not configured; nothing to do."; else echo "configured=true" >> "$GITHUB_OUTPUT"; fi
+      - uses: actions/checkout@v5
+        if: steps.cfg.outputs.configured == 'true'
+      - uses: actions/setup-python@v6
+        if: steps.cfg.outputs.configured == 'true'
         with:
           python-version: "3.11"
           cache: pip
       - uses: databricks/setup-cli@main
+        if: steps.cfg.outputs.configured == 'true'
       - name: Install
+        if: steps.cfg.outputs.configured == 'true'
         run: |
           python -m pip install --upgrade pip
           pip install -e ".[app]" build
       - name: Workspace info
+        if: steps.cfg.outputs.configured == 'true'
         id: info
         run: python scripts/databricks_bootstrap.py info
       - name: Deploy bundle (picks up code changes)
-        run: databricks bundle deploy -t live --var="replay_anchor=${{ vars.DG_REPLAY_ANCHOR }}"
+        if: steps.cfg.outputs.configured == 'true'
+        run: databricks bundle deploy -t live --var="replay_anchor=${{ vars.DG_REPLAY_ANCHOR || secrets.DG_REPLAY_ANCHOR }}"
       - name: Run the daily job
-        run: databricks bundle run -t live driveguard_daily --var="replay_anchor=${{ vars.DG_REPLAY_ANCHOR }}"
+        if: steps.cfg.outputs.configured == 'true'
+        run: databricks bundle run -t live driveguard_daily --var="replay_anchor=${{ vars.DG_REPLAY_ANCHOR || secrets.DG_REPLAY_ANCHOR }}"
       - name: Export console snapshot
+        if: steps.cfg.outputs.configured == 'true'
         env:
-          DATABRICKS_HTTP_PATH: ${{ vars.DATABRICKS_HTTP_PATH || steps.info.outputs.http_path }}
+          DATABRICKS_HTTP_PATH: ${{ vars.DATABRICKS_HTTP_PATH || secrets.DATABRICKS_HTTP_PATH || steps.info.outputs.http_path }}
         run: |
           if [ -z "$DATABRICKS_HTTP_PATH" ]; then echo "::warning::no SQL warehouse; skipping snapshot"; exit 0; fi
           python scripts/export_snapshot.py --source databricks --out app_snapshot
       - name: Commit snapshot
+        if: steps.cfg.outputs.configured == 'true'
         run: |
           git config user.name "wenjun78"
           git config user.email "151641864+wenjun78@users.noreply.github.com"

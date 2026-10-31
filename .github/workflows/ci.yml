@@ -10,12 +10,12 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 25
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.11"
           cache: pip
-      - uses: actions/setup-java@v4
+      - uses: actions/setup-java@v5
         with:
           distribution: temurin
           java-version: "17"
@@ -35,7 +35,7 @@ jobs:
         run: python -m build --wheel
       - name: Validate bundle YAML
         run: python -c "import yaml,glob; [yaml.safe_load(open(f)) for f in ['databricks.yml', *glob.glob('resources/*.yml')]]; print('bundle yaml ok')"
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v5
         with:
           name: driveguard-wheel
           path: dist/*.whl
@@ -45,19 +45,19 @@ jobs:
   # Data loading and the first run are the databricks-bootstrap workflow; daily operation is the daily workflow.
   deploy:
     needs: test
-    if: github.ref == 'refs/heads/main' && vars.DATABRICKS_HOST != ''
+    if: github.ref == 'refs/heads/main' && (vars.DATABRICKS_HOST != '' || secrets.DATABRICKS_HOST != '')
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.11"
       - run: pip install build
       - uses: databricks/setup-cli@main
       - name: Deploy bundle (dev target)
         env:
-          DATABRICKS_HOST: ${{ vars.DATABRICKS_HOST }}
+          DATABRICKS_HOST: ${{ vars.DATABRICKS_HOST || secrets.DATABRICKS_HOST }}
           DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
         run: |
-          databricks bundle validate -t live --var="replay_anchor=${{ vars.DG_REPLAY_ANCHOR }}"
-          databricks bundle deploy -t live --var="replay_anchor=${{ vars.DG_REPLAY_ANCHOR }}"
+          databricks bundle validate -t live --var="replay_anchor=${{ vars.DG_REPLAY_ANCHOR || secrets.DG_REPLAY_ANCHOR }}"
+          databricks bundle deploy -t live --var="replay_anchor=${{ vars.DG_REPLAY_ANCHOR || secrets.DG_REPLAY_ANCHOR }}"

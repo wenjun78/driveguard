@@ -36,7 +36,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 300
     env:
-      DATABRICKS_HOST: ${{ vars.DATABRICKS_HOST }}
+      DATABRICKS_HOST: ${{ vars.DATABRICKS_HOST || secrets.DATABRICKS_HOST }}
       DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
       DG_CATALOG: workspace
       DG_SCHEMA: driveguard
@@ -44,12 +44,13 @@ jobs:
       MLFLOW_TRACKING_URI: databricks
       MLFLOW_REGISTRY_URI: databricks-uc
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Check configuration
         run: |
           if [ -z "$DATABRICKS_HOST" ] || [ -z "$DATABRICKS_TOKEN" ]; then
-            echo "::error::Set the DATABRICKS_HOST variable and DATABRICKS_TOKEN secret first (Settings -> Secrets and variables -> Actions)."; exit 1; fi
-      - uses: actions/setup-python@v5
+            echo "::error::Missing DATABRICKS_HOST and/or DATABRICKS_TOKEN. Add them under Settings -> Secrets and variables -> Actions (either tab works: Secrets or Variables), then re-run."; exit 1; fi
+          echo "host: $DATABRICKS_HOST"
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.11"
           cache: pip
@@ -81,15 +82,15 @@ jobs:
 
       - name: Deploy bundle (live target)
         run: |
-          databricks bundle validate -t live --var="replay_anchor=${{ vars.DG_REPLAY_ANCHOR }}"
-          databricks bundle deploy   -t live --var="replay_anchor=${{ vars.DG_REPLAY_ANCHOR }}"
+          databricks bundle validate -t live --var="replay_anchor=${{ vars.DG_REPLAY_ANCHOR || secrets.DG_REPLAY_ANCHOR }}"
+          databricks bundle deploy   -t live --var="replay_anchor=${{ vars.DG_REPLAY_ANCHOR || secrets.DG_REPLAY_ANCHOR }}"
       - name: Run the build job (bronze -> silver -> gold -> train -> 45-day scoring replay -> monitor)
-        run: databricks bundle run -t live driveguard_build --var="replay_anchor=${{ vars.DG_REPLAY_ANCHOR }}"
+        run: databricks bundle run -t live driveguard_build --var="replay_anchor=${{ vars.DG_REPLAY_ANCHOR || secrets.DG_REPLAY_ANCHOR }}"
 
       - name: Export console snapshot from the workspace
         env:
-          DATABRICKS_HTTP_PATH: ${{ vars.DATABRICKS_HTTP_PATH || steps.info.outputs.http_path }}
-          DG_REPLAY_ANCHOR: ${{ vars.DG_REPLAY_ANCHOR }}
+          DATABRICKS_HTTP_PATH: ${{ vars.DATABRICKS_HTTP_PATH || secrets.DATABRICKS_HTTP_PATH || steps.info.outputs.http_path }}
+          DG_REPLAY_ANCHOR: ${{ vars.DG_REPLAY_ANCHOR || secrets.DG_REPLAY_ANCHOR }}
         run: |
           if [ -z "$DATABRICKS_HTTP_PATH" ]; then echo "::warning::no SQL warehouse found; skipping snapshot export"; exit 0; fi
           python scripts/export_snapshot.py --source databricks --out app_snapshot
