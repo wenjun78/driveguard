@@ -13,10 +13,11 @@ from driveguard.model import DriveGuardModel
 
 
 def score_spark(df: DataFrame, model: DriveGuardModel, keep: Iterable[str]) -> DataFrame:
-    """Add a ``score`` column (failure probability within the horizon) using mapInPandas with a broadcast model."""
+    """Add a ``score`` column (failure probability within the horizon) using mapInPandas."""
     keep = list(keep)
-    spark = df.sparkSession
-    bc = spark.sparkContext.broadcast(model.to_bytes())
+    # the model travels inside the function closure (a few hundred KB): no SparkContext / broadcast needed,
+    # which keeps this working on serverless compute and Spark Connect
+    payload = model.to_bytes()
     needed = list(dict.fromkeys(keep + model.spec.numeric + ["model"]))
     needed = [c for c in needed if c in df.columns]
     schema = T.StructType([f for f in df.schema.fields if f.name in keep] + [T.StructField("score", T.DoubleType())])
@@ -25,7 +26,7 @@ def score_spark(df: DataFrame, model: DriveGuardModel, keep: Iterable[str]) -> D
         m = None
         for pdf in batches:
             if m is None:
-                m = DriveGuardModel.from_bytes(*bc.value)
+                m = DriveGuardModel.from_bytes(*payload)
             out = pdf[keep].copy()
             out["score"] = m.predict_proba(pdf).astype("float64") if len(pdf) else pd.Series(dtype="float64")
             yield out

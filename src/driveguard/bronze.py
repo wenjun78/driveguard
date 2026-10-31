@@ -66,14 +66,17 @@ def _type_columns(df: DataFrame) -> DataFrame:
 
 def read_csv_group(spark: SparkSession, paths: list[str]) -> DataFrame:
     df = spark.read.option("header", True).option("inferSchema", False).csv(paths)
-    df = df.toDF(*[c.strip().lstrip("﻿") for c in df.columns])
-    return _type_columns(df).withColumn("source_file", F.input_file_name())
+    # _metadata.file_path works on Unity Catalog / serverless, where input_file_name() is rejected;
+    # take it straight off the scan, before any renaming
+    df = df.withColumn("source_file", F.col("_metadata.file_path"))
+    df = df.toDF(*[c.strip().lstrip("\ufeff") for c in df.columns])
+    return _type_columns(df)
 
 
 def read_parquet_subset(spark: SparkSession, paths: list[str]) -> DataFrame:
     df = spark.read.option("mergeSchema", True).parquet(*paths)
     if "source_file" not in df.columns:
-        df = df.withColumn("source_file", F.input_file_name())
+        df = df.withColumn("source_file", F.col("_metadata.file_path"))
     return _type_columns(df)
 
 
