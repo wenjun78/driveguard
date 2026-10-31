@@ -1,10 +1,85 @@
 {
-"jobs": [],
-"serving": null,
+"jobs": [
+{
+"name": "driveguard - daily",
+"job_id": 584543030730737,
+"schedule": "0 0 2 * * ?",
+"paused": "PAUSED",
+"runs": []
+},
+{
+"name": "driveguard - build",
+"job_id": 428995231543134,
+"schedule": null,
+"paused": null,
+"runs": [
+{
+"run_id": 576099510344129,
+"state": "TERMINATED",
+"result": "SUCCESS",
+"start": "2026-10-31T09:58:43.100000+00:00",
+"duration_s": 436.439,
+"url": "https://dbc-0a677603-5d07.cloud.databricks.com/?o=7474647782481883#job/428995231543134/run/576099510344129"
+},
+{
+"run_id": 529602829589992,
+"state": "TERMINATED",
+"result": "SUCCESS",
+"start": "2026-10-31T09:38:09.237000+00:00",
+"duration_s": 482.687,
+"url": "https://dbc-0a677603-5d07.cloud.databricks.com/?o=7474647782481883#job/428995231543134/run/529602829589992"
+},
+{
+"run_id": 1067788602557906,
+"state": "TERMINATED",
+"result": "SUCCESS",
+"start": "2026-10-31T09:15:31.915000+00:00",
+"duration_s": 492.166,
+"url": "https://dbc-0a677603-5d07.cloud.databricks.com/?o=7474647782481883#job/428995231543134/run/1067788602557906"
+},
+{
+"run_id": 121933843844372,
+"state": "INTERNAL_ERROR",
+"result": "FAILED",
+"start": "2026-10-31T05:01:05.103000+00:00",
+"duration_s": 443.3,
+"url": "https://dbc-0a677603-5d07.cloud.databricks.com/?o=7474647782481883#job/428995231543134/run/121933843844372"
+},
+{
+"run_id": 968624726897584,
+"state": "INTERNAL_ERROR",
+"result": "FAILED",
+"start": "2026-10-31T04:33:54.084000+00:00",
+"duration_s": 98.284,
+"url": "https://dbc-0a677603-5d07.cloud.databricks.com/?o=7474647782481883#job/428995231543134/run/968624726897584"
+},
+{
+"run_id": 277904276000355,
+"state": "INTERNAL_ERROR",
+"result": "FAILED",
+"start": "2026-10-31T04:24:16.973000+00:00",
+"duration_s": 96.378,
+"url": "https://dbc-0a677603-5d07.cloud.databricks.com/?o=7474647782481883#job/428995231543134/run/277904276000355"
+},
+{
+"run_id": 288923303334068,
+"state": "INTERNAL_ERROR",
+"result": "FAILED",
+"start": "2026-10-31T04:01:39.523000+00:00",
+"duration_s": 108.999,
+"url": "https://dbc-0a677603-5d07.cloud.databricks.com/?o=7474647782481883#job/428995231543134/run/288923303334068"
+}
+]
+}
+],
+"serving": {
+"name": "driveguard-failure-30d",
+"state": null,
+"error": "Endpoint with name 'driveguard-failure-30d' does not exist."
+},
 "replay": {
 "anchor": null,
 "cursor": null
 },
-"workspace": null,
-"note": "Snapshot mode: job runs, the serving endpoint and the replay clock appear once the console is pointed at a Databricks workspace."
+"workspace": "https://dbc-0a677603-5d07.cloud.databricks.com"
 }
