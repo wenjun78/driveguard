@@ -11,7 +11,7 @@ from pyspark.sql import DataFrame, SparkSession
 from pyspark.sql import functions as F
 from pyspark.sql import types as T
 
-from driveguard import scoring
+from driveguard import replay, scoring
 from driveguard.config import TABLES, Settings
 from driveguard.model import DriveGuardModel
 from driveguard.spark import TableStore
@@ -130,7 +130,7 @@ def run(spark: SparkSession, s: Settings, as_of: str | None = None, model_uri: s
     setup_mlflow(s)
     store = TableStore(spark, s)
     gold = store.read(TABLES["gold"])
-    snapshot_day: date = date.fromisoformat(as_of) if as_of else gold.agg(F.max("date")).first()[0]
+    snapshot_day: date = replay.resolve_as_of(as_of, gold.agg(F.max("date")).first()[0])
     uri = resolve_model_uri(s, model_uri)
     model = load_model(uri)
     out = score_dates(spark, store, s, gold, [snapshot_day], uri, model)
@@ -143,7 +143,16 @@ def backfill(spark: SparkSession, s: Settings, days: int, model_uri: str | None 
     setup_mlflow(s)
     store = TableStore(spark, s)
     gold = store.read(TABLES["gold"])
-    dates = sorted(r[0] for r in gold.select("date").distinct().orderBy(F.col("date").desc()).limit(days).collect())
+    now = replay.resolve_as_of(None, gold.agg(F.max("date")).first()[0])
+    dates = sorted(
+        r[0]
+        for r in gold.filter(F.col("date") <= F.lit(now))
+        .select("date")
+        .distinct()
+        .orderBy(F.col("date").desc())
+        .limit(days)
+        .collect()
+    )
     uri = resolve_model_uri(s, model_uri)
     model = load_model(uri)
     out = score_dates(spark, store, s, gold, dates, uri, model)

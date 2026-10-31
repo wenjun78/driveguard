@@ -24,6 +24,9 @@ variables:
     default: /Volumes/workspace/driveguard/raw
   experiment:
     default: /Shared/driveguard
+  replay_anchor:
+    description: "Replay clock: pin a data day to a calendar day (data_date@real_date), e.g. 2025-01-01@2026-11-01. Empty = latest day in gold."
+    default: ""
 
 artifacts:
   driveguard_wheel:

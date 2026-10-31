@@ -1,0 +1,36 @@
+# Render blueprint for the DriveGuard fleet console (https://render.com/docs/blueprint-spec).
+# Deploy: New + Blueprint -> this repo. Fill in the Databricks values to go live; leave them empty for demo mode.
+services:
+  - type: web
+    name: driveguard
+    runtime: python
+    plan: free
+    region: singapore
+    buildCommand: pip install --upgrade pip && pip install ".[app]"
+    startCommand: uvicorn driveguard.app.server:app --host 0.0.0.0 --port $PORT --workers 1
+    healthCheckPath: /healthz
+    autoDeploy: true
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11.9"
+      - key: MLFLOW_DISABLE_AGENT_HINT
+        value: "1"
+      - key: DG_APP_CACHE_TTL
+        value: "600"
+      # --- Databricks workspace the pipeline runs in (Free Edition works). Leave blank for demo mode. ---
+      - key: DATABRICKS_HOST
+        sync: false # https://<workspace>.cloud.databricks.com
+      - key: DATABRICKS_TOKEN
+        sync: false # personal access token (read tables + MLflow; jobs.run only if the owner trigger is used)
+      - key: DATABRICKS_HTTP_PATH
+        sync: false # SQL warehouse: /sql/1.0/warehouses/<id>
+      - key: DG_CATALOG
+        value: workspace
+      - key: DG_SCHEMA
+        value: driveguard
+      - key: DG_SERVING_ENDPOINT
+        value: driveguard-failure-30d
+      - key: DG_REPLAY_ANCHOR
+        sync: false # same value as the Databricks job parameter, e.g. 2025-01-01@2026-11-01
+      - key: DG_APP_ADMIN_TOKEN
+        generateValue: true # X-Admin-Token for POST /api/admin/run-daily and /api/admin/refresh

@@ -1,0 +1,10 @@
+{
+"jobs": [],
+"serving": null,
+"replay": {
+"anchor": null,
+"cursor": null
+},
+"workspace": null,
+"note": "Snapshot mode: job runs, the serving endpoint and the replay clock appear once the console is pointed at a Databricks workspace."
+}

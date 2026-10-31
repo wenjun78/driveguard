@@ -23,6 +23,7 @@ from pyspark.sql import functions as F
 from pyspark.sql import types as T
 
 from driveguard import metrics as M
+from driveguard import replay
 from driveguard.config import KEY_SMART_RAW, TABLES, Settings
 from driveguard.model import DriveGuardModel
 from driveguard.score import resolve_model_uri
@@ -55,12 +56,12 @@ def feature_psi(ref: pd.DataFrame, cur: pd.DataFrame, features: list[str]) -> di
     return out
 
 
-def matured_performance(spark: SparkSession, store: TableStore, s: Settings) -> list[dict[str, Any]]:
-    """Real outcomes for every scored snapshot whose horizon has elapsed."""
+def matured_performance(spark: SparkSession, store: TableStore, s: Settings, now: date) -> list[dict[str, Any]]:
+    """Real outcomes for every scored snapshot whose horizon has elapsed by ``now``."""
     if not store.exists(TABLES["alerts"]):
         return []
     gold = store.read(TABLES["gold"])
-    end_day = gold.agg(F.max("day")).first()[0]
+    end_day = (now - date(1970, 1, 1)).days
     alerts = store.read(TABLES["alerts"]).select("serial_number", "date", "day", "score", "flagged")
     matured = alerts.filter(F.col("day") + F.lit(s.horizon_days) <= F.lit(end_day))
     if matured.limit(1).count() == 0:
@@ -82,7 +83,7 @@ def run(spark: SparkSession, s: Settings, as_of: str | None = None, model_uri: s
     setup_mlflow(s)
     store = TableStore(spark, s)
     gold = store.read(TABLES["gold"])
-    snapshot_day: date = date.fromisoformat(as_of) if as_of else gold.agg(F.max("date")).first()[0]
+    snapshot_day: date = replay.resolve_as_of(as_of, gold.agg(F.max("date")).first()[0])
     cur_df = gold.filter(F.col("date") == F.lit(snapshot_day)).filter("is_failure_row = 0")
 
     uri = resolve_model_uri(s, model_uri)
@@ -103,7 +104,7 @@ def run(spark: SparkSession, s: Settings, as_of: str | None = None, model_uri: s
         cur_scores = model.predict_proba(cur_full)
         score_psi = M.psi(ref_scores.astype(float), cur_scores.astype(float))
 
-    matured = matured_performance(spark, store, s)
+    matured = matured_performance(spark, store, s, now=snapshot_day)
     recent = [r for r in matured if "recall_at_budget" in r][-7:]
     recent_recall = float(np.mean([r["recall_at_budget"] for r in recent])) if recent else float("nan")
 
@@ -128,6 +129,7 @@ def run(spark: SparkSession, s: Settings, as_of: str | None = None, model_uri: s
         "matured_snapshots": len(matured),
         "matured_recent_recall_at_budget": None if np.isnan(recent_recall) else recent_recall,
         "matured_latest": json.dumps(matured[-1], default=float) if matured else None,
+        "matured_all": json.dumps(matured, default=float),
         "retrain_recommended": retrain,
         "retrain_reasons": json.dumps(reasons),
     }
@@ -144,6 +146,7 @@ def run(spark: SparkSession, s: Settings, as_of: str | None = None, model_uri: s
             T.StructField("matured_snapshots", T.IntegerType()),
             T.StructField("matured_recent_recall_at_budget", T.DoubleType()),
             T.StructField("matured_latest", T.StringType()),
+            T.StructField("matured_all", T.StringType()),
             T.StructField("retrain_recommended", T.BooleanType()),
             T.StructField("retrain_reasons", T.StringType()),
         ]
@@ -153,4 +156,8 @@ def run(spark: SparkSession, s: Settings, as_of: str | None = None, model_uri: s
         TABLES["monitor"],
         mode="append" if store.exists(TABLES["monitor"]) else "overwrite",
     )
-    return {**row, "psi_by_feature": psi_by_feature, "matured": matured[-3:]}
+    return {
+        **{k: v for k, v in row.items() if k != "matured_all"},
+        "psi_by_feature": psi_by_feature,
+        "matured": matured[-3:],
+    }

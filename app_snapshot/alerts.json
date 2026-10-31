@@ -1,0 +1,8912 @@
+{
+"2024-12-21": [
+{
+"rank": 1,
+"serial": "ZCH70001849",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.8791417479515076,
+"reason_codes": [
+"smart_197_delta_7d=45",
+"smart_5_delta_7d=49",
+"smart_187_raw=83"
+],
+"outcome": "failed",
+"days_to_failure": 24.0
+},
+{
+"rank": 2,
+"serial": "ZCH70002399",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.8426319360733032,
+"reason_codes": [
+"smart_197_delta_7d=82",
+"smart_5_delta_7d=48",
+"smart_187_raw=50"
+],
+"outcome": "failed",
+"days_to_failure": 7.0
+},
+{
+"rank": 3,
+"serial": "ZCH70002906",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.8037307858467102,
+"reason_codes": [
+"smart_197_delta_7d=59",
+"smart_5_delta_7d=35",
+"smart_187_raw=23"
+],
+"outcome": "failed",
+"days_to_failure": 17.0
+},
+{
+"rank": 4,
+"serial": "ZCH70000899",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.18105976283550262,
+"reason_codes": [
+"smart_197_delta_7d=23",
+"smart_187_raw=8",
+"smart_198_raw=10"
+],
+"outcome": "failed",
+"days_to_failure": 28.0
+},
+{
+"rank": 5,
+"serial": "ZCH70001271",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.15163344144821167,
+"reason_codes": [
+"smart_240_raw=3.743e+04",
+"smart_241_raw=5.005e+10",
+"smart_193_raw=4747"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 6,
+"serial": "ZCH70002495",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.09067578613758087,
+"reason_codes": [
+"smart_197_delta_7d=6",
+"smart_240_raw=4.086e+04",
+"smart_241_raw=5.252e+10"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 7,
+"serial": "ZCH70002322",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.08293187618255615,
+"reason_codes": [
+"smart_5_delta_7d=4",
+"smart_198_raw=3",
+"smart_197_nzdays_7d=2"
+],
+"outcome": "failed",
+"days_to_failure": 16.0
+},
+{
+"rank": 8,
+"serial": "ZCH70000968",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.05175020545721054,
+"reason_codes": [
+"smart_197_delta_7d=6",
+"smart_241_raw=4.168e+10",
+"smart_242_raw=7.104e+10"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 9,
+"serial": "ZCH70001626",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.03428136184811592,
+"reason_codes": [
+"smart_5_delta_7d=3",
+"smart_5_delta_30d=3",
+"smart_197_nzdays_7d=2"
+],
+"outcome": "failed",
+"days_to_failure": 20.0
+},
+{
+"rank": 10,
+"serial": "ZCH70001038",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.029788870364427567,
+"reason_codes": [
+"smart_240_raw=4.071e+04",
+"smart_241_raw=4.7e+10",
+"smart_194_mean_30d=30.03"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 11,
+"serial": "ZCH70002607",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.02956683188676834,
+"reason_codes": [
+"smart_193_raw=3114",
+"smart_4_raw=11",
+"smart_194_mean_30d=29.19"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 12,
+"serial": "ZCH70002071",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.02762911282479763,
+"reason_codes": [
+"smart_197_delta_7d=7",
+"smart_197_nzdays_7d=4",
+"smart_241_raw=4.493e+10"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 13,
+"serial": "ZCH70001004",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.02283041551709175,
+"reason_codes": [
+"smart_197_delta_7d=6",
+"smart_241_raw=5.014e+10",
+"smart_197_nzdays_7d=5"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 14,
+"serial": "ZCH70001234",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.0226682648062706,
+"reason_codes": [
+"smart_197_delta_7d=8",
+"smart_241_raw=3.523e+10",
+"smart_197_max_30d=8"
+],
+"outcome": "healthy",
+"days_to_failure": null
+}
+],
+"2024-12-22": [
+{
+"rank": 1,
+"serial": "ZCH70002322",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.8897510170936584,
+"reason_codes": [
+"smart_197_delta_7d=10",
+"smart_5_delta_7d=4",
+"smart_187_raw=1"
+],
+"outcome": "failed",
+"days_to_failure": 15.0
+},
+{
+"rank": 2,
+"serial": "ZCH70001849",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.8791417479515076,
+"reason_codes": [
+"smart_197_delta_7d=51",
+"smart_5_delta_7d=52",
+"smart_187_raw=86"
+],
+"outcome": "failed",
+"days_to_failure": 23.0
+},
+{
+"rank": 3,
+"serial": "ZCH70002399",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.8305278420448303,
+"reason_codes": [
+"smart_197_delta_7d=91",
+"smart_5_delta_7d=52",
+"smart_187_raw=55"
+],
+"outcome": "failed",
+"days_to_failure": 6.0
+},
+{
+"rank": 4,
+"serial": "ZCH70002906",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.8121307492256165,
+"reason_codes": [
+"smart_197_delta_7d=65",
+"smart_5_delta_7d=36",
+"smart_187_raw=25"
+],
+"outcome": "failed",
+"days_to_failure": 16.0
+},
+{
+"rank": 5,
+"serial": "ZCH70000899",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.1868315190076828,
+"reason_codes": [
+"smart_197_delta_7d=22",
+"smart_187_raw=9",
+"smart_198_raw=11"
+],
+"outcome": "failed",
+"days_to_failure": 27.0
+},
+{
+"rank": 6,
+"serial": "ZCH70001271",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.15163344144821167,
+"reason_codes": [
+"smart_240_raw=3.745e+04",
+"smart_241_raw=5.009e+10",
+"smart_193_raw=4749"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 7,
+"serial": "ZCH70001626",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.12345106899738312,
+"reason_codes": [
+"smart_5_delta_7d=6",
+"smart_187_raw=2",
+"smart_5_delta_30d=6"
+],
+"outcome": "failed",
+"days_to_failure": 19.0
+},
+{
+"rank": 8,
+"serial": "ZCH70002495",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.09109852463006973,
+"reason_codes": [
+"smart_197_delta_7d=6",
+"smart_241_raw=5.254e+10",
+"smart_240_raw=4.089e+04"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 9,
+"serial": "ZCH70000968",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.053215861320495605,
+"reason_codes": [
+"smart_197_delta_7d=6",
+"smart_241_raw=4.168e+10",
+"smart_242_raw=7.108e+10"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 10,
+"serial": "ZCH70002607",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.02956683188676834,
+"reason_codes": [
+"smart_193_raw=3117",
+"smart_4_raw=11",
+"smart_194_mean_30d=29.16"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 11,
+"serial": "ZCH70001038",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.029118601232767105,
+"reason_codes": [
+"smart_240_raw=4.073e+04",
+"smart_241_raw=4.701e+10",
+"smart_194_mean_30d=30"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 12,
+"serial": "ZCH70000275",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.02780521661043167,
+"reason_codes": [
+"smart_241_raw=5.225e+10",
+"smart_194_mean_30d=30.39",
+"smart_240_raw=3.936e+04"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 13,
+"serial": "ZCH70001004",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.02283041551709175,
+"reason_codes": [
+"smart_197_delta_7d=6",
+"smart_241_raw=5.019e+10",
+"smart_197_nzdays_7d=6"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 14,
+"serial": "ZCH70002316",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.021282857283949852,
+"reason_codes": [
+"smart_197_delta_7d=6",
+"smart_241_raw=4.564e+10",
+"smart_193_raw=4621"
+],
+"outcome": "healthy",
+"days_to_failure": null
+}
+],
+"2024-12-23": [
+{
+"rank": 1,
+"serial": "ZCH70001849",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.8791417479515076,
+"reason_codes": [
+"smart_197_delta_7d=53",
+"smart_5_delta_7d=60",
+"smart_187_raw=91"
+],
+"outcome": "failed",
+"days_to_failure": 22.0
+},
+{
+"rank": 2,
+"serial": "ZCH70002399",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.8185162544250488,
+"reason_codes": [
+"smart_197_delta_7d=88",
+"smart_5_delta_7d=53",
+"smart_187_raw=58"
+],
+"outcome": "failed",
+"days_to_failure": 5.0
+},
+{
+"rank": 3,
+"serial": "ZCH70002906",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.8091148138046265,
+"reason_codes": [
+"smart_197_delta_7d=70",
+"smart_5_delta_7d=37",
+"smart_187_raw=28"
+],
+"outcome": "failed",
+"days_to_failure": 15.0
+},
+{
+"rank": 4,
+"serial": "ZCH70002322",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.7064434885978699,
+"reason_codes": [
+"smart_197_delta_7d=11",
+"smart_5_delta_7d=7",
+"smart_187_raw=2"
+],
+"outcome": "failed",
+"days_to_failure": 14.0
+},
+{
+"rank": 5,
+"serial": "ZCH70001626",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.5900834202766418,
+"reason_codes": [
+"smart_197_delta_7d=6",
+"smart_5_delta_7d=10",
+"smart_187_raw=2"
+],
+"outcome": "failed",
+"days_to_failure": 18.0
+},
+{
+"rank": 6,
+"serial": "ZCH70000899",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.2675219774246216,
+"reason_codes": [
+"smart_197_delta_7d=23",
+"smart_187_raw=11",
+"smart_5_delta_7d=21"
+],
+"outcome": "failed",
+"days_to_failure": 26.0
+},
+{
+"rank": 7,
+"serial": "ZCH70000723",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.23224855959415436,
+"reason_codes": [
+"smart_197_delta_7d=6",
+"smart_5_delta_7d=1",
+"smart_5_delta_30d=1"
+],
+"outcome": "failed",
+"days_to_failure": 28.0
+},
+{
+"rank": 8,
+"serial": "ZCH70002495",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.15240003168582916,
+"reason_codes": [
+"smart_197_delta_7d=6",
+"smart_240_raw=4.091e+04",
+"smart_241_raw=5.255e+10"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 9,
+"serial": "ZCH70001271",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.12955908477306366,
+"reason_codes": [
+"smart_240_raw=3.747e+04",
+"smart_241_raw=5.013e+10",
+"smart_193_raw=4750"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 10,
+"serial": "ZCH70002607",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.04276680201292038,
+"reason_codes": [
+"smart_193_raw=3122",
+"smart_4_raw=11",
+"smart_194_mean_30d=29.19"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 11,
+"serial": "ZCH70001038",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.029788870364427567,
+"reason_codes": [
+"smart_240_raw=4.075e+04",
+"smart_241_raw=4.701e+10",
+"smart_194_mean_30d=30.03"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 12,
+"serial": "ZCH70000275",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.027204031124711037,
+"reason_codes": [
+"smart_241_raw=5.225e+10",
+"smart_194_mean_30d=30.48",
+"smart_240_raw=3.938e+04"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 13,
+"serial": "ZCH70001773",
+"model": "HGST HUH721212ALE604",
+"capacity_tb": 12.000138625024,
+"score": 0.02271857298910618,
+"reason_codes": [
+"smart_197_delta_7d=8",
+"smart_241_raw=5.413e+10",
+"smart_9_raw=1.729e+04"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 14,
+"serial": "ZCH70002316",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.0211836788803339,
+"reason_codes": [
+"smart_197_delta_7d=6",
+"smart_241_raw=4.566e+10",
+"smart_193_raw=4624"
+],
+"outcome": "healthy",
+"days_to_failure": null
+}
+],
+"2024-12-24": [
+{
+"rank": 1,
+"serial": "ZCH70001849",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.8791417479515076,
+"reason_codes": [
+"smart_197_delta_7d=61",
+"smart_5_delta_7d=58",
+"smart_187_raw=96"
+],
+"outcome": "failed",
+"days_to_failure": 21.0
+},
+{
+"rank": 2,
+"serial": "ZCH70002399",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.8185214400291443,
+"reason_codes": [
+"smart_197_delta_7d=89",
+"smart_5_delta_7d=63",
+"smart_187_raw=58"
+],
+"outcome": "failed",
+"days_to_failure": 4.0
+},
+{
+"rank": 3,
+"serial": "ZCH70002906",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.8185192942619324,
+"reason_codes": [
+"smart_197_delta_7d=67",
+"smart_5_delta_7d=46",
+"smart_187_raw=32"
+],
+"outcome": "failed",
+"days_to_failure": 14.0
+},
+{
+"rank": 4,
+"serial": "ZCH70002322",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.6303321719169617,
+"reason_codes": [
+"smart_197_delta_7d=16",
+"smart_5_delta_7d=10",
+"smart_187_raw=4"
+],
+"outcome": "failed",
+"days_to_failure": 13.0
+},
+{
+"rank": 5,
+"serial": "ZCH70000723",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.5719805359840393,
+"reason_codes": [
+"smart_197_delta_7d=12",
+"smart_5_delta_7d=2",
+"smart_198_raw=2"
+],
+"outcome": "failed",
+"days_to_failure": 27.0
+},
+{
+"rank": 6,
+"serial": "ZCH70001626",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.3852342665195465,
+"reason_codes": [
+"smart_197_delta_7d=10",
+"smart_187_raw=2",
+"smart_5_delta_7d=10"
+],
+"outcome": "failed",
+"days_to_failure": 17.0
+},
+{
+"rank": 7,
+"serial": "ZCH70000899",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.3108409345149994,
+"reason_codes": [
+"smart_197_delta_7d=35",
+"smart_187_raw=15",
+"smart_5_delta_7d=20"
+],
+"outcome": "failed",
+"days_to_failure": 25.0
+},
+{
+"rank": 8,
+"serial": "ZCH70001271",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.1346351057291031,
+"reason_codes": [
+"smart_240_raw=3.749e+04",
+"smart_241_raw=5.017e+10",
+"smart_193_raw=4755"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 9,
+"serial": "ZCH70002607",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.05762667581439018,
+"reason_codes": [
+"smart_193_raw=3128",
+"smart_4_raw=11",
+"smart_194_mean_30d=29.1"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 10,
+"serial": "ZCH70000370",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.032969702035188675,
+"reason_codes": [
+"smart_197_delta_7d=6",
+"smart_194_mean_30d=29.16",
+"smart_9_raw=4.084e+04"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 11,
+"serial": "ZCH70000275",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.027204031124711037,
+"reason_codes": [
+"smart_241_raw=5.226e+10",
+"smart_194_mean_30d=30.52",
+"smart_240_raw=3.94e+04"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 12,
+"serial": "ZCH70002316",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.024418408051133156,
+"reason_codes": [
+"smart_197_delta_7d=6",
+"smart_193_raw=4629",
+"smart_241_raw=4.571e+10"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 13,
+"serial": "ZCH70001773",
+"model": "HGST HUH721212ALE604",
+"capacity_tb": 12.000138625024,
+"score": 0.022154783830046654,
+"reason_codes": [
+"smart_197_delta_7d=8",
+"smart_241_raw=5.414e+10",
+"smart_9_raw=1.732e+04"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 14,
+"serial": "ZCH70001038",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.01981503702700138,
+"reason_codes": [
+"smart_241_raw=4.704e+10",
+"smart_240_raw=4.077e+04",
+"smart_194_mean_30d=30.06"
+],
+"outcome": "healthy",
+"days_to_failure": null
+}
+],
+"2024-12-25": [
+{
+"rank": 1,
+"serial": "ZCH70001849",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.8791417479515076,
+"reason_codes": [
+"smart_197_delta_7d=55",
+"smart_5_delta_7d=58",
+"smart_187_raw=102"
+],
+"outcome": "failed",
+"days_to_failure": 20.0
+},
+{
+"rank": 2,
+"serial": "ZCH70002399",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.8185214400291443,
+"reason_codes": [
+"smart_197_delta_7d=98",
+"smart_5_delta_7d=68",
+"smart_187_raw=64"
+],
+"outcome": "failed",
+"days_to_failure": 3.0
+},
+{
+"rank": 3,
+"serial": "ZCH70002906",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.8121307492256165,
+"reason_codes": [
+"smart_197_delta_7d=72",
+"smart_5_delta_7d=49",
+"smart_187_raw=33"
+],
+"outcome": "failed",
+"days_to_failure": 13.0
+},
+{
+"rank": 4,
+"serial": "ZCH70000723",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.7629372477531433,
+"reason_codes": [
+"smart_197_delta_7d=17",
+"smart_5_delta_7d=4",
+"smart_187_raw=2"
+],
+"outcome": "failed",
+"days_to_failure": 26.0
+},
+{
+"rank": 5,
+"serial": "ZCH70002322",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.6393894553184509,
+"reason_codes": [
+"smart_197_delta_7d=22",
+"smart_187_raw=5",
+"smart_5_delta_7d=18"
+],
+"outcome": "failed",
+"days_to_failure": 12.0
+},
+{
+"rank": 6,
+"serial": "ZCH70000899",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.6197274327278137,
+"reason_codes": [
+"smart_197_delta_7d=39",
+"smart_187_raw=17",
+"smart_5_delta_7d=23"
+],
+"outcome": "failed",
+"days_to_failure": 24.0
+},
+{
+"rank": 7,
+"serial": "ZCH70001626",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.4896096885204315,
+"reason_codes": [
+"smart_197_delta_7d=17",
+"smart_187_raw=5",
+"smart_5_delta_7d=10"
+],
+"outcome": "failed",
+"days_to_failure": 16.0
+},
+{
+"rank": 8,
+"serial": "ZCH70001271",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.16547080874443054,
+"reason_codes": [
+"smart_240_raw=3.751e+04",
+"smart_241_raw=5.02e+10",
+"smart_193_raw=4760"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 9,
+"serial": "ZCH70002607",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.053414009511470795,
+"reason_codes": [
+"smart_193_raw=3129",
+"smart_4_raw=11",
+"smart_194_mean_30d=29.06"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 10,
+"serial": "ZCH70002037",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.03922295942902565,
+"reason_codes": [
+"smart_197_delta_7d=7",
+"smart_241_raw=5.218e+10",
+"smart_242_raw=2.613e+10"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 11,
+"serial": "ZCH70000370",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.032969702035188675,
+"reason_codes": [
+"smart_197_delta_7d=6",
+"smart_9_raw=4.086e+04",
+"smart_194_mean_30d=29.16"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 12,
+"serial": "ZCH70000275",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.02780521661043167,
+"reason_codes": [
+"smart_241_raw=5.231e+10",
+"smart_194_mean_30d=30.58",
+"smart_240_raw=3.942e+04"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 13,
+"serial": "ZCH70001773",
+"model": "HGST HUH721212ALE604",
+"capacity_tb": 12.000138625024,
+"score": 0.02405303716659546,
+"reason_codes": [
+"smart_197_delta_7d=8",
+"smart_241_raw=5.417e+10",
+"smart_9_raw=1.734e+04"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 14,
+"serial": "ZCH70002013",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.019227037206292152,
+"reason_codes": [
+"smart_240_raw=4.077e+04",
+"smart_241_raw=5.49e+10",
+"smart_4_raw=12"
+],
+"outcome": "pending",
+"days_to_failure": null
+}
+],
+"2024-12-26": [
+{
+"rank": 1,
+"serial": "ZCH70001849",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.8791417479515076,
+"reason_codes": [
+"smart_197_delta_7d=69",
+"smart_5_delta_7d=55",
+"smart_187_raw=107"
+],
+"outcome": "failed",
+"days_to_failure": 19.0
+},
+{
+"rank": 2,
+"serial": "ZCH70002399",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.8388646841049194,
+"reason_codes": [
+"smart_197_delta_7d=111",
+"smart_5_delta_7d=67",
+"smart_187_raw=72"
+],
+"outcome": "failed",
+"days_to_failure": 2.0
+},
+{
+"rank": 3,
+"serial": "ZCH70000723",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.8315741419792175,
+"reason_codes": [
+"smart_197_delta_7d=19",
+"smart_5_delta_7d=6",
+"smart_187_raw=4"
+],
+"outcome": "failed",
+"days_to_failure": 25.0
+},
+{
+"rank": 4,
+"serial": "ZCH70002906",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.8121307492256165,
+"reason_codes": [
+"smart_197_delta_7d=78",
+"smart_5_delta_7d=48",
+"smart_187_raw=42"
+],
+"outcome": "failed",
+"days_to_failure": 12.0
+},
+{
+"rank": 5,
+"serial": "ZCH70002322",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.7247872948646545,
+"reason_codes": [
+"smart_197_delta_7d=23",
+"smart_5_delta_7d=22",
+"smart_187_raw=10"
+],
+"outcome": "failed",
+"days_to_failure": 11.0
+},
+{
+"rank": 6,
+"serial": "ZCH70000899",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.637623131275177,
+"reason_codes": [
+"smart_197_delta_7d=45",
+"smart_187_raw=18",
+"smart_5_delta_7d=25"
+],
+"outcome": "failed",
+"days_to_failure": 23.0
+},
+{
+"rank": 7,
+"serial": "ZCH70001626",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.5753208994865417,
+"reason_codes": [
+"smart_197_delta_7d=22",
+"smart_187_raw=6",
+"smart_5_delta_7d=13"
+],
+"outcome": "failed",
+"days_to_failure": 15.0
+},
+{
+"rank": 8,
+"serial": "ZCH70001271",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.157417893409729,
+"reason_codes": [
+"smart_240_raw=3.753e+04",
+"smart_241_raw=5.02e+10",
+"smart_193_raw=4762"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 9,
+"serial": "ZCH70001896",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.05915919318795204,
+"reason_codes": [
+"smart_197_delta_7d=8",
+"smart_241_raw=5.797e+10",
+"smart_240_raw=4.277e+04"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 10,
+"serial": "ZCH70002607",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.053414009511470795,
+"reason_codes": [
+"smart_193_raw=3137",
+"smart_4_raw=11",
+"smart_194_mean_30d=29.06"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 11,
+"serial": "ZCH70002037",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.04535406827926636,
+"reason_codes": [
+"smart_197_delta_7d=7",
+"smart_241_raw=5.219e+10",
+"smart_242_raw=2.616e+10"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 12,
+"serial": "ZCH70000370",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.032969702035188675,
+"reason_codes": [
+"smart_197_delta_7d=6",
+"smart_9_raw=4.089e+04",
+"smart_193_raw=2120"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 13,
+"serial": "ZCH70001773",
+"model": "HGST HUH721212ALE604",
+"capacity_tb": 12.000138625024,
+"score": 0.026730090379714966,
+"reason_codes": [
+"smart_197_delta_7d=8",
+"smart_241_raw=5.418e+10",
+"smart_197_nzdays_7d=4"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 14,
+"serial": "ZCH70000017",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.026321249082684517,
+"reason_codes": [
+"smart_193_raw=3099",
+"smart_4_raw=13",
+"smart_194_mean_30d=30.24"
+],
+"outcome": "healthy",
+"days_to_failure": null
+}
+],
+"2024-12-27": [
+{
+"rank": 1,
+"serial": "ZCH70001849",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.8791417479515076,
+"reason_codes": [
+"smart_197_delta_7d=73",
+"smart_5_delta_7d=56",
+"smart_187_raw=108"
+],
+"outcome": "failed",
+"days_to_failure": 18.0
+},
+{
+"rank": 2,
+"serial": "ZCH70000899",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.8576767444610596,
+"reason_codes": [
+"smart_197_delta_7d=45",
+"smart_5_delta_7d=31",
+"smart_187_raw=19"
+],
+"outcome": "failed",
+"days_to_failure": 22.0
+},
+{
+"rank": 3,
+"serial": "ZCH70002399",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.8332992196083069,
+"reason_codes": [
+"smart_197_delta_7d=106",
+"smart_5_delta_7d=70",
+"smart_187_raw=79"
+],
+"outcome": "failed",
+"days_to_failure": 1.0
+},
+{
+"rank": 4,
+"serial": "ZCH70002906",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.8058555126190186,
+"reason_codes": [
+"smart_197_delta_7d=94",
+"smart_5_delta_7d=48",
+"smart_187_raw=47"
+],
+"outcome": "failed",
+"days_to_failure": 11.0
+},
+{
+"rank": 5,
+"serial": "ZCH70000723",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.7856070399284363,
+"reason_codes": [
+"smart_197_delta_7d=21",
+"smart_187_raw=7",
+"smart_5_delta_7d=10"
+],
+"outcome": "failed",
+"days_to_failure": 24.0
+},
+{
+"rank": 6,
+"serial": "ZCH70002322",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.701640784740448,
+"reason_codes": [
+"smart_197_delta_7d=33",
+"smart_5_delta_7d=30",
+"smart_187_raw=15"
+],
+"outcome": "failed",
+"days_to_failure": 10.0
+},
+{
+"rank": 7,
+"serial": "ZCH70001626",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.5265352725982666,
+"reason_codes": [
+"smart_197_delta_7d=29",
+"smart_187_raw=6",
+"smart_5_delta_7d=17"
+],
+"outcome": "failed",
+"days_to_failure": 14.0
+},
+{
+"rank": 8,
+"serial": "ZCH70001271",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.15163344144821167,
+"reason_codes": [
+"smart_240_raw=3.756e+04",
+"smart_241_raw=5.02e+10",
+"smart_193_raw=4767"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 9,
+"serial": "ZCH70002607",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.050676360726356506,
+"reason_codes": [
+"smart_193_raw=3139",
+"smart_4_raw=11",
+"smart_194_mean_30d=29.1"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 10,
+"serial": "ZCH70002037",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.04660980775952339,
+"reason_codes": [
+"smart_197_delta_7d=7",
+"smart_241_raw=5.221e+10",
+"smart_242_raw=2.621e+10"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 11,
+"serial": "ZCH70000370",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.032969702035188675,
+"reason_codes": [
+"smart_197_delta_7d=6",
+"smart_9_raw=4.091e+04",
+"smart_193_raw=2122"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 12,
+"serial": "ZCH70001773",
+"model": "HGST HUH721212ALE604",
+"capacity_tb": 12.000138625024,
+"score": 0.02776346541941166,
+"reason_codes": [
+"smart_197_delta_7d=8",
+"smart_241_raw=5.421e+10",
+"smart_197_nzdays_7d=5"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 13,
+"serial": "ZCH70000017",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.026321249082684517,
+"reason_codes": [
+"smart_193_raw=3101",
+"smart_4_raw=13",
+"smart_194_mean_30d=30.23"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 14,
+"serial": "ZCH70000243",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.023742608726024628,
+"reason_codes": [
+"smart_197_delta_7d=7",
+"smart_241_raw=5.609e+10",
+"smart_194_mean_30d=30.9"
+],
+"outcome": "healthy",
+"days_to_failure": null
+}
+],
+"2024-12-28": [
+{
+"rank": 1,
+"serial": "ZCH70001849",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.8791417479515076,
+"reason_codes": [
+"smart_197_delta_7d=82",
+"smart_5_delta_7d=54",
+"smart_187_raw=111"
+],
+"outcome": "failed",
+"days_to_failure": 17.0
+},
+{
+"rank": 2,
+"serial": "ZCH70000899",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.8488536477088928,
+"reason_codes": [
+"smart_197_delta_7d=42",
+"smart_5_delta_7d=34",
+"smart_187_raw=23"
+],
+"outcome": "failed",
+"days_to_failure": 21.0
+},
+{
+"rank": 3,
+"serial": "ZCH70002906",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.8058555126190186,
+"reason_codes": [
+"smart_197_delta_7d=101",
+"smart_5_delta_7d=50",
+"smart_187_raw=51"
+],
+"outcome": "failed",
+"days_to_failure": 10.0
+},
+{
+"rank": 4,
+"serial": "ZCH70000723",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.7896078824996948,
+"reason_codes": [
+"smart_197_delta_7d=23",
+"smart_187_raw=7",
+"smart_5_delta_7d=10"
+],
+"outcome": "failed",
+"days_to_failure": 23.0
+},
+{
+"rank": 5,
+"serial": "ZCH70002322",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.7256080508232117,
+"reason_codes": [
+"smart_197_delta_7d=37",
+"smart_5_delta_7d=37",
+"smart_187_raw=18"
+],
+"outcome": "failed",
+"days_to_failure": 9.0
+},
+{
+"rank": 6,
+"serial": "ZCH70001626",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.5400943756103516,
+"reason_codes": [
+"smart_197_delta_7d=35",
+"smart_187_raw=8",
+"smart_5_delta_7d=18"
+],
+"outcome": "failed",
+"days_to_failure": 13.0
+},
+{
+"rank": 7,
+"serial": "ZCH70001271",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.10238385945558548,
+"reason_codes": [
+"smart_240_raw=3.758e+04",
+"smart_241_raw=5.024e+10",
+"smart_193_raw=4768"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 8,
+"serial": "ZCH70000658",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.035087376832962036,
+"reason_codes": [
+"smart_197_delta_7d=6",
+"smart_194_mean_30d=30.45",
+"smart_4_raw=50"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 9,
+"serial": "ZCH70000370",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.032969702035188675,
+"reason_codes": [
+"smart_197_delta_7d=6",
+"smart_9_raw=4.094e+04",
+"smart_193_raw=2124"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 10,
+"serial": "ZCH70002607",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.02956683188676834,
+"reason_codes": [
+"smart_193_raw=3141",
+"smart_4_raw=11",
+"smart_194_mean_30d=29.1"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 11,
+"serial": "ZCH70001773",
+"model": "HGST HUH721212ALE604",
+"capacity_tb": 12.000138625024,
+"score": 0.02792551927268505,
+"reason_codes": [
+"smart_197_delta_7d=8",
+"smart_241_raw=5.423e+10",
+"smart_197_nzdays_7d=6"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 12,
+"serial": "ZCH70000243",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.023742608726024628,
+"reason_codes": [
+"smart_197_delta_7d=7",
+"smart_241_raw=5.614e+10",
+"smart_194_mean_30d=30.97"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 13,
+"serial": "ZCH70001331",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.018909383565187454,
+"reason_codes": [
+"smart_197_delta_7d=8",
+"smart_194_mean_30d=30.29",
+"smart_242_raw=8.428e+10"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 14,
+"serial": "ZCH70001038",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.018847929313778877,
+"reason_codes": [
+"smart_241_raw=4.71e+10",
+"smart_240_raw=4.086e+04",
+"smart_194_mean_30d=30.1"
+],
+"outcome": "healthy",
+"days_to_failure": null
+}
+],
+"2024-12-29": [
+{
+"rank": 1,
+"serial": "ZCH70001849",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.8791417479515076,
+"reason_codes": [
+"smart_197_delta_7d=88",
+"smart_5_delta_7d=48",
+"smart_187_raw=117"
+],
+"outcome": "failed",
+"days_to_failure": 16.0
+},
+{
+"rank": 2,
+"serial": "ZCH70000899",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.8488536477088928,
+"reason_codes": [
+"smart_197_delta_7d=44",
+"smart_5_delta_7d=34",
+"smart_187_raw=27"
+],
+"outcome": "failed",
+"days_to_failure": 20.0
+},
+{
+"rank": 3,
+"serial": "ZCH70002322",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.8267930746078491,
+"reason_codes": [
+"smart_197_delta_7d=44",
+"smart_5_delta_7d=44",
+"smart_187_raw=20"
+],
+"outcome": "failed",
+"days_to_failure": 8.0
+},
+{
+"rank": 4,
+"serial": "ZCH70002906",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.8027634024620056,
+"reason_codes": [
+"smart_197_delta_7d=103",
+"smart_5_delta_7d=51",
+"smart_187_raw=57"
+],
+"outcome": "failed",
+"days_to_failure": 9.0
+},
+{
+"rank": 5,
+"serial": "ZCH70000723",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.5969639420509338,
+"reason_codes": [
+"smart_197_delta_7d=26",
+"smart_187_raw=8",
+"smart_198_raw=8"
+],
+"outcome": "failed",
+"days_to_failure": 22.0
+},
+{
+"rank": 6,
+"serial": "ZCH70001626",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.4545648992061615,
+"reason_codes": [
+"smart_197_delta_7d=42",
+"smart_187_raw=13",
+"smart_5_delta_30d=24"
+],
+"outcome": "failed",
+"days_to_failure": 12.0
+},
+{
+"rank": 7,
+"serial": "ZCH70001271",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.10176564753055573,
+"reason_codes": [
+"smart_240_raw=3.76e+04",
+"smart_241_raw=5.028e+10",
+"smart_193_raw=4771"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 8,
+"serial": "ZCH70002607",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.08053648471832275,
+"reason_codes": [
+"smart_193_raw=3142",
+"smart_4_raw=11",
+"smart_194_mean_30d=29"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 9,
+"serial": "ZCH70000658",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.035087376832962036,
+"reason_codes": [
+"smart_197_delta_7d=6",
+"smart_194_mean_30d=30.35",
+"smart_4_raw=50"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 10,
+"serial": "ZCH70001773",
+"model": "HGST HUH721212ALE604",
+"capacity_tb": 12.000138625024,
+"score": 0.02835201472043991,
+"reason_codes": [
+"smart_197_delta_7d=8",
+"smart_241_raw=5.425e+10",
+"smart_197_nzdays_7d=7"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 11,
+"serial": "ZCH70000243",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.023014860227704048,
+"reason_codes": [
+"smart_197_delta_7d=7",
+"smart_241_raw=5.618e+10",
+"smart_194_mean_30d=31"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 12,
+"serial": "ZCH70000454",
+"model": "HGST HUH721212ALE604",
+"capacity_tb": 12.000138625024,
+"score": 0.019932076334953308,
+"reason_codes": [
+"smart_197_delta_7d=7",
+"smart_241_delta_30d=8.801e+08",
+"smart_194_max_30d=28"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 13,
+"serial": "ZCH70002013",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.019227037206292152,
+"reason_codes": [
+"smart_240_raw=4.085e+04",
+"smart_241_raw=5.502e+10",
+"smart_4_raw=12"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 14,
+"serial": "ZCH70001331",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.018909383565187454,
+"reason_codes": [
+"smart_197_delta_7d=6",
+"smart_194_mean_30d=30.23",
+"smart_242_raw=8.433e+10"
+],
+"outcome": "healthy",
+"days_to_failure": null
+}
+],
+"2024-12-30": [
+{
+"rank": 1,
+"serial": "ZCH70001849",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.8766451478004456,
+"reason_codes": [
+"smart_197_delta_7d=95",
+"smart_5_delta_7d=47",
+"smart_187_raw=124"
+],
+"outcome": "failed",
+"days_to_failure": 15.0
+},
+{
+"rank": 2,
+"serial": "ZCH70002322",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.8091376423835754,
+"reason_codes": [
+"smart_197_delta_7d=52",
+"smart_5_delta_7d=47",
+"smart_187_raw=21"
+],
+"outcome": "failed",
+"days_to_failure": 7.0
+},
+{
+"rank": 3,
+"serial": "ZCH70002906",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.8027634024620056,
+"reason_codes": [
+"smart_197_delta_7d=103",
+"smart_5_delta_7d=51",
+"smart_187_raw=60"
+],
+"outcome": "failed",
+"days_to_failure": 8.0
+},
+{
+"rank": 4,
+"serial": "ZCH70000899",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.7844446301460266,
+"reason_codes": [
+"smart_197_delta_7d=47",
+"smart_5_delta_7d=37",
+"smart_187_raw=31"
+],
+"outcome": "failed",
+"days_to_failure": 19.0
+},
+{
+"rank": 5,
+"serial": "ZCH70001626",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.41485512256622314,
+"reason_codes": [
+"smart_197_delta_7d=45",
+"smart_187_raw=17",
+"smart_5_delta_30d=28"
+],
+"outcome": "failed",
+"days_to_failure": 11.0
+},
+{
+"rank": 6,
+"serial": "ZCH70000852",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.2851772904396057,
+"reason_codes": [
+"smart_5_delta_7d=2",
+"smart_187_raw=1",
+"smart_198_raw=1"
+],
+"outcome": "failed",
+"days_to_failure": 19.0
+},
+{
+"rank": 7,
+"serial": "ZCH70000723",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.26434844732284546,
+"reason_codes": [
+"smart_197_delta_7d=31",
+"smart_187_raw=8",
+"smart_198_raw=14"
+],
+"outcome": "failed",
+"days_to_failure": 21.0
+},
+{
+"rank": 8,
+"serial": "ZCH70001271",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.11229164153337479,
+"reason_codes": [
+"smart_240_raw=3.762e+04",
+"smart_241_raw=5.029e+10",
+"smart_193_raw=4772"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 9,
+"serial": "ZCH70002607",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.08053648471832275,
+"reason_codes": [
+"smart_193_raw=3142",
+"smart_4_raw=11",
+"smart_194_mean_30d=29"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 10,
+"serial": "ZCH70000658",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.035087376832962036,
+"reason_codes": [
+"smart_197_delta_7d=6",
+"smart_194_mean_30d=30.35",
+"smart_4_raw=50"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 11,
+"serial": "ZCH70000243",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.023014860227704048,
+"reason_codes": [
+"smart_197_delta_7d=7",
+"smart_241_raw=5.623e+10",
+"smart_242_raw=3.834e+10"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 12,
+"serial": "ZCH70002013",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.019227037206292152,
+"reason_codes": [
+"smart_241_raw=5.504e+10",
+"smart_240_raw=4.087e+04",
+"smart_4_raw=12"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 13,
+"serial": "ZCH70001038",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.018847929313778877,
+"reason_codes": [
+"smart_241_raw=4.712e+10",
+"smart_240_raw=4.09e+04",
+"smart_194_mean_30d=30.06"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 14,
+"serial": "ZCH70001331",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.01856413669884205,
+"reason_codes": [
+"smart_197_delta_7d=6",
+"smart_242_raw=8.44e+10",
+"smart_194_mean_30d=30.26"
+],
+"outcome": "healthy",
+"days_to_failure": null
+}
+],
+"2024-12-31": [
+{
+"rank": 1,
+"serial": "ZCH70001849",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.8791417479515076,
+"reason_codes": [
+"smart_197_delta_7d=98",
+"smart_5_delta_7d=53",
+"smart_187_raw=133"
+],
+"outcome": "failed",
+"days_to_failure": 14.0
+},
+{
+"rank": 2,
+"serial": "ZCH70002322",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.803624153137207,
+"reason_codes": [
+"smart_197_delta_7d=61",
+"smart_5_delta_7d=49",
+"smart_187_raw=30"
+],
+"outcome": "failed",
+"days_to_failure": 6.0
+},
+{
+"rank": 3,
+"serial": "ZCH70000899",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.8036149144172668,
+"reason_codes": [
+"smart_197_delta_7d=42",
+"smart_5_delta_7d=41",
+"smart_187_raw=31"
+],
+"outcome": "failed",
+"days_to_failure": 18.0
+},
+{
+"rank": 4,
+"serial": "ZCH70002906",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.8027634024620056,
+"reason_codes": [
+"smart_197_delta_7d=113",
+"smart_5_delta_7d=49",
+"smart_187_raw=63"
+],
+"outcome": "failed",
+"days_to_failure": 7.0
+},
+{
+"rank": 5,
+"serial": "ZCH70001626",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.6048405170440674,
+"reason_codes": [
+"smart_197_delta_7d=53",
+"smart_187_raw=21",
+"smart_5_delta_7d=22"
+],
+"outcome": "failed",
+"days_to_failure": 10.0
+},
+{
+"rank": 6,
+"serial": "ZCH70000723",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.5607802271842957,
+"reason_codes": [
+"smart_197_delta_7d=39",
+"smart_187_raw=11",
+"smart_198_raw=14"
+],
+"outcome": "failed",
+"days_to_failure": 20.0
+},
+{
+"rank": 7,
+"serial": "ZCH70000852",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.44608086347579956,
+"reason_codes": [
+"smart_5_delta_7d=3",
+"smart_187_raw=2",
+"smart_198_raw=2"
+],
+"outcome": "failed",
+"days_to_failure": 18.0
+},
+{
+"rank": 8,
+"serial": "ZCH70001271",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.06581508368253708,
+"reason_codes": [
+"smart_240_raw=3.764e+04",
+"smart_241_raw=5.031e+10",
+"smart_194_mean_30d=30.81"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 9,
+"serial": "ZCH70000658",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.03214844688773155,
+"reason_codes": [
+"smart_197_delta_7d=6",
+"smart_194_mean_30d=30.29",
+"smart_4_raw=50"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 10,
+"serial": "ZCH70002607",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.026156838983297348,
+"reason_codes": [
+"smart_193_raw=3145",
+"smart_4_raw=11",
+"smart_194_mean_30d=29.03"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 11,
+"serial": "ZCH70000243",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.022373035550117493,
+"reason_codes": [
+"smart_197_delta_7d=7",
+"smart_241_raw=5.627e+10",
+"smart_242_raw=3.835e+10"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 12,
+"serial": "ZCH70002507",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.02124650403857231,
+"reason_codes": [
+"smart_5_delta_7d=1",
+"smart_5_delta_30d=1",
+"smart_197_nzdays_7d=1"
+],
+"outcome": "failed",
+"days_to_failure": 22.0
+},
+{
+"rank": 13,
+"serial": "ZCH70001038",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.01981503702700138,
+"reason_codes": [
+"smart_241_raw=4.713e+10",
+"smart_240_raw=4.092e+04",
+"smart_194_mean_30d=30.06"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 14,
+"serial": "ZCH70002013",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.019227037206292152,
+"reason_codes": [
+"smart_241_raw=5.507e+10",
+"smart_240_raw=4.09e+04",
+"smart_4_raw=12"
+],
+"outcome": "pending",
+"days_to_failure": null
+}
+],
+"2025-01-01": [
+{
+"rank": 1,
+"serial": "ZCH70001849",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.8791417479515076,
+"reason_codes": [
+"smart_197_delta_7d=102",
+"smart_5_delta_7d=52",
+"smart_187_raw=137"
+],
+"outcome": "failed",
+"days_to_failure": 13.0
+},
+{
+"rank": 2,
+"serial": "ZCH70002322",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.8166418671607971,
+"reason_codes": [
+"smart_197_delta_7d=62",
+"smart_5_delta_7d=51",
+"smart_187_raw=36"
+],
+"outcome": "failed",
+"days_to_failure": 5.0
+},
+{
+"rank": 3,
+"serial": "ZCH70000723",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.8060377240180969,
+"reason_codes": [
+"smart_197_delta_7d=43",
+"smart_187_raw=12",
+"smart_5_delta_7d=22"
+],
+"outcome": "failed",
+"days_to_failure": 19.0
+},
+{
+"rank": 4,
+"serial": "ZCH70002906",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.8027634024620056,
+"reason_codes": [
+"smart_197_delta_7d=115",
+"smart_5_delta_7d=48",
+"smart_187_raw=67"
+],
+"outcome": "failed",
+"days_to_failure": 6.0
+},
+{
+"rank": 5,
+"serial": "ZCH70000899",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.7989988327026367,
+"reason_codes": [
+"smart_197_delta_7d=50",
+"smart_5_delta_7d=43",
+"smart_187_raw=32"
+],
+"outcome": "failed",
+"days_to_failure": 17.0
+},
+{
+"rank": 6,
+"serial": "ZCH70001626",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.6270754933357239,
+"reason_codes": [
+"smart_197_delta_7d=61",
+"smart_187_raw=28",
+"smart_5_delta_7d=27"
+],
+"outcome": "failed",
+"days_to_failure": 9.0
+},
+{
+"rank": 7,
+"serial": "ZCH70000852",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.1819385290145874,
+"reason_codes": [
+"smart_5_delta_7d=4",
+"smart_198_raw=2",
+"smart_187_raw=3"
+],
+"outcome": "failed",
+"days_to_failure": 17.0
+},
+{
+"rank": 8,
+"serial": "ZCH70001271",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.06341493874788284,
+"reason_codes": [
+"smart_240_raw=3.766e+04",
+"smart_241_raw=5.033e+10",
+"smart_194_mean_30d=30.77"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 9,
+"serial": "ZCH70002507",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.053747184574604034,
+"reason_codes": [
+"smart_5_delta_7d=2",
+"smart_198_raw=1",
+"smart_197_nzdays_7d=2"
+],
+"outcome": "failed",
+"days_to_failure": 21.0
+},
+{
+"rank": 10,
+"serial": "ZCH70002607",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.026492483913898468,
+"reason_codes": [
+"smart_193_raw=3149",
+"smart_4_raw=11",
+"smart_194_mean_30d=29.13"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 11,
+"serial": "ZCH70000243",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.022373035550117493,
+"reason_codes": [
+"smart_197_delta_7d=7",
+"smart_241_raw=5.627e+10",
+"smart_194_max_30d=33"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 12,
+"serial": "ZCH70001038",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.01981503702700138,
+"reason_codes": [
+"smart_241_raw=4.717e+10",
+"smart_240_raw=4.095e+04",
+"smart_194_mean_30d=30.13"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 13,
+"serial": "ZCH70002013",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.019227037206292152,
+"reason_codes": [
+"smart_241_raw=5.511e+10",
+"smart_240_raw=4.092e+04",
+"smart_4_raw=12"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 14,
+"serial": "ZCH70001331",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.01856413669884205,
+"reason_codes": [
+"smart_197_delta_7d=6",
+"smart_242_raw=8.452e+10",
+"smart_194_mean_30d=30.35"
+],
+"outcome": "healthy",
+"days_to_failure": null
+}
+],
+"2025-01-02": [
+{
+"rank": 1,
+"serial": "ZCH70001849",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.8791417479515076,
+"reason_codes": [
+"smart_197_delta_7d=90",
+"smart_5_delta_7d=61",
+"smart_187_raw=139"
+],
+"outcome": "failed",
+"days_to_failure": 12.0
+},
+{
+"rank": 2,
+"serial": "ZCH70001626",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.8550848364830017,
+"reason_codes": [
+"smart_197_delta_7d=75",
+"smart_5_delta_7d=28",
+"smart_187_raw=31"
+],
+"outcome": "failed",
+"days_to_failure": 8.0
+},
+{
+"rank": 3,
+"serial": "ZCH70002322",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.8348812460899353,
+"reason_codes": [
+"smart_197_delta_7d=76",
+"smart_5_delta_7d=56",
+"smart_187_raw=39"
+],
+"outcome": "failed",
+"days_to_failure": 4.0
+},
+{
+"rank": 4,
+"serial": "ZCH70002906",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.8027634024620056,
+"reason_codes": [
+"smart_197_delta_7d=107",
+"smart_5_delta_7d=53",
+"smart_187_raw=75"
+],
+"outcome": "failed",
+"days_to_failure": 5.0
+},
+{
+"rank": 5,
+"serial": "ZCH70000899",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.7911686897277832,
+"reason_codes": [
+"smart_197_delta_7d=45",
+"smart_5_delta_7d=47",
+"smart_187_raw=42"
+],
+"outcome": "failed",
+"days_to_failure": 16.0
+},
+{
+"rank": 6,
+"serial": "ZCH70000723",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.7345529198646545,
+"reason_codes": [
+"smart_197_delta_7d=44",
+"smart_187_raw=17",
+"smart_5_delta_7d=23"
+],
+"outcome": "failed",
+"days_to_failure": 18.0
+},
+{
+"rank": 7,
+"serial": "ZCH70002507",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.6682627201080322,
+"reason_codes": [
+"smart_197_delta_7d=9",
+"smart_5_delta_7d=3",
+"smart_187_raw=3"
+],
+"outcome": "failed",
+"days_to_failure": 20.0
+},
+{
+"rank": 8,
+"serial": "ZCH70000852",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.6319729089736938,
+"reason_codes": [
+"smart_197_delta_7d=9",
+"smart_5_delta_7d=6",
+"smart_187_raw=3"
+],
+"outcome": "failed",
+"days_to_failure": 16.0
+},
+{
+"rank": 9,
+"serial": "ZCH70001271",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.06341493874788284,
+"reason_codes": [
+"smart_240_raw=3.768e+04",
+"smart_241_raw=5.034e+10",
+"smart_194_mean_30d=30.84"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 10,
+"serial": "ZCH70002319",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.04690692201256752,
+"reason_codes": [
+"smart_197_delta_7d=8",
+"smart_193_raw=3192",
+"smart_194_mean_30d=29.29"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 11,
+"serial": "ZCH70002607",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.03921655938029289,
+"reason_codes": [
+"smart_193_raw=3149",
+"smart_4_raw=11",
+"smart_194_mean_30d=29.16"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 12,
+"serial": "ZCH70001038",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.03138135001063347,
+"reason_codes": [
+"smart_240_raw=4.097e+04",
+"smart_241_raw=4.72e+10",
+"smart_194_mean_30d=30.13"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 13,
+"serial": "ZCH70000243",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.02366291731595993,
+"reason_codes": [
+"smart_197_delta_7d=7",
+"smart_241_raw=5.629e+10",
+"smart_241_delta_30d=8.964e+08"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 14,
+"serial": "ZCH70000358",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.019922126084566116,
+"reason_codes": [
+"smart_197_delta_7d=8",
+"smart_241_raw=5.771e+10",
+"smart_242_raw=3.343e+10"
+],
+"outcome": "healthy",
+"days_to_failure": null
+}
+],
+"2025-01-03": [
+{
+"rank": 1,
+"serial": "ZCH70001849",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.8791417479515076,
+"reason_codes": [
+"smart_197_delta_7d=90",
+"smart_5_delta_7d=62",
+"smart_187_raw=142"
+],
+"outcome": "failed",
+"days_to_failure": 11.0
+},
+{
+"rank": 2,
+"serial": "ZCH70001626",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.8399381041526794,
+"reason_codes": [
+"smart_197_delta_7d=74",
+"smart_5_delta_7d=31",
+"smart_187_raw=33"
+],
+"outcome": "failed",
+"days_to_failure": 7.0
+},
+{
+"rank": 3,
+"serial": "ZCH70002322",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.8299551606178284,
+"reason_codes": [
+"smart_197_delta_7d=76",
+"smart_5_delta_7d=59",
+"smart_187_raw=45"
+],
+"outcome": "failed",
+"days_to_failure": 3.0
+},
+{
+"rank": 4,
+"serial": "ZCH70000899",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.8260077238082886,
+"reason_codes": [
+"smart_197_delta_7d=47",
+"smart_5_delta_7d=43",
+"smart_187_raw=47"
+],
+"outcome": "failed",
+"days_to_failure": 15.0
+},
+{
+"rank": 5,
+"serial": "ZCH70002906",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.8027634024620056,
+"reason_codes": [
+"smart_197_delta_7d=104",
+"smart_5_delta_7d=56",
+"smart_187_raw=82"
+],
+"outcome": "failed",
+"days_to_failure": 4.0
+},
+{
+"rank": 6,
+"serial": "ZCH70000852",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.7194645404815674,
+"reason_codes": [
+"smart_197_delta_7d=14",
+"smart_187_raw=8",
+"smart_5_delta_7d=9"
+],
+"outcome": "failed",
+"days_to_failure": 15.0
+},
+{
+"rank": 7,
+"serial": "ZCH70000723",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.6630443930625916,
+"reason_codes": [
+"smart_197_delta_7d=53",
+"smart_187_raw=20",
+"smart_5_delta_7d=22"
+],
+"outcome": "failed",
+"days_to_failure": 17.0
+},
+{
+"rank": 8,
+"serial": "ZCH70002507",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.5268962979316711,
+"reason_codes": [
+"smart_197_delta_7d=16",
+"smart_187_raw=4",
+"smart_5_delta_7d=4"
+],
+"outcome": "failed",
+"days_to_failure": 19.0
+},
+{
+"rank": 9,
+"serial": "ZCH70001271",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.06341493874788284,
+"reason_codes": [
+"smart_240_raw=3.771e+04",
+"smart_241_raw=5.035e+10",
+"smart_194_mean_30d=30.74"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 10,
+"serial": "ZCH70002082",
+"model": "HGST HUH721212ALE604",
+"capacity_tb": 12.000138625024,
+"score": 0.03229725733399391,
+"reason_codes": [
+"smart_5_delta_7d=1",
+"smart_5_delta_30d=1",
+"smart_241_raw=5.5e+10"
+],
+"outcome": "failed",
+"days_to_failure": 20.0
+},
+{
+"rank": 11,
+"serial": "ZCH70001038",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.03138135001063347,
+"reason_codes": [
+"smart_240_raw=4.099e+04",
+"smart_241_raw=4.724e+10",
+"smart_194_mean_30d=30.06"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 12,
+"serial": "ZCH70002607",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.02646055445075035,
+"reason_codes": [
+"smart_193_raw=3149",
+"smart_4_raw=11",
+"smart_194_mean_30d=29.19"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 13,
+"serial": "ZCH70002435",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.021531712263822556,
+"reason_codes": [
+"smart_197_delta_7d=6",
+"smart_4_raw=12",
+"smart_240_raw=3.919e+04"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 14,
+"serial": "ZCH70000358",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.020620960742235184,
+"reason_codes": [
+"smart_197_delta_7d=8",
+"smart_241_raw=5.774e+10",
+"smart_242_raw=3.346e+10"
+],
+"outcome": "healthy",
+"days_to_failure": null
+}
+],
+"2025-01-04": [
+{
+"rank": 1,
+"serial": "ZCH70001849",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.8791417479515076,
+"reason_codes": [
+"smart_197_delta_7d=94",
+"smart_5_delta_7d=62",
+"smart_187_raw=145"
+],
+"outcome": "failed",
+"days_to_failure": 10.0
+},
+{
+"rank": 2,
+"serial": "ZCH70001626",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.8550848364830017,
+"reason_codes": [
+"smart_197_delta_7d=75",
+"smart_5_delta_7d=39",
+"smart_187_raw=40"
+],
+"outcome": "failed",
+"days_to_failure": 6.0
+},
+{
+"rank": 3,
+"serial": "ZCH70002906",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.8286504149436951,
+"reason_codes": [
+"smart_197_delta_7d=101",
+"smart_5_delta_7d=59",
+"smart_187_raw=91"
+],
+"outcome": "failed",
+"days_to_failure": 3.0
+},
+{
+"rank": 4,
+"serial": "ZCH70000899",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.8260077238082886,
+"reason_codes": [
+"smart_197_delta_7d=57",
+"smart_5_delta_7d=43",
+"smart_187_raw=52"
+],
+"outcome": "failed",
+"days_to_failure": 14.0
+},
+{
+"rank": 5,
+"serial": "ZCH70002322",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.8166418671607971,
+"reason_codes": [
+"smart_197_delta_7d=76",
+"smart_5_delta_7d=65",
+"smart_187_raw=50"
+],
+"outcome": "failed",
+"days_to_failure": 2.0
+},
+{
+"rank": 6,
+"serial": "ZCH70000723",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.6970770955085754,
+"reason_codes": [
+"smart_197_delta_7d=61",
+"smart_187_raw=21",
+"smart_5_delta_7d=27"
+],
+"outcome": "failed",
+"days_to_failure": 16.0
+},
+{
+"rank": 7,
+"serial": "ZCH70000852",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.6643020510673523,
+"reason_codes": [
+"smart_197_delta_7d=19",
+"smart_187_raw=10",
+"smart_5_delta_7d=15"
+],
+"outcome": "failed",
+"days_to_failure": 14.0
+},
+{
+"rank": 8,
+"serial": "ZCH70002082",
+"model": "HGST HUH721212ALE604",
+"capacity_tb": 12.000138625024,
+"score": 0.26111435890197754,
+"reason_codes": [
+"smart_197_delta_7d=6",
+"smart_5_delta_7d=1",
+"smart_5_delta_30d=1"
+],
+"outcome": "failed",
+"days_to_failure": 19.0
+},
+{
+"rank": 9,
+"serial": "ZCH70002507",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.1780107021331787,
+"reason_codes": [
+"smart_197_delta_7d=17",
+"smart_187_raw=4",
+"smart_5_delta_7d=6"
+],
+"outcome": "failed",
+"days_to_failure": 18.0
+},
+{
+"rank": 10,
+"serial": "ZCH70001271",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.06190519779920578,
+"reason_codes": [
+"smart_240_raw=3.773e+04",
+"smart_241_raw=5.036e+10",
+"smart_194_mean_30d=30.81"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 11,
+"serial": "ZCH70001038",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.03138135001063347,
+"reason_codes": [
+"smart_240_raw=4.101e+04",
+"smart_241_raw=4.728e+10",
+"smart_194_mean_30d=30.13"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 12,
+"serial": "ZCH70002435",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.028012804687023163,
+"reason_codes": [
+"smart_197_delta_7d=6",
+"smart_4_raw=12",
+"smart_240_raw=3.921e+04"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 13,
+"serial": "ZCH70002607",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.02646055445075035,
+"reason_codes": [
+"smart_193_raw=3151",
+"smart_4_raw=11",
+"smart_194_mean_30d=29.23"
+],
+"outcome": "healthy",
+"days_to_failure": null
+},
+{
+"rank": 14,
+"serial": "ZCH70000358",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.02344493195414543,
+"reason_codes": [
+"smart_197_delta_7d=8",
+"smart_241_raw=5.778e+10",
+"smart_197_nzdays_7d=4"
+],
+"outcome": "healthy",
+"days_to_failure": null
+}
+],
+"2025-01-05": [
+{
+"rank": 1,
+"serial": "ZCH70001849",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.8747596144676208,
+"reason_codes": [
+"smart_197_delta_7d=91",
+"smart_5_delta_7d=61",
+"smart_187_raw=151"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 2,
+"serial": "ZCH70001626",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.8454108834266663,
+"reason_codes": [
+"smart_197_delta_7d=85",
+"smart_5_delta_7d=47",
+"smart_187_raw=46"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 3,
+"serial": "ZCH70002322",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.8352683782577515,
+"reason_codes": [
+"smart_197_delta_7d=78",
+"smart_5_delta_7d=70",
+"smart_187_raw=55"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 4,
+"serial": "ZCH70000899",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.8243494629859924,
+"reason_codes": [
+"smart_197_delta_7d=62",
+"smart_5_delta_7d=46",
+"smart_187_raw=57"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 5,
+"serial": "ZCH70002906",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.8091148138046265,
+"reason_codes": [
+"smart_197_delta_7d=101",
+"smart_5_delta_7d=61",
+"smart_187_raw=96"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 6,
+"serial": "ZCH70000852",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.7459449768066406,
+"reason_codes": [
+"smart_197_delta_7d=29",
+"smart_187_raw=13",
+"smart_5_delta_7d=17"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 7,
+"serial": "ZCH70000723",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.67686927318573,
+"reason_codes": [
+"smart_197_delta_7d=61",
+"smart_187_raw=29",
+"smart_5_delta_7d=27"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 8,
+"serial": "ZCH70002082",
+"model": "HGST HUH721212ALE604",
+"capacity_tb": 12.000138625024,
+"score": 0.6152634620666504,
+"reason_codes": [
+"smart_197_delta_7d=12",
+"smart_5_delta_7d=2",
+"smart_198_raw=2"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 9,
+"serial": "ZCH70002507",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.1306041181087494,
+"reason_codes": [
+"smart_197_delta_7d=21",
+"smart_187_raw=4",
+"smart_5_delta_7d=8"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 10,
+"serial": "ZCH70001271",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.06190519779920578,
+"reason_codes": [
+"smart_240_raw=3.775e+04",
+"smart_241_raw=5.036e+10",
+"smart_194_mean_30d=30.81"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 11,
+"serial": "ZCH70001038",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.03090599551796913,
+"reason_codes": [
+"smart_241_raw=4.73e+10",
+"smart_240_raw=4.103e+04",
+"smart_194_mean_30d=30.19"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 12,
+"serial": "ZCH70002435",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.027592815458774567,
+"reason_codes": [
+"smart_197_delta_7d=6",
+"smart_4_raw=12",
+"smart_197_nzdays_30d=7"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 13,
+"serial": "ZCH70002607",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.02646055445075035,
+"reason_codes": [
+"smart_193_raw=3153",
+"smart_4_raw=11",
+"smart_194_mean_30d=29.26"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 14,
+"serial": "ZCH70000358",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.024903567507863045,
+"reason_codes": [
+"smart_197_delta_7d=8",
+"smart_241_raw=5.781e+10",
+"smart_197_nzdays_7d=5"
+],
+"outcome": "pending",
+"days_to_failure": null
+}
+],
+"2025-01-06": [
+{
+"rank": 1,
+"serial": "ZCH70001849",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.8757898807525635,
+"reason_codes": [
+"smart_197_delta_7d=96",
+"smart_5_delta_7d=62",
+"smart_187_raw=157"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 2,
+"serial": "ZCH70001626",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.8601258397102356,
+"reason_codes": [
+"smart_197_delta_7d=91",
+"smart_5_delta_7d=50",
+"smart_187_raw=51"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 3,
+"serial": "ZCH70000723",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.838394820690155,
+"reason_codes": [
+"smart_197_delta_7d=58",
+"smart_5_delta_7d=34",
+"smart_187_raw=32"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 4,
+"serial": "ZCH70002906",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.8286504149436951,
+"reason_codes": [
+"smart_197_delta_7d=97",
+"smart_5_delta_7d=62",
+"smart_187_raw=101"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 5,
+"serial": "ZCH70000899",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.8157550096511841,
+"reason_codes": [
+"smart_197_delta_7d=68",
+"smart_5_delta_7d=47",
+"smart_187_raw=64"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 6,
+"serial": "ZCH70002082",
+"model": "HGST HUH721212ALE604",
+"capacity_tb": 12.000138625024,
+"score": 0.789150595664978,
+"reason_codes": [
+"smart_197_delta_7d=13",
+"smart_5_delta_7d=4",
+"smart_187_raw=1"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 7,
+"serial": "ZCH70000852",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.7174716591835022,
+"reason_codes": [
+"smart_197_delta_7d=35",
+"smart_187_raw=17",
+"smart_5_delta_7d=16"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 8,
+"serial": "ZCH70002507",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.1675739586353302,
+"reason_codes": [
+"smart_197_delta_7d=27",
+"smart_187_raw=6",
+"smart_198_raw=15"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 9,
+"serial": "ZCH70001271",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.06061268970370293,
+"reason_codes": [
+"smart_240_raw=3.777e+04",
+"smart_241_raw=5.039e+10",
+"smart_194_mean_30d=30.9"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 10,
+"serial": "ZCH70002435",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.033472005277872086,
+"reason_codes": [
+"smart_197_delta_7d=6",
+"smart_4_raw=12",
+"smart_197_nzdays_7d=4"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 11,
+"serial": "ZCH70001038",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.03090599551796913,
+"reason_codes": [
+"smart_241_raw=4.731e+10",
+"smart_240_raw=4.105e+04",
+"smart_194_mean_30d=30.23"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 12,
+"serial": "ZCH70002607",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.027031678706407547,
+"reason_codes": [
+"smart_193_raw=3154",
+"smart_4_raw=11",
+"smart_194_mean_30d=29.29"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 13,
+"serial": "ZCH70001493",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.02338782139122486,
+"reason_codes": [
+"smart_240_raw=3.716e+04",
+"smart_241_raw=4.647e+10",
+"smart_194_mean_30d=31.84"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 14,
+"serial": "ZCH70001326",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.019378023222088814,
+"reason_codes": [
+"smart_197_delta_7d=8",
+"smart_241_raw=3.613e+10",
+"smart_197_max_30d=8"
+],
+"outcome": "pending",
+"days_to_failure": null
+}
+],
+"2025-01-07": [
+{
+"rank": 1,
+"serial": "ZCH70001849",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.8713040947914124,
+"reason_codes": [
+"smart_197_delta_7d=95",
+"smart_5_delta_7d=58",
+"smart_187_raw=161"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 2,
+"serial": "ZCH70001626",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.8551679253578186,
+"reason_codes": [
+"smart_197_delta_7d=92",
+"smart_5_delta_7d=58",
+"smart_187_raw=56"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 3,
+"serial": "ZCH70000899",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.8029448390007019,
+"reason_codes": [
+"smart_197_delta_7d=77",
+"smart_5_delta_7d=51",
+"smart_187_raw=68"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 4,
+"serial": "ZCH70000723",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.7554818391799927,
+"reason_codes": [
+"smart_197_delta_7d=54",
+"smart_5_delta_7d=33",
+"smart_187_raw=34"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 5,
+"serial": "ZCH70002082",
+"model": "HGST HUH721212ALE604",
+"capacity_tb": 12.000138625024,
+"score": 0.7270827293395996,
+"reason_codes": [
+"smart_197_delta_7d=17",
+"smart_5_delta_7d=6",
+"smart_187_raw=1"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 6,
+"serial": "ZCH70000852",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.7191230654716492,
+"reason_codes": [
+"smart_197_delta_7d=41",
+"smart_187_raw=21",
+"smart_198_raw=7"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 7,
+"serial": "ZCH70002507",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.17992384731769562,
+"reason_codes": [
+"smart_197_delta_7d=35",
+"smart_187_raw=6",
+"smart_198_raw=15"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 8,
+"serial": "ZCH70001271",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.06061268970370293,
+"reason_codes": [
+"smart_240_raw=3.779e+04",
+"smart_241_raw=5.042e+10",
+"smart_194_mean_30d=30.9"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 9,
+"serial": "ZCH70002435",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.03069368563592434,
+"reason_codes": [
+"smart_197_delta_7d=6",
+"smart_4_raw=12",
+"smart_197_nzdays_7d=5"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 10,
+"serial": "ZCH70002607",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.027031678706407547,
+"reason_codes": [
+"smart_193_raw=3157",
+"smart_4_raw=11",
+"smart_194_mean_30d=29.26"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 11,
+"serial": "ZCH70001038",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.023719768971204758,
+"reason_codes": [
+"smart_241_raw=4.731e+10",
+"smart_240_raw=4.108e+04",
+"smart_194_mean_30d=30.35"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 12,
+"serial": "ZCH70001493",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.023497069254517555,
+"reason_codes": [
+"smart_241_raw=4.651e+10",
+"smart_240_raw=3.718e+04",
+"smart_194_mean_30d=31.81"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 13,
+"serial": "ZCH70001326",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.020778832957148552,
+"reason_codes": [
+"smart_197_delta_7d=8",
+"smart_241_raw=3.616e+10",
+"smart_197_nzdays_7d=2"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 14,
+"serial": "ZCH70002013",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.019227037206292152,
+"reason_codes": [
+"smart_241_raw=5.526e+10",
+"smart_240_raw=4.105e+04",
+"smart_4_raw=12"
+],
+"outcome": "pending",
+"days_to_failure": null
+}
+],
+"2025-01-08": [
+{
+"rank": 1,
+"serial": "ZCH70001849",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.8747596144676208,
+"reason_codes": [
+"smart_197_delta_7d=81",
+"smart_5_delta_7d=69",
+"smart_187_raw=165"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 2,
+"serial": "ZCH70001626",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.8551679253578186,
+"reason_codes": [
+"smart_197_delta_7d=91",
+"smart_5_delta_7d=65",
+"smart_187_raw=61"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 3,
+"serial": "ZCH70000723",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.8378380537033081,
+"reason_codes": [
+"smart_197_delta_7d=61",
+"smart_5_delta_7d=32",
+"smart_187_raw=39"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 4,
+"serial": "ZCH70000899",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.7998178601264954,
+"reason_codes": [
+"smart_197_delta_7d=74",
+"smart_5_delta_7d=49",
+"smart_187_raw=75"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 5,
+"serial": "ZCH70000852",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.7998141050338745,
+"reason_codes": [
+"smart_197_delta_7d=50",
+"smart_187_raw=24",
+"smart_5_delta_7d=21"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 6,
+"serial": "ZCH70002507",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.5581250786781311,
+"reason_codes": [
+"smart_197_delta_7d=36",
+"smart_187_raw=9",
+"smart_5_delta_7d=21"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 7,
+"serial": "ZCH70002082",
+"model": "HGST HUH721212ALE604",
+"capacity_tb": 12.000138625024,
+"score": 0.5074416399002075,
+"reason_codes": [
+"smart_197_delta_7d=21",
+"smart_5_delta_7d=12",
+"smart_187_raw=2"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 8,
+"serial": "ZCH70001271",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.05630587041378021,
+"reason_codes": [
+"smart_240_raw=3.782e+04",
+"smart_241_raw=5.046e+10",
+"smart_194_mean_30d=30.94"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 9,
+"serial": "ZCH70002435",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.03834916651248932,
+"reason_codes": [
+"smart_197_delta_7d=6",
+"smart_4_raw=12",
+"smart_197_nzdays_7d=6"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 10,
+"serial": "ZCH70002936",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.03254569321870804,
+"reason_codes": [
+"smart_197_delta_7d=7",
+"smart_241_raw=4.55e+10",
+"smart_240_raw=3.736e+04"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 11,
+"serial": "ZCH70002607",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.027031678706407547,
+"reason_codes": [
+"smart_193_raw=3158",
+"smart_4_raw=11",
+"smart_194_mean_30d=29.32"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 12,
+"serial": "ZCH70001038",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.023719768971204758,
+"reason_codes": [
+"smart_241_raw=4.735e+10",
+"smart_240_raw=4.11e+04",
+"smart_194_mean_30d=30.42"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 13,
+"serial": "ZCH70001493",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.023497069254517555,
+"reason_codes": [
+"smart_241_raw=4.653e+10",
+"smart_240_raw=3.72e+04",
+"smart_194_mean_30d=31.74"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 14,
+"serial": "ZCH70001326",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.021023346111178398,
+"reason_codes": [
+"smart_197_delta_7d=8",
+"smart_241_raw=3.619e+10",
+"smart_197_nzdays_7d=3"
+],
+"outcome": "pending",
+"days_to_failure": null
+}
+],
+"2025-01-09": [
+{
+"rank": 1,
+"serial": "ZCH70000723",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.8552696704864502,
+"reason_codes": [
+"smart_197_delta_7d=70",
+"smart_5_delta_7d=36",
+"smart_187_raw=44"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 2,
+"serial": "ZCH70001626",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.8551679253578186,
+"reason_codes": [
+"smart_197_delta_7d=91",
+"smart_5_delta_7d=71",
+"smart_187_raw=72"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 3,
+"serial": "ZCH70001849",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.8486491441726685,
+"reason_codes": [
+"smart_197_delta_7d=87",
+"smart_5_delta_7d=70",
+"smart_187_raw=168"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 4,
+"serial": "ZCH70000852",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.8269902467727661,
+"reason_codes": [
+"smart_197_delta_7d=54",
+"smart_187_raw=25",
+"smart_5_delta_7d=24"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 5,
+"serial": "ZCH70000899",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.7998178601264954,
+"reason_codes": [
+"smart_197_delta_7d=83",
+"smart_5_delta_7d=47",
+"smart_187_raw=78"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 6,
+"serial": "ZCH70002082",
+"model": "HGST HUH721212ALE604",
+"capacity_tb": 12.000138625024,
+"score": 0.6915876269340515,
+"reason_codes": [
+"smart_197_delta_7d=27",
+"smart_5_delta_7d=18",
+"smart_187_raw=4"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 7,
+"serial": "ZCH70002507",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.6681538820266724,
+"reason_codes": [
+"smart_197_delta_7d=39",
+"smart_187_raw=12",
+"smart_5_delta_7d=25"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 8,
+"serial": "ZCH70001271",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.08275102078914642,
+"reason_codes": [
+"smart_240_raw=3.784e+04",
+"smart_241_raw=5.051e+10",
+"smart_193_raw=4800"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 9,
+"serial": "ZCH70002435",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.03930851072072983,
+"reason_codes": [
+"smart_197_delta_7d=6",
+"smart_4_raw=12",
+"smart_197_nzdays_7d=7"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 10,
+"serial": "ZCH70002607",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.029944881796836853,
+"reason_codes": [
+"smart_193_raw=3164",
+"smart_4_raw=11",
+"smart_194_mean_30d=29.35"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 11,
+"serial": "ZCH70001493",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.024099726229906082,
+"reason_codes": [
+"smart_241_raw=4.655e+10",
+"smart_240_raw=3.722e+04",
+"smart_194_mean_30d=31.77"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 12,
+"serial": "ZCH70001038",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.023719768971204758,
+"reason_codes": [
+"smart_241_raw=4.738e+10",
+"smart_240_raw=4.112e+04",
+"smart_194_mean_30d=30.48"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 13,
+"serial": "ZCH70000073",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.020273776724934578,
+"reason_codes": [
+"smart_197_delta_7d=8",
+"smart_194_mean_30d=32.52",
+"smart_4_raw=54"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 14,
+"serial": "ZCH70000762",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.018540475517511368,
+"reason_codes": [
+"smart_193_raw=3110",
+"smart_4_raw=12",
+"smart_194_mean_30d=30.06"
+],
+"outcome": "pending",
+"days_to_failure": null
+}
+],
+"2025-01-10": [
+{
+"rank": 1,
+"serial": "ZCH70000852",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.8810490369796753,
+"reason_codes": [
+"smart_197_delta_7d=52",
+"smart_5_delta_7d=29",
+"smart_187_raw=26"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 2,
+"serial": "ZCH70000723",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.8452375531196594,
+"reason_codes": [
+"smart_197_delta_7d=72",
+"smart_5_delta_7d=40",
+"smart_187_raw=47"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 3,
+"serial": "ZCH70001849",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.8352731466293335,
+"reason_codes": [
+"smart_197_delta_7d=85",
+"smart_5_delta_7d=71",
+"smart_187_raw=169"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 4,
+"serial": "ZCH70000899",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.7998178601264954,
+"reason_codes": [
+"smart_197_delta_7d=98",
+"smart_5_delta_7d=48",
+"smart_187_raw=81"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 5,
+"serial": "ZCH70002082",
+"model": "HGST HUH721212ALE604",
+"capacity_tb": 12.000138625024,
+"score": 0.7911882400512695,
+"reason_codes": [
+"smart_197_delta_7d=30",
+"smart_5_delta_7d=22",
+"smart_187_raw=7"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 6,
+"serial": "ZCH70002507",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.6676215529441833,
+"reason_codes": [
+"smart_197_delta_7d=49",
+"smart_187_raw=15",
+"smart_5_delta_7d=26"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 7,
+"serial": "ZCH70001271",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.08275102078914642,
+"reason_codes": [
+"smart_240_raw=3.786e+04",
+"smart_241_raw=5.054e+10",
+"smart_193_raw=4804"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 8,
+"serial": "ZCH70000816",
+"model": "HGST HUH721212ALE604",
+"capacity_tb": 12.000138625024,
+"score": 0.034486472606658936,
+"reason_codes": [
+"smart_197_delta_7d=7",
+"smart_241_raw=5.227e+10",
+"smart_240_raw=8566"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 9,
+"serial": "ZCH70002607",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.029944881796836853,
+"reason_codes": [
+"smart_193_raw=3168",
+"smart_4_raw=11",
+"smart_194_mean_30d=29.35"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 10,
+"serial": "ZCH70001493",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.028448985889554024,
+"reason_codes": [
+"smart_241_raw=4.657e+10",
+"smart_240_raw=3.725e+04",
+"smart_194_mean_30d=31.84"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 11,
+"serial": "ZCH70001038",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.023719768971204758,
+"reason_codes": [
+"smart_241_raw=4.741e+10",
+"smart_240_raw=4.114e+04",
+"smart_194_mean_30d=30.42"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 12,
+"serial": "ZCH70000073",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.020273776724934578,
+"reason_codes": [
+"smart_197_delta_7d=8",
+"smart_194_mean_30d=32.52",
+"smart_4_raw=54"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 13,
+"serial": "ZCH70000620",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.01871548779308796,
+"reason_codes": [
+"smart_242_raw=1.432e+10",
+"smart_241_raw=3.52e+10",
+"smart_194_max_30d=26"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 14,
+"serial": "ZCH70000762",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.018540475517511368,
+"reason_codes": [
+"smart_193_raw=3113",
+"smart_4_raw=12",
+"smart_194_mean_30d=29.97"
+],
+"outcome": "pending",
+"days_to_failure": null
+}
+],
+"2025-01-11": [
+{
+"rank": 1,
+"serial": "ZCH70000852",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.8823366761207581,
+"reason_codes": [
+"smart_197_delta_7d=55",
+"smart_5_delta_7d=34",
+"smart_187_raw=31"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 2,
+"serial": "ZCH70001849",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.8392238616943359,
+"reason_codes": [
+"smart_197_delta_7d=86",
+"smart_5_delta_7d=69",
+"smart_187_raw=172"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 3,
+"serial": "ZCH70002082",
+"model": "HGST HUH721212ALE604",
+"capacity_tb": 12.000138625024,
+"score": 0.8371952772140503,
+"reason_codes": [
+"smart_197_delta_7d=36",
+"smart_5_delta_7d=26",
+"smart_187_raw=9"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 4,
+"serial": "ZCH70000723",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.83536696434021,
+"reason_codes": [
+"smart_197_delta_7d=75",
+"smart_5_delta_7d=43",
+"smart_187_raw=49"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 5,
+"serial": "ZCH70000899",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.7998178601264954,
+"reason_codes": [
+"smart_197_delta_7d=95",
+"smart_5_delta_7d=53",
+"smart_187_raw=85"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 6,
+"serial": "ZCH70002507",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.7278249859809875,
+"reason_codes": [
+"smart_197_delta_7d=58",
+"smart_187_raw=18",
+"smart_5_delta_7d=27"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 7,
+"serial": "ZCH70001271",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.07194438576698303,
+"reason_codes": [
+"smart_240_raw=3.788e+04",
+"smart_241_raw=5.058e+10",
+"smart_193_raw=4808"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 8,
+"serial": "ZCH70000275",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.03648766502737999,
+"reason_codes": [
+"smart_241_raw=5.274e+10",
+"smart_240_raw=3.979e+04",
+"smart_194_mean_30d=30.45"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 9,
+"serial": "ZCH70000816",
+"model": "HGST HUH721212ALE604",
+"capacity_tb": 12.000138625024,
+"score": 0.034486472606658936,
+"reason_codes": [
+"smart_197_delta_7d=7",
+"smart_241_raw=5.231e+10",
+"smart_240_raw=8587"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 10,
+"serial": "ZCH70002607",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.029944881796836853,
+"reason_codes": [
+"smart_193_raw=3172",
+"smart_4_raw=11",
+"smart_194_mean_30d=29.32"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 11,
+"serial": "ZCH70001493",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.028267158195376396,
+"reason_codes": [
+"smart_241_raw=4.662e+10",
+"smart_240_raw=3.727e+04",
+"smart_194_mean_30d=31.77"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 12,
+"serial": "ZCH70000762",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.018078450113534927,
+"reason_codes": [
+"smart_193_raw=3115",
+"smart_4_raw=12",
+"smart_194_mean_30d=29.94"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 13,
+"serial": "ZCH70000237",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.017770441249012947,
+"reason_codes": [
+"smart_241_raw=4.953e+10",
+"smart_240_raw=4.405e+04",
+"smart_4_raw=51"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 14,
+"serial": "ZCH70000620",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.017495667561888695,
+"reason_codes": [
+"smart_242_raw=1.432e+10",
+"smart_241_raw=3.524e+10",
+"smart_194_max_30d=26"
+],
+"outcome": "pending",
+"days_to_failure": null
+}
+],
+"2025-01-12": [
+{
+"rank": 1,
+"serial": "ZCH70000852",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.8823366761207581,
+"reason_codes": [
+"smart_197_delta_7d=62",
+"smart_5_delta_7d=40",
+"smart_187_raw=34"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 2,
+"serial": "ZCH70002507",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.8743725419044495,
+"reason_codes": [
+"smart_197_delta_7d=59",
+"smart_5_delta_7d=39",
+"smart_187_raw=22"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 3,
+"serial": "ZCH70001849",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.8446284532546997,
+"reason_codes": [
+"smart_197_delta_7d=91",
+"smart_5_delta_7d=69",
+"smart_187_raw=175"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 4,
+"serial": "ZCH70002082",
+"model": "HGST HUH721212ALE604",
+"capacity_tb": 12.000138625024,
+"score": 0.8143017888069153,
+"reason_codes": [
+"smart_197_delta_7d=43",
+"smart_5_delta_7d=28",
+"smart_187_raw=13"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 5,
+"serial": "ZCH70000723",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.8139072060585022,
+"reason_codes": [
+"smart_197_delta_7d=80",
+"smart_5_delta_7d=46",
+"smart_187_raw=53"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 6,
+"serial": "ZCH70000899",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.7998178601264954,
+"reason_codes": [
+"smart_197_delta_7d=107",
+"smart_5_delta_7d=56",
+"smart_187_raw=92"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 7,
+"serial": "ZCH70001271",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.07194438576698303,
+"reason_codes": [
+"smart_240_raw=3.79e+04",
+"smart_241_raw=5.06e+10",
+"smart_193_raw=4810"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 8,
+"serial": "ZCH70000816",
+"model": "HGST HUH721212ALE604",
+"capacity_tb": 12.000138625024,
+"score": 0.03470566123723984,
+"reason_codes": [
+"smart_197_delta_7d=7",
+"smart_241_raw=5.235e+10",
+"smart_240_raw=8609"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 9,
+"serial": "ZCH70002607",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.030588850378990173,
+"reason_codes": [
+"smart_193_raw=3174",
+"smart_4_raw=11",
+"smart_194_mean_30d=29.35"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 10,
+"serial": "ZCH70001493",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.028448985889554024,
+"reason_codes": [
+"smart_241_raw=4.663e+10",
+"smart_240_raw=3.729e+04",
+"smart_194_mean_30d=31.84"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 11,
+"serial": "ZCH70001038",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.023719768971204758,
+"reason_codes": [
+"smart_241_raw=4.747e+10",
+"smart_240_raw=4.118e+04",
+"smart_194_mean_30d=30.39"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 12,
+"serial": "ZCH70000762",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.018540475517511368,
+"reason_codes": [
+"smart_193_raw=3117",
+"smart_4_raw=12",
+"smart_194_mean_30d=29.9"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 13,
+"serial": "ZCH70000620",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.017495667561888695,
+"reason_codes": [
+"smart_242_raw=1.433e+10",
+"smart_241_raw=3.528e+10",
+"smart_194_max_30d=26"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 14,
+"serial": "ZCH70001428",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.017403237521648407,
+"reason_codes": [
+"smart_240_raw=3.758e+04",
+"smart_241_raw=5.936e+10",
+"smart_194_mean_30d=29.74"
+],
+"outcome": "pending",
+"days_to_failure": null
+}
+],
+"2025-01-13": [
+{
+"rank": 1,
+"serial": "ZCH70000852",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.883346676826477,
+"reason_codes": [
+"smart_197_delta_7d=71",
+"smart_5_delta_7d=48",
+"smart_187_raw=37"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 2,
+"serial": "ZCH70002507",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.878200888633728,
+"reason_codes": [
+"smart_197_delta_7d=64",
+"smart_5_delta_7d=41",
+"smart_187_raw=25"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 3,
+"serial": "ZCH70001849",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.8349726796150208,
+"reason_codes": [
+"smart_197_delta_7d=86",
+"smart_5_delta_7d=69",
+"smart_187_raw=176"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 4,
+"serial": "ZCH70000723",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.8139072060585022,
+"reason_codes": [
+"smart_197_delta_7d=84",
+"smart_5_delta_7d=44",
+"smart_187_raw=58"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 5,
+"serial": "ZCH70000899",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.8062413334846497,
+"reason_codes": [
+"smart_197_delta_7d=114",
+"smart_5_delta_7d=59",
+"smart_187_raw=97"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 6,
+"serial": "ZCH70002082",
+"model": "HGST HUH721212ALE604",
+"capacity_tb": 12.000138625024,
+"score": 0.7762356400489807,
+"reason_codes": [
+"smart_197_delta_7d=50",
+"smart_5_delta_7d=32",
+"smart_187_raw=15"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 7,
+"serial": "ZCH70001271",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.07194438576698303,
+"reason_codes": [
+"smart_240_raw=3.792e+04",
+"smart_241_raw=5.063e+10",
+"smart_193_raw=4812"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 8,
+"serial": "ZCH70002526",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.04044971987605095,
+"reason_codes": [
+"smart_197_delta_7d=8",
+"smart_242_raw=7.103e+10",
+"smart_194_mean_30d=33.06"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 9,
+"serial": "ZCH70000816",
+"model": "HGST HUH721212ALE604",
+"capacity_tb": 12.000138625024,
+"score": 0.03846098110079765,
+"reason_codes": [
+"smart_197_delta_7d=7",
+"smart_241_raw=5.24e+10",
+"smart_240_raw=8631"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 10,
+"serial": "ZCH70001038",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.03084414266049862,
+"reason_codes": [
+"smart_241_raw=4.749e+10",
+"smart_240_raw=4.12e+04",
+"smart_194_mean_30d=30.29"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 11,
+"serial": "ZCH70002607",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.029944881796836853,
+"reason_codes": [
+"smart_193_raw=3179",
+"smart_4_raw=11",
+"smart_194_mean_30d=29.39"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 12,
+"serial": "ZCH70001493",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.02338782139122486,
+"reason_codes": [
+"smart_241_raw=4.667e+10",
+"smart_240_raw=3.731e+04",
+"smart_194_mean_30d=31.84"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 13,
+"serial": "ZCH70000762",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.018540475517511368,
+"reason_codes": [
+"smart_193_raw=3120",
+"smart_4_raw=12",
+"smart_194_mean_30d=29.97"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 14,
+"serial": "ZCH70000620",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.017495667561888695,
+"reason_codes": [
+"smart_242_raw=1.435e+10",
+"smart_241_raw=3.53e+10",
+"smart_194_max_30d=26"
+],
+"outcome": "pending",
+"days_to_failure": null
+}
+],
+"2025-01-14": [
+{
+"rank": 1,
+"serial": "ZCH70000852",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.883346676826477,
+"reason_codes": [
+"smart_197_delta_7d=75",
+"smart_5_delta_7d=51",
+"smart_187_raw=42"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 2,
+"serial": "ZCH70002507",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.8743725419044495,
+"reason_codes": [
+"smart_197_delta_7d=65",
+"smart_5_delta_7d=44",
+"smart_187_raw=31"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 3,
+"serial": "ZCH70000723",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.8139072060585022,
+"reason_codes": [
+"smart_197_delta_7d=85",
+"smart_5_delta_7d=48",
+"smart_187_raw=64"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 4,
+"serial": "ZCH70000899",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.8062413334846497,
+"reason_codes": [
+"smart_197_delta_7d=115",
+"smart_5_delta_7d=58",
+"smart_187_raw=101"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 5,
+"serial": "ZCH70002082",
+"model": "HGST HUH721212ALE604",
+"capacity_tb": 12.000138625024,
+"score": 0.7993677854537964,
+"reason_codes": [
+"smart_197_delta_7d=50",
+"smart_5_delta_7d=40",
+"smart_187_raw=18"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 6,
+"serial": "ZCH70001702",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.06579183787107468,
+"reason_codes": [
+"smart_5_delta_7d=5",
+"smart_198_raw=1",
+"smart_197_nzdays_7d=2"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 7,
+"serial": "ZCH70001271",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.04534031078219414,
+"reason_codes": [
+"smart_240_raw=3.794e+04",
+"smart_193_raw=4815",
+"smart_241_raw=5.064e+10"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 8,
+"serial": "ZCH70002526",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.04044971987605095,
+"reason_codes": [
+"smart_197_delta_7d=8",
+"smart_242_raw=7.109e+10",
+"smart_194_mean_30d=32.97"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 9,
+"serial": "ZCH70000816",
+"model": "HGST HUH721212ALE604",
+"capacity_tb": 12.000138625024,
+"score": 0.039929259568452835,
+"reason_codes": [
+"smart_197_delta_7d=7",
+"smart_241_raw=5.244e+10",
+"smart_240_raw=8652"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 10,
+"serial": "ZCH70001038",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.03084414266049862,
+"reason_codes": [
+"smart_241_raw=4.75e+10",
+"smart_240_raw=4.123e+04",
+"smart_194_mean_30d=30.23"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 11,
+"serial": "ZCH70002607",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.030588850378990173,
+"reason_codes": [
+"smart_193_raw=3180",
+"smart_4_raw=11",
+"smart_194_mean_30d=29.42"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 12,
+"serial": "ZCH70001493",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.029893722385168076,
+"reason_codes": [
+"smart_241_raw=4.669e+10",
+"smart_240_raw=3.733e+04",
+"smart_194_mean_30d=31.84"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 13,
+"serial": "ZCH70002651",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.022172952070832253,
+"reason_codes": [
+"smart_193_raw=3099",
+"smart_4_raw=11",
+"smart_194_mean_30d=29.03"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 14,
+"serial": "ZCH70000762",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.018540475517511368,
+"reason_codes": [
+"smart_193_raw=3123",
+"smart_4_raw=12",
+"smart_194_mean_30d=30.03"
+],
+"outcome": "pending",
+"days_to_failure": null
+}
+],
+"2025-01-15": [
+{
+"rank": 1,
+"serial": "ZCH70000852",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.883346676826477,
+"reason_codes": [
+"smart_197_delta_7d=77",
+"smart_5_delta_7d=56",
+"smart_187_raw=49"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 2,
+"serial": "ZCH70002507",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.8788378238677979,
+"reason_codes": [
+"smart_197_delta_7d=70",
+"smart_5_delta_7d=45",
+"smart_187_raw=35"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 3,
+"serial": "ZCH70000723",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.8139072060585022,
+"reason_codes": [
+"smart_197_delta_7d=84",
+"smart_5_delta_7d=51",
+"smart_187_raw=71"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 4,
+"serial": "ZCH70000899",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.8062413334846497,
+"reason_codes": [
+"smart_197_delta_7d=109",
+"smart_5_delta_7d=62",
+"smart_187_raw=105"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 5,
+"serial": "ZCH70002082",
+"model": "HGST HUH721212ALE604",
+"capacity_tb": 12.000138625024,
+"score": 0.7996712327003479,
+"reason_codes": [
+"smart_197_delta_7d=53",
+"smart_5_delta_7d=38",
+"smart_187_raw=22"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 6,
+"serial": "ZCH70001702",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.5343036651611328,
+"reason_codes": [
+"smart_197_delta_7d=6",
+"smart_5_delta_7d=12",
+"smart_198_raw=2"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 7,
+"serial": "ZCH70001271",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.04534031078219414,
+"reason_codes": [
+"smart_240_raw=3.797e+04",
+"smart_193_raw=4818",
+"smart_241_raw=5.065e+10"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 8,
+"serial": "ZCH70002526",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.04044971987605095,
+"reason_codes": [
+"smart_197_delta_7d=8",
+"smart_242_raw=7.111e+10",
+"smart_194_mean_30d=33.06"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 9,
+"serial": "ZCH70000816",
+"model": "HGST HUH721212ALE604",
+"capacity_tb": 12.000138625024,
+"score": 0.039977896958589554,
+"reason_codes": [
+"smart_197_delta_7d=7",
+"smart_241_raw=5.246e+10",
+"smart_197_nzdays_7d=6"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 10,
+"serial": "ZCH70001038",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.031318578869104385,
+"reason_codes": [
+"smart_240_raw=4.125e+04",
+"smart_241_raw=4.753e+10",
+"smart_194_mean_30d=30.16"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 11,
+"serial": "ZCH70002607",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.030588850378990173,
+"reason_codes": [
+"smart_193_raw=3182",
+"smart_4_raw=11",
+"smart_194_mean_30d=29.42"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 12,
+"serial": "ZCH70001493",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.029893722385168076,
+"reason_codes": [
+"smart_241_raw=4.672e+10",
+"smart_240_raw=3.736e+04",
+"smart_194_mean_30d=31.84"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 13,
+"serial": "ZCH70002381",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.024482302367687225,
+"reason_codes": [
+"smart_197_delta_7d=7",
+"smart_241_raw=5.332e+10",
+"smart_194_mean_30d=30.52"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 14,
+"serial": "ZCH70002651",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.022458648309111595,
+"reason_codes": [
+"smart_193_raw=3101",
+"smart_4_raw=11",
+"smart_194_mean_30d=29.06"
+],
+"outcome": "pending",
+"days_to_failure": null
+}
+],
+"2025-01-16": [
+{
+"rank": 1,
+"serial": "ZCH70000852",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.883346676826477,
+"reason_codes": [
+"smart_197_delta_7d=76",
+"smart_5_delta_7d=61",
+"smart_187_raw=55"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 2,
+"serial": "ZCH70002507",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.8825482726097107,
+"reason_codes": [
+"smart_197_delta_7d=73",
+"smart_5_delta_7d=49",
+"smart_187_raw=40"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 3,
+"serial": "ZCH70000723",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.8199803233146667,
+"reason_codes": [
+"smart_197_delta_7d=93",
+"smart_5_delta_7d=59",
+"smart_187_raw=74"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 4,
+"serial": "ZCH70002082",
+"model": "HGST HUH721212ALE604",
+"capacity_tb": 12.000138625024,
+"score": 0.7920203804969788,
+"reason_codes": [
+"smart_197_delta_7d=56",
+"smart_5_delta_7d=41",
+"smart_187_raw=28"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 5,
+"serial": "ZCH70000899",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.78086918592453,
+"reason_codes": [
+"smart_197_delta_7d=106",
+"smart_5_delta_7d=71",
+"smart_187_raw=112"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 6,
+"serial": "ZCH70001702",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.6514528393745422,
+"reason_codes": [
+"smart_197_delta_7d=14",
+"smart_187_raw=2",
+"smart_5_delta_7d=15"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 7,
+"serial": "ZCH70001271",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.04534031078219414,
+"reason_codes": [
+"smart_240_raw=3.799e+04",
+"smart_193_raw=4822",
+"smart_241_raw=5.067e+10"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 8,
+"serial": "ZCH70000816",
+"model": "HGST HUH721212ALE604",
+"capacity_tb": 12.000138625024,
+"score": 0.042191922664642334,
+"reason_codes": [
+"smart_197_delta_7d=7",
+"smart_241_raw=5.249e+10",
+"smart_197_nzdays_7d=7"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 9,
+"serial": "ZCH70002526",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.04044971987605095,
+"reason_codes": [
+"smart_197_delta_7d=6",
+"smart_242_raw=7.112e+10",
+"smart_194_mean_30d=33.13"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 10,
+"serial": "ZCH70001038",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.031318578869104385,
+"reason_codes": [
+"smart_240_raw=4.127e+04",
+"smart_241_raw=4.755e+10",
+"smart_194_mean_30d=30.13"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 11,
+"serial": "ZCH70002607",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.030588850378990173,
+"reason_codes": [
+"smart_193_raw=3183",
+"smart_4_raw=11",
+"smart_194_mean_30d=29.42"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 12,
+"serial": "ZCH70001493",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.029893722385168076,
+"reason_codes": [
+"smart_241_raw=4.674e+10",
+"smart_240_raw=3.738e+04",
+"smart_194_mean_30d=31.81"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 13,
+"serial": "ZCH70002381",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.024658283218741417,
+"reason_codes": [
+"smart_197_delta_7d=7",
+"smart_241_raw=5.336e+10",
+"smart_194_mean_30d=30.61"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 14,
+"serial": "ZCH70001003",
+"model": "HGST HUH721212ALE604",
+"capacity_tb": 12.000138625024,
+"score": 0.022641805931925774,
+"reason_codes": [
+"smart_197_delta_7d=7",
+"smart_241_raw=5.376e+10",
+"smart_240_raw=4.241e+04"
+],
+"outcome": "pending",
+"days_to_failure": null
+}
+],
+"2025-01-17": [
+{
+"rank": 1,
+"serial": "ZCH70000852",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.883346676826477,
+"reason_codes": [
+"smart_197_delta_7d=88",
+"smart_5_delta_7d=69",
+"smart_187_raw=62"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 2,
+"serial": "ZCH70002507",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.8825482726097107,
+"reason_codes": [
+"smart_197_delta_7d=77",
+"smart_5_delta_7d=59",
+"smart_187_raw=45"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 3,
+"serial": "ZCH70000723",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.83536696434021,
+"reason_codes": [
+"smart_197_delta_7d=100",
+"smart_5_delta_7d=65",
+"smart_187_raw=78"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 4,
+"serial": "ZCH70000899",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.8025902509689331,
+"reason_codes": [
+"smart_197_delta_7d=95",
+"smart_5_delta_7d=75",
+"smart_187_raw=118"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 5,
+"serial": "ZCH70002082",
+"model": "HGST HUH721212ALE604",
+"capacity_tb": 12.000138625024,
+"score": 0.7523936033248901,
+"reason_codes": [
+"smart_197_delta_7d=63",
+"smart_5_delta_7d=38",
+"smart_187_raw=32"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 6,
+"serial": "ZCH70001702",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.7467584013938904,
+"reason_codes": [
+"smart_197_delta_7d=17",
+"smart_5_delta_7d=21",
+"smart_187_raw=4"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 7,
+"serial": "ZCH70001271",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.04534031078219414,
+"reason_codes": [
+"smart_240_raw=3.801e+04",
+"smart_241_raw=5.067e+10",
+"smart_193_raw=4822"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 8,
+"serial": "ZCH70000551",
+"model": "HGST HUH721212ALE604",
+"capacity_tb": 12.000138625024,
+"score": 0.04348989203572273,
+"reason_codes": [
+"smart_197_delta_7d=6",
+"smart_242_raw=7.831e+10",
+"smart_194_mean_30d=28.77"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 9,
+"serial": "ZCH70001493",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.042712993919849396,
+"reason_codes": [
+"smart_241_raw=4.677e+10",
+"smart_240_raw=3.74e+04",
+"smart_194_mean_30d=31.77"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 10,
+"serial": "ZCH70002526",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.04044971987605095,
+"reason_codes": [
+"smart_197_delta_7d=6",
+"smart_242_raw=7.116e+10",
+"smart_194_mean_30d=33.03"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 11,
+"serial": "ZCH70002607",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.030588850378990173,
+"reason_codes": [
+"smart_193_raw=3184",
+"smart_4_raw=11",
+"smart_194_mean_30d=29.42"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 12,
+"serial": "ZCH70001038",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.025507837533950806,
+"reason_codes": [
+"smart_240_raw=4.129e+04",
+"smart_241_raw=4.76e+10",
+"smart_194_mean_30d=30.13"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 13,
+"serial": "ZCH70002381",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.024047542363405228,
+"reason_codes": [
+"smart_197_delta_7d=7",
+"smart_241_raw=5.34e+10",
+"smart_194_mean_30d=30.61"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 14,
+"serial": "ZCH70001679",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.023209044709801674,
+"reason_codes": [
+"smart_241_raw=5.089e+10",
+"smart_240_raw=3.988e+04",
+"smart_194_mean_30d=30.94"
+],
+"outcome": "pending",
+"days_to_failure": null
+}
+],
+"2025-01-18": [
+{
+"rank": 1,
+"serial": "ZCH70002507",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.8825482726097107,
+"reason_codes": [
+"smart_197_delta_7d=78",
+"smart_5_delta_7d=61",
+"smart_187_raw=51"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 2,
+"serial": "ZCH70000723",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.8459494113922119,
+"reason_codes": [
+"smart_197_delta_7d=96",
+"smart_5_delta_7d=73",
+"smart_187_raw=80"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 3,
+"serial": "ZCH70002082",
+"model": "HGST HUH721212ALE604",
+"capacity_tb": 12.000138625024,
+"score": 0.751037061214447,
+"reason_codes": [
+"smart_197_delta_7d=72",
+"smart_5_delta_7d=39",
+"smart_187_raw=36"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 4,
+"serial": "ZCH70001702",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.6534653306007385,
+"reason_codes": [
+"smart_197_delta_7d=24",
+"smart_187_raw=6",
+"smart_5_delta_7d=25"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 5,
+"serial": "ZCH70001493",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.03392539545893669,
+"reason_codes": [
+"smart_240_raw=3.742e+04",
+"smart_241_raw=4.682e+10",
+"smart_194_mean_30d=31.81"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 6,
+"serial": "ZCH70001271",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.03145755082368851,
+"reason_codes": [
+"smart_240_raw=3.803e+04",
+"smart_193_raw=4824",
+"smart_241_raw=5.07e+10"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 7,
+"serial": "ZCH70002607",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.030588850378990173,
+"reason_codes": [
+"smart_193_raw=3188",
+"smart_4_raw=11",
+"smart_194_mean_30d=29.45"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 8,
+"serial": "ZCH70001679",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.030184771865606308,
+"reason_codes": [
+"smart_241_raw=5.092e+10",
+"smart_240_raw=3.99e+04",
+"smart_194_mean_30d=30.87"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 9,
+"serial": "ZCH70001003",
+"model": "HGST HUH721212ALE604",
+"capacity_tb": 12.000138625024,
+"score": 0.024505851790308952,
+"reason_codes": [
+"smart_197_delta_7d=7",
+"smart_241_raw=5.384e+10",
+"smart_240_raw=4.246e+04"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 10,
+"serial": "ZCH70000443",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.02417595684528351,
+"reason_codes": [
+"smart_197_delta_7d=7",
+"smart_4_raw=12",
+"smart_194_mean_30d=30.35"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 11,
+"serial": "ZCH70002651",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.021622397005558014,
+"reason_codes": [
+"smart_193_raw=3107",
+"smart_4_raw=11",
+"smart_194_mean_30d=28.97"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 12,
+"serial": "ZCH70001038",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.01977492868900299,
+"reason_codes": [
+"smart_241_raw=4.762e+10",
+"smart_240_raw=4.131e+04",
+"smart_194_mean_30d=30.13"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 13,
+"serial": "ZCH70001428",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.01754898391664028,
+"reason_codes": [
+"smart_240_raw=3.771e+04",
+"smart_241_raw=5.949e+10",
+"smart_194_mean_30d=30"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 14,
+"serial": "ZCH70000620",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.017495667561888695,
+"reason_codes": [
+"smart_242_raw=1.452e+10",
+"smart_241_raw=3.539e+10",
+"smart_194_max_30d=26"
+],
+"outcome": "pending",
+"days_to_failure": null
+}
+],
+"2025-01-19": [
+{
+"rank": 1,
+"serial": "ZCH70002507",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.8657841086387634,
+"reason_codes": [
+"smart_197_delta_7d=85",
+"smart_5_delta_7d=56",
+"smart_187_raw=60"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 2,
+"serial": "ZCH70000723",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.8386257290840149,
+"reason_codes": [
+"smart_197_delta_7d=99",
+"smart_5_delta_7d=82",
+"smart_187_raw=87"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 3,
+"serial": "ZCH70001702",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.8172560930252075,
+"reason_codes": [
+"smart_197_delta_7d=32",
+"smart_5_delta_7d=32",
+"smart_187_raw=7"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 4,
+"serial": "ZCH70002082",
+"model": "HGST HUH721212ALE604",
+"capacity_tb": 12.000138625024,
+"score": 0.7720717191696167,
+"reason_codes": [
+"smart_197_delta_7d=74",
+"smart_5_delta_7d=42",
+"smart_187_raw=40"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 5,
+"serial": "ZCH70002693",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.22569234669208527,
+"reason_codes": [
+"smart_197_delta_7d=6",
+"smart_241_delta_30d=8.748e+08",
+"smart_4_raw=12"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 6,
+"serial": "ZCH70002814",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.034047018736600876,
+"reason_codes": [
+"smart_240_raw=3.756e+04",
+"smart_241_raw=4.538e+10",
+"smart_194_mean_30d=29.45"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 7,
+"serial": "ZCH70001493",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.03229229524731636,
+"reason_codes": [
+"smart_241_raw=4.685e+10",
+"smart_240_raw=3.744e+04",
+"smart_194_mean_30d=31.81"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 8,
+"serial": "ZCH70001271",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.03145755082368851,
+"reason_codes": [
+"smart_240_raw=3.805e+04",
+"smart_193_raw=4827",
+"smart_241_raw=5.072e+10"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 9,
+"serial": "ZCH70002607",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.030588850378990173,
+"reason_codes": [
+"smart_193_raw=3193",
+"smart_4_raw=11",
+"smart_194_mean_30d=29.48"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 10,
+"serial": "ZCH70001679",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.030184771865606308,
+"reason_codes": [
+"smart_241_raw=5.094e+10",
+"smart_240_raw=3.992e+04",
+"smart_194_mean_30d=30.81"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 11,
+"serial": "ZCH70000443",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.02417595684528351,
+"reason_codes": [
+"smart_197_delta_7d=7",
+"smart_4_raw=12",
+"model_code=3"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 12,
+"serial": "ZCH70001428",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.020098797976970673,
+"reason_codes": [
+"smart_240_raw=3.774e+04",
+"smart_241_raw=5.953e+10",
+"smart_194_mean_30d=30.06"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 13,
+"serial": "ZCH70001038",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.01977492868900299,
+"reason_codes": [
+"smart_241_raw=4.764e+10",
+"smart_240_raw=4.134e+04",
+"smart_194_mean_30d=30.16"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 14,
+"serial": "ZCH70002651",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.019514311105012894,
+"reason_codes": [
+"smart_193_raw=3109",
+"smart_4_raw=11",
+"smart_194_mean_30d=28.84"
+],
+"outcome": "pending",
+"days_to_failure": null
+}
+],
+"2025-01-20": [
+{
+"rank": 1,
+"serial": "ZCH70002507",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.8208802342414856,
+"reason_codes": [
+"smart_197_delta_7d=88",
+"smart_5_delta_7d=61",
+"smart_187_raw=64"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 2,
+"serial": "ZCH70001702",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.7877392172813416,
+"reason_codes": [
+"smart_197_delta_7d=33",
+"smart_5_delta_7d=38",
+"smart_187_raw=9"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 3,
+"serial": "ZCH70002082",
+"model": "HGST HUH721212ALE604",
+"capacity_tb": 12.000138625024,
+"score": 0.7752410769462585,
+"reason_codes": [
+"smart_197_delta_7d=82",
+"smart_5_delta_7d=43",
+"smart_187_raw=45"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 4,
+"serial": "ZCH70002814",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.034047018736600876,
+"reason_codes": [
+"smart_240_raw=3.758e+04",
+"smart_241_raw=4.538e+10",
+"smart_194_mean_30d=29.48"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 5,
+"serial": "ZCH70002607",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.03236079961061478,
+"reason_codes": [
+"smart_193_raw=3194",
+"smart_4_raw=11",
+"smart_194_mean_30d=29.52"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 6,
+"serial": "ZCH70001493",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.03229229524731636,
+"reason_codes": [
+"smart_241_raw=4.689e+10",
+"smart_240_raw=3.746e+04",
+"smart_194_mean_30d=31.71"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 7,
+"serial": "ZCH70001679",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.030184771865606308,
+"reason_codes": [
+"smart_241_raw=5.099e+10",
+"smart_240_raw=3.995e+04",
+"smart_194_mean_30d=30.84"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 8,
+"serial": "ZCH70002651",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.021622397005558014,
+"reason_codes": [
+"smart_193_raw=3111",
+"smart_4_raw=11",
+"smart_194_mean_30d=28.87"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 9,
+"serial": "ZCH70001428",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.01848609931766987,
+"reason_codes": [
+"smart_240_raw=3.776e+04",
+"smart_241_raw=5.955e+10",
+"smart_194_mean_30d=30.03"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 10,
+"serial": "ZCH70000620",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.01811222918331623,
+"reason_codes": [
+"smart_242_raw=1.456e+10",
+"smart_241_raw=3.548e+10",
+"smart_194_max_30d=26"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 11,
+"serial": "ZCH70000059",
+"model": "HGST HUH721212ALE604",
+"capacity_tb": 12.000138625024,
+"score": 0.017987314611673355,
+"reason_codes": [
+"smart_240_raw=3.986e+04",
+"smart_241_raw=5.614e+10",
+"smart_193_raw=4654"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 12,
+"serial": "ZCH70001271",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.01763981208205223,
+"reason_codes": [
+"smart_240_raw=3.807e+04",
+"smart_241_raw=5.075e+10",
+"smart_194_mean_30d=31.13"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 13,
+"serial": "ZCH70001153",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.01714242622256279,
+"reason_codes": [
+"smart_197_delta_7d=7",
+"smart_241_delta_30d=9.045e+08",
+"smart_194_mean_30d=32.87"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 14,
+"serial": "ZCH70000195",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.015305557288229465,
+"reason_codes": [
+"smart_240_raw=4.344e+04",
+"smart_241_raw=5.055e+10",
+"smart_194_mean_30d=30.19"
+],
+"outcome": "pending",
+"days_to_failure": null
+}
+],
+"2025-01-21": [
+{
+"rank": 1,
+"serial": "ZCH70001702",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.8812901377677917,
+"reason_codes": [
+"smart_197_delta_7d=43",
+"smart_5_delta_7d=37",
+"smart_187_raw=12"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 2,
+"serial": "ZCH70002507",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.8782725930213928,
+"reason_codes": [
+"smart_197_delta_7d=103",
+"smart_5_delta_7d=60",
+"smart_187_raw=70"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 3,
+"serial": "ZCH70002082",
+"model": "HGST HUH721212ALE604",
+"capacity_tb": 12.000138625024,
+"score": 0.7544059157371521,
+"reason_codes": [
+"smart_197_delta_7d=88",
+"smart_5_delta_7d=41",
+"smart_187_raw=52"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 4,
+"serial": "ZCH70001493",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.03229229524731636,
+"reason_codes": [
+"smart_241_raw=4.692e+10",
+"smart_240_raw=3.748e+04",
+"smart_194_mean_30d=31.74"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 5,
+"serial": "ZCH70002607",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.030588850378990173,
+"reason_codes": [
+"smart_193_raw=3202",
+"smart_4_raw=11",
+"smart_194_mean_30d=29.52"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 6,
+"serial": "ZCH70002814",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.026024824008345604,
+"reason_codes": [
+"smart_240_raw=3.76e+04",
+"smart_241_raw=4.541e+10",
+"smart_194_mean_30d=29.55"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 7,
+"serial": "ZCH70001679",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.023209044709801674,
+"reason_codes": [
+"smart_241_raw=5.102e+10",
+"smart_240_raw=3.997e+04",
+"smart_194_mean_30d=30.87"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 8,
+"serial": "ZCH70002651",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.019514311105012894,
+"reason_codes": [
+"smart_193_raw=3115",
+"smart_4_raw=11",
+"smart_194_mean_30d=28.87"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 9,
+"serial": "ZCH70001038",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.018809741362929344,
+"reason_codes": [
+"smart_241_raw=4.768e+10",
+"smart_240_raw=4.138e+04",
+"smart_194_mean_30d=30.1"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 10,
+"serial": "ZCH70000620",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.01871548779308796,
+"reason_codes": [
+"smart_242_raw=1.461e+10",
+"smart_241_raw=3.55e+10",
+"smart_194_max_30d=26"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 11,
+"serial": "ZCH70001428",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.018522610887885094,
+"reason_codes": [
+"smart_240_raw=3.778e+04",
+"smart_241_raw=5.957e+10",
+"smart_194_mean_30d=29.94"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 12,
+"serial": "ZCH70001153",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.017742231488227844,
+"reason_codes": [
+"smart_197_delta_7d=7",
+"smart_241_delta_30d=9.241e+08",
+"model_code=3"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 13,
+"serial": "ZCH70001271",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.01763981208205223,
+"reason_codes": [
+"smart_240_raw=3.81e+04",
+"smart_241_raw=5.077e+10",
+"smart_194_mean_30d=31.13"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 14,
+"serial": "ZCH70002211",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.01623106561601162,
+"reason_codes": [
+"smart_197_delta_7d=6",
+"smart_194_mean_30d=30.65",
+"model_code=3"
+],
+"outcome": "pending",
+"days_to_failure": null
+}
+],
+"2025-01-22": [
+{
+"rank": 1,
+"serial": "ZCH70001702",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.8812901377677917,
+"reason_codes": [
+"smart_197_delta_7d=56",
+"smart_5_delta_7d=38",
+"smart_187_raw=18"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 2,
+"serial": "ZCH70002082",
+"model": "HGST HUH721212ALE604",
+"capacity_tb": 12.000138625024,
+"score": 0.7802527546882629,
+"reason_codes": [
+"smart_197_delta_7d=94",
+"smart_5_delta_7d=43",
+"smart_187_raw=57"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 3,
+"serial": "ZCH70002814",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.034047018736600876,
+"reason_codes": [
+"smart_240_raw=3.762e+04",
+"smart_241_raw=4.543e+10",
+"smart_194_mean_30d=29.52"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 4,
+"serial": "ZCH70002607",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.030588850378990173,
+"reason_codes": [
+"smart_193_raw=3205",
+"smart_4_raw=11",
+"smart_194_mean_30d=29.55"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 5,
+"serial": "ZCH70001493",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.02668977901339531,
+"reason_codes": [
+"smart_240_raw=3.751e+04",
+"smart_241_raw=4.693e+10",
+"smart_194_mean_30d=31.81"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 6,
+"serial": "ZCH70000237",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.02411811798810959,
+"reason_codes": [
+"smart_240_raw=4.429e+04",
+"smart_241_raw=4.991e+10",
+"smart_4_raw=51"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 7,
+"serial": "ZCH70001679",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.023209044709801674,
+"reason_codes": [
+"smart_241_raw=5.103e+10",
+"smart_240_raw=3.999e+04",
+"smart_194_mean_30d=30.94"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 8,
+"serial": "ZCH70002651",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.021622397005558014,
+"reason_codes": [
+"smart_193_raw=3118",
+"smart_4_raw=11",
+"smart_194_mean_30d=28.94"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 9,
+"serial": "ZCH70001038",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.018809741362929344,
+"reason_codes": [
+"smart_241_raw=4.769e+10",
+"smart_240_raw=4.14e+04",
+"smart_194_mean_30d=30.16"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 10,
+"serial": "ZCH70001428",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.01854880340397358,
+"reason_codes": [
+"smart_240_raw=3.78e+04",
+"smart_241_raw=5.959e+10",
+"smart_194_mean_30d=29.87"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 11,
+"serial": "ZCH70001153",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.017742231488227844,
+"reason_codes": [
+"smart_197_delta_7d=7",
+"smart_241_delta_30d=9.102e+08",
+"model_code=3"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 12,
+"serial": "ZCH70001271",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.01763981208205223,
+"reason_codes": [
+"smart_240_raw=3.812e+04",
+"smart_241_raw=5.08e+10",
+"smart_194_mean_30d=31.16"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 13,
+"serial": "ZCH70000620",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.017495667561888695,
+"reason_codes": [
+"smart_242_raw=1.466e+10",
+"smart_241_raw=3.554e+10",
+"smart_194_max_30d=26"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 14,
+"serial": "ZCH70000234",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.01665446348488331,
+"reason_codes": [
+"smart_240_raw=3.785e+04",
+"smart_241_raw=5.26e+10",
+"smart_194_mean_30d=28.87"
+],
+"outcome": "pending",
+"days_to_failure": null
+}
+],
+"2025-01-23": [
+{
+"rank": 1,
+"serial": "ZCH70001702",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.8823366761207581,
+"reason_codes": [
+"smart_197_delta_7d=59",
+"smart_5_delta_7d=41",
+"smart_187_raw=23"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 2,
+"serial": "ZCH70002908",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.037490058690309525,
+"reason_codes": [
+"smart_197_delta_7d=8",
+"smart_193_raw=3104",
+"smart_194_mean_30d=31.9"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 3,
+"serial": "ZCH70001038",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.031318578869104385,
+"reason_codes": [
+"smart_240_raw=4.142e+04",
+"smart_241_raw=4.77e+10",
+"smart_194_mean_30d=30.1"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 4,
+"serial": "ZCH70002607",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.030588850378990173,
+"reason_codes": [
+"smart_193_raw=3210",
+"smart_4_raw=11",
+"smart_194_mean_30d=29.52"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 5,
+"serial": "ZCH70001493",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.026566090062260628,
+"reason_codes": [
+"smart_240_raw=3.753e+04",
+"smart_241_raw=4.694e+10",
+"smart_194_mean_30d=31.61"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 6,
+"serial": "ZCH70002814",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.026024824008345604,
+"reason_codes": [
+"smart_240_raw=3.765e+04",
+"smart_241_raw=4.545e+10",
+"smart_194_mean_30d=29.52"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 7,
+"serial": "ZCH70001679",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.023209044709801674,
+"reason_codes": [
+"smart_241_raw=5.106e+10",
+"smart_240_raw=4.001e+04",
+"smart_194_mean_30d=30.9"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 8,
+"serial": "ZCH70002651",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.019514311105012894,
+"reason_codes": [
+"smart_193_raw=3119",
+"smart_4_raw=11",
+"smart_194_mean_30d=28.84"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 9,
+"serial": "ZCH70001153",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.017742231488227844,
+"reason_codes": [
+"smart_197_delta_7d=7",
+"smart_241_delta_30d=9.188e+08",
+"model_code=3"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 10,
+"serial": "ZCH70001428",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.01764240488409996,
+"reason_codes": [
+"smart_240_raw=3.782e+04",
+"smart_241_raw=5.963e+10",
+"smart_194_mean_30d=29.87"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 11,
+"serial": "ZCH70001271",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.01763981208205223,
+"reason_codes": [
+"smart_240_raw=3.814e+04",
+"smart_241_raw=5.08e+10",
+"smart_194_mean_30d=31.1"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 12,
+"serial": "ZCH70000620",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.017495667561888695,
+"reason_codes": [
+"smart_242_raw=1.472e+10",
+"smart_241_raw=3.555e+10",
+"smart_194_max_30d=26"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 13,
+"serial": "ZCH70000237",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.017494896426796913,
+"reason_codes": [
+"smart_240_raw=4.431e+04",
+"smart_241_raw=4.996e+10",
+"smart_4_raw=51"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 14,
+"serial": "ZCH70002999",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.016851935535669327,
+"reason_codes": [
+"smart_197_delta_7d=7",
+"smart_197_nzdays_7d=3",
+"smart_197_max_30d=7"
+],
+"outcome": "pending",
+"days_to_failure": null
+}
+],
+"2025-01-24": [
+{
+"rank": 1,
+"serial": "ZCH70001702",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.883346676826477,
+"reason_codes": [
+"smart_197_delta_7d=63",
+"smart_5_delta_7d=46",
+"smart_187_raw=29"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 2,
+"serial": "ZCH70002607",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.030588850378990173,
+"reason_codes": [
+"smart_193_raw=3215",
+"smart_4_raw=11",
+"smart_194_mean_30d=29.55"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 3,
+"serial": "ZCH70001493",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.02668977901339531,
+"reason_codes": [
+"smart_240_raw=3.755e+04",
+"smart_241_raw=4.699e+10",
+"smart_194_mean_30d=31.61"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 4,
+"serial": "ZCH70002814",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.02460344135761261,
+"reason_codes": [
+"smart_240_raw=3.767e+04",
+"smart_241_raw=4.548e+10",
+"smart_194_mean_30d=29.61"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 5,
+"serial": "ZCH70000654",
+"model": "HGST HUH721212ALE604",
+"capacity_tb": 12.000138625024,
+"score": 0.02377643808722496,
+"reason_codes": [
+"smart_197_delta_7d=8",
+"smart_193_raw=4769",
+"smart_241_raw=4.299e+10"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 6,
+"serial": "ZCH70001679",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.02372409775853157,
+"reason_codes": [
+"smart_241_raw=5.111e+10",
+"smart_240_raw=4.003e+04",
+"smart_194_mean_30d=30.84"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 7,
+"serial": "ZCH70002651",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.021622397005558014,
+"reason_codes": [
+"smart_193_raw=3123",
+"smart_4_raw=11",
+"smart_194_mean_30d=28.81"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 8,
+"serial": "ZCH70001038",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.018809741362929344,
+"reason_codes": [
+"smart_241_raw=4.772e+10",
+"smart_240_raw=4.144e+04",
+"smart_194_mean_30d=30.13"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 9,
+"serial": "ZCH70001428",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.01854880340397358,
+"reason_codes": [
+"smart_240_raw=3.784e+04",
+"smart_241_raw=5.963e+10",
+"smart_194_mean_30d=29.87"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 10,
+"serial": "ZCH70001153",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.017742231488227844,
+"reason_codes": [
+"smart_197_delta_7d=6",
+"smart_241_delta_30d=9.266e+08",
+"model_code=3"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 11,
+"serial": "ZCH70001271",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.01763981208205223,
+"reason_codes": [
+"smart_240_raw=3.816e+04",
+"smart_241_raw=5.084e+10",
+"smart_194_mean_30d=31.1"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 12,
+"serial": "ZCH70000620",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.017495667561888695,
+"reason_codes": [
+"smart_242_raw=1.48e+10",
+"smart_241_raw=3.556e+10",
+"smart_194_max_30d=26"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 13,
+"serial": "ZCH70000237",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.017494896426796913,
+"reason_codes": [
+"smart_240_raw=4.433e+04",
+"smart_241_raw=5.001e+10",
+"smart_4_raw=51"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 14,
+"serial": "ZCH70001146",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.017081761732697487,
+"reason_codes": [
+"smart_240_raw=3.774e+04",
+"smart_241_raw=5.884e+10",
+"smart_194_mean_30d=31.29"
+],
+"outcome": "pending",
+"days_to_failure": null
+}
+],
+"2025-01-25": [
+{
+"rank": 1,
+"serial": "ZCH70001702",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.883346676826477,
+"reason_codes": [
+"smart_197_delta_7d=65",
+"smart_5_delta_7d=53",
+"smart_187_raw=35"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 2,
+"serial": "ZCH70002814",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.034047018736600876,
+"reason_codes": [
+"smart_240_raw=3.769e+04",
+"smart_241_raw=4.55e+10",
+"smart_194_mean_30d=29.55"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 3,
+"serial": "ZCH70002473",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.030605928972363472,
+"reason_codes": [
+"smart_197_delta_7d=7",
+"smart_241_raw=5.684e+10",
+"smart_241_delta_30d=8.841e+08"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 4,
+"serial": "ZCH70002607",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.030588850378990173,
+"reason_codes": [
+"smart_193_raw=3219",
+"smart_4_raw=11",
+"smart_194_mean_30d=29.55"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 5,
+"serial": "ZCH70001428",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.02939818799495697,
+"reason_codes": [
+"smart_240_raw=3.786e+04",
+"smart_241_raw=5.967e+10",
+"smart_194_mean_30d=29.84"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 6,
+"serial": "ZCH70000654",
+"model": "HGST HUH721212ALE604",
+"capacity_tb": 12.000138625024,
+"score": 0.027191465720534325,
+"reason_codes": [
+"smart_197_delta_7d=6",
+"smart_193_raw=4770",
+"smart_241_raw=4.301e+10"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 7,
+"serial": "ZCH70001493",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.02668977901339531,
+"reason_codes": [
+"smart_240_raw=3.757e+04",
+"smart_241_raw=4.702e+10",
+"smart_194_mean_30d=31.65"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 8,
+"serial": "ZCH70001679",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.02372409775853157,
+"reason_codes": [
+"smart_241_raw=5.114e+10",
+"smart_240_raw=4.006e+04",
+"smart_194_mean_30d=30.84"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 9,
+"serial": "ZCH70002651",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.021622397005558014,
+"reason_codes": [
+"smart_193_raw=3125",
+"smart_4_raw=11",
+"smart_194_mean_30d=28.81"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 10,
+"serial": "ZCH70001038",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.018809741362929344,
+"reason_codes": [
+"smart_241_raw=4.776e+10",
+"smart_240_raw=4.146e+04",
+"smart_194_mean_30d=30.1"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 11,
+"serial": "ZCH70000059",
+"model": "HGST HUH721212ALE604",
+"capacity_tb": 12.000138625024,
+"score": 0.018515421077609062,
+"reason_codes": [
+"smart_240_raw=3.996e+04",
+"smart_241_raw=5.623e+10",
+"smart_193_raw=4674"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 12,
+"serial": "ZCH70000237",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.017885463312268257,
+"reason_codes": [
+"smart_240_raw=4.435e+04",
+"smart_241_raw=5.003e+10",
+"smart_4_raw=51"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 13,
+"serial": "ZCH70001271",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.01763981208205223,
+"reason_codes": [
+"smart_240_raw=3.818e+04",
+"smart_241_raw=5.086e+10",
+"smart_194_mean_30d=31.19"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 14,
+"serial": "ZCH70001146",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.017081761732697487,
+"reason_codes": [
+"smart_240_raw=3.776e+04",
+"smart_241_raw=5.886e+10",
+"smart_194_mean_30d=31.23"
+],
+"outcome": "pending",
+"days_to_failure": null
+}
+],
+"2025-01-26": [
+{
+"rank": 1,
+"serial": "ZCH70001702",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.883346676826477,
+"reason_codes": [
+"smart_197_delta_7d=65",
+"smart_5_delta_7d=62",
+"smart_187_raw=38"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 2,
+"serial": "ZCH70002607",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.030588850378990173,
+"reason_codes": [
+"smart_193_raw=3221",
+"smart_4_raw=11",
+"smart_194_mean_30d=29.61"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 3,
+"serial": "ZCH70001428",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.030105765908956528,
+"reason_codes": [
+"smart_240_raw=3.789e+04",
+"smart_241_raw=5.969e+10",
+"smart_194_mean_30d=29.84"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 4,
+"serial": "ZCH70002693",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.029893910512328148,
+"reason_codes": [
+"smart_241_delta_30d=8.921e+08",
+"smart_4_raw=12",
+"smart_194_mean_30d=29.97"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 5,
+"serial": "ZCH70000237",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.02835804969072342,
+"reason_codes": [
+"smart_240_raw=4.437e+04",
+"smart_241_raw=5.004e+10",
+"smart_4_raw=51"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 6,
+"serial": "ZCH70001493",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.025233004242181778,
+"reason_codes": [
+"smart_241_raw=4.704e+10",
+"smart_240_raw=3.759e+04",
+"smart_194_mean_30d=31.61"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 7,
+"serial": "ZCH70001679",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.02372409775853157,
+"reason_codes": [
+"smart_241_raw=5.119e+10",
+"smart_240_raw=4.008e+04",
+"smart_194_mean_30d=30.77"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 8,
+"serial": "ZCH70002651",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.021622397005558014,
+"reason_codes": [
+"smart_193_raw=3131",
+"smart_4_raw=11",
+"smart_194_mean_30d=28.81"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 9,
+"serial": "ZCH70002814",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.02047143317759037,
+"reason_codes": [
+"smart_240_raw=3.771e+04",
+"smart_241_raw=4.551e+10",
+"smart_194_mean_30d=29.55"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 10,
+"serial": "ZCH70001038",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.018809741362929344,
+"reason_codes": [
+"smart_241_raw=4.78e+10",
+"smart_240_raw=4.149e+04",
+"smart_194_mean_30d=30.13"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 11,
+"serial": "ZCH70000059",
+"model": "HGST HUH721212ALE604",
+"capacity_tb": 12.000138625024,
+"score": 0.018515421077609062,
+"reason_codes": [
+"smart_240_raw=3.999e+04",
+"smart_241_raw=5.625e+10",
+"smart_193_raw=4677"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 12,
+"serial": "ZCH70000402",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.018415208905935287,
+"reason_codes": [
+"smart_197_delta_7d=8",
+"smart_241_raw=5.325e+10",
+"smart_197_nzdays_7d=4"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 13,
+"serial": "ZCH70002711",
+"model": "HGST HUH721212ALE604",
+"capacity_tb": 12.000138625024,
+"score": 0.018207712098956108,
+"reason_codes": [
+"smart_197_delta_7d=8",
+"smart_241_raw=5.24e+10",
+"smart_194_mean_30d=28.87"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 14,
+"serial": "ZCH70001271",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.01763981208205223,
+"reason_codes": [
+"smart_240_raw=3.82e+04",
+"smart_241_raw=5.09e+10",
+"smart_194_mean_30d=31.13"
+],
+"outcome": "pending",
+"days_to_failure": null
+}
+],
+"2025-01-27": [
+{
+"rank": 1,
+"serial": "ZCH70001702",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.883346676826477,
+"reason_codes": [
+"smart_197_delta_7d=76",
+"smart_5_delta_7d=67",
+"smart_187_raw=43"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 2,
+"serial": "ZCH70002607",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.03236079961061478,
+"reason_codes": [
+"smart_193_raw=3222",
+"smart_4_raw=11",
+"smart_194_mean_30d=29.71"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 3,
+"serial": "ZCH70001038",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.031318578869104385,
+"reason_codes": [
+"smart_240_raw=4.151e+04",
+"smart_241_raw=4.783e+10",
+"smart_194_mean_30d=30.16"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 4,
+"serial": "ZCH70001428",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.030105765908956528,
+"reason_codes": [
+"smart_240_raw=3.791e+04",
+"smart_241_raw=5.971e+10",
+"smart_194_mean_30d=29.87"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 5,
+"serial": "ZCH70000237",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.02835804969072342,
+"reason_codes": [
+"smart_240_raw=4.439e+04",
+"smart_241_raw=5.008e+10",
+"smart_4_raw=51"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 6,
+"serial": "ZCH70002693",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.02716154418885708,
+"reason_codes": [
+"smart_241_delta_30d=9.059e+08",
+"smart_4_raw=12",
+"smart_194_mean_30d=29.94"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 7,
+"serial": "ZCH70001493",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.026566090062260628,
+"reason_codes": [
+"smart_240_raw=3.761e+04",
+"smart_241_raw=4.707e+10",
+"smart_194_mean_30d=31.68"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 8,
+"serial": "ZCH70001679",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.02372409775853157,
+"reason_codes": [
+"smart_241_raw=5.123e+10",
+"smart_240_raw=4.01e+04",
+"smart_194_mean_30d=30.77"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 9,
+"serial": "ZCH70002651",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.023098520934581757,
+"reason_codes": [
+"smart_193_raw=3133",
+"smart_4_raw=11",
+"smart_194_mean_30d=28.9"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 10,
+"serial": "ZCH70002814",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.02047143317759037,
+"reason_codes": [
+"smart_240_raw=3.773e+04",
+"smart_241_raw=4.556e+10",
+"smart_194_mean_30d=29.52"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 11,
+"serial": "ZCH70000059",
+"model": "HGST HUH721212ALE604",
+"capacity_tb": 12.000138625024,
+"score": 0.018515421077609062,
+"reason_codes": [
+"smart_240_raw=4.001e+04",
+"smart_241_raw=5.627e+10",
+"smart_193_raw=4680"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 12,
+"serial": "ZCH70001271",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.01763981208205223,
+"reason_codes": [
+"smart_240_raw=3.822e+04",
+"smart_241_raw=5.091e+10",
+"smart_194_mean_30d=31.16"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 13,
+"serial": "ZCH70001146",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.017081761732697487,
+"reason_codes": [
+"smart_240_raw=3.78e+04",
+"smart_241_raw=5.889e+10",
+"smart_194_mean_30d=31.23"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 14,
+"serial": "ZCH70002154",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.01640905812382698,
+"reason_codes": [
+"smart_240_raw=3.748e+04",
+"smart_241_raw=5.553e+10",
+"smart_194_mean_30d=28.77"
+],
+"outcome": "pending",
+"days_to_failure": null
+}
+],
+"2025-01-28": [
+{
+"rank": 1,
+"serial": "ZCH70002607",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.03236079961061478,
+"reason_codes": [
+"smart_193_raw=3222",
+"smart_4_raw=11",
+"smart_194_mean_30d=29.71"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 2,
+"serial": "ZCH70001038",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.031318578869104385,
+"reason_codes": [
+"smart_240_raw=4.153e+04",
+"smart_241_raw=4.785e+10",
+"smart_194_mean_30d=30.13"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 3,
+"serial": "ZCH70002042",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.03091920167207718,
+"reason_codes": [
+"smart_197_delta_7d=8",
+"smart_193_raw=4676",
+"smart_194_mean_30d=33.48"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 4,
+"serial": "ZCH70001428",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.030105765908956528,
+"reason_codes": [
+"smart_240_raw=3.793e+04",
+"smart_241_raw=5.972e+10",
+"smart_194_mean_30d=29.84"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 5,
+"serial": "ZCH70000237",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.02835804969072342,
+"reason_codes": [
+"smart_240_raw=4.442e+04",
+"smart_241_raw=5.009e+10",
+"smart_4_raw=51"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 6,
+"serial": "ZCH70001493",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.02668977901339531,
+"reason_codes": [
+"smart_240_raw=3.764e+04",
+"smart_241_raw=4.708e+10",
+"smart_194_mean_30d=31.74"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 7,
+"serial": "ZCH70002693",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.02374940551817417,
+"reason_codes": [
+"smart_241_delta_30d=8.868e+08",
+"smart_4_raw=12",
+"smart_194_mean_30d=29.97"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 8,
+"serial": "ZCH70002651",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.023685744032263756,
+"reason_codes": [
+"smart_193_raw=3134",
+"smart_4_raw=11",
+"smart_194_mean_30d=28.84"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 9,
+"serial": "ZCH70000059",
+"model": "HGST HUH721212ALE604",
+"capacity_tb": 12.000138625024,
+"score": 0.018515421077609062,
+"reason_codes": [
+"smart_240_raw=4.003e+04",
+"smart_241_raw=5.63e+10",
+"smart_193_raw=4682"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 10,
+"serial": "ZCH70001271",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.016621524468064308,
+"reason_codes": [
+"smart_240_raw=3.825e+04",
+"smart_241_raw=5.093e+10",
+"smart_194_mean_30d=31.32"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 11,
+"serial": "ZCH70002814",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.016500798985362053,
+"reason_codes": [
+"smart_240_raw=3.775e+04",
+"smart_241_raw=4.558e+10",
+"smart_194_mean_30d=29.52"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 12,
+"serial": "ZCH70002154",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.01640905812382698,
+"reason_codes": [
+"smart_240_raw=3.75e+04",
+"smart_241_raw=5.556e+10",
+"smart_194_mean_30d=28.84"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 13,
+"serial": "ZCH70000182",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.016286350786685944,
+"reason_codes": [
+"smart_193_raw=3124",
+"smart_4_raw=13",
+"smart_194_mean_30d=28.65"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 14,
+"serial": "ZCH70000611",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.01597936823964119,
+"reason_codes": [
+"smart_193_raw=4826",
+"smart_4_raw=49",
+"smart_194_mean_30d=32.81"
+],
+"outcome": "pending",
+"days_to_failure": null
+}
+],
+"2025-01-29": [
+{
+"rank": 1,
+"serial": "ZCH70002607",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.03236079961061478,
+"reason_codes": [
+"smart_193_raw=3223",
+"smart_4_raw=11",
+"smart_194_mean_30d=29.71"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 2,
+"serial": "ZCH70002042",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.03091920167207718,
+"reason_codes": [
+"smart_197_delta_7d=8",
+"smart_193_raw=4682",
+"model_code=3"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 3,
+"serial": "ZCH70000237",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.02835804969072342,
+"reason_codes": [
+"smart_240_raw=4.444e+04",
+"smart_241_raw=5.011e+10",
+"smart_4_raw=51"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 4,
+"serial": "ZCH70002693",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.027816839516162872,
+"reason_codes": [
+"smart_241_delta_30d=8.982e+08",
+"smart_4_raw=12",
+"smart_194_mean_30d=29.94"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 5,
+"serial": "ZCH70001493",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.02668977901339531,
+"reason_codes": [
+"smart_240_raw=3.766e+04",
+"smart_241_raw=4.709e+10",
+"smart_194_mean_30d=31.81"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 6,
+"serial": "ZCH70001038",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.02424587868154049,
+"reason_codes": [
+"smart_241_raw=4.789e+10",
+"smart_240_raw=4.155e+04",
+"smart_194_mean_30d=30.23"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 7,
+"serial": "ZCH70002651",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.02334599569439888,
+"reason_codes": [
+"smart_193_raw=3137",
+"smart_4_raw=11",
+"smart_194_mean_30d=28.9"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 8,
+"serial": "ZCH70000059",
+"model": "HGST HUH721212ALE604",
+"capacity_tb": 12.000138625024,
+"score": 0.018515421077609062,
+"reason_codes": [
+"smart_240_raw=4.005e+04",
+"smart_241_raw=5.633e+10",
+"smart_193_raw=4683"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 9,
+"serial": "ZCH70001271",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.01644175872206688,
+"reason_codes": [
+"smart_240_raw=3.827e+04",
+"smart_241_raw=5.094e+10",
+"smart_194_mean_30d=31.42"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 10,
+"serial": "ZCH70002154",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.01640905812382698,
+"reason_codes": [
+"smart_240_raw=3.753e+04",
+"smart_241_raw=5.558e+10",
+"smart_194_mean_30d=28.9"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 11,
+"serial": "ZCH70000182",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.016286350786685944,
+"reason_codes": [
+"smart_193_raw=3128",
+"smart_4_raw=13",
+"smart_194_mean_30d=28.65"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 12,
+"serial": "ZCH70000611",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.01597936823964119,
+"reason_codes": [
+"smart_193_raw=4827",
+"smart_4_raw=49",
+"smart_194_mean_30d=32.87"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 13,
+"serial": "ZCH70001428",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.01572098769247532,
+"reason_codes": [
+"smart_240_raw=3.795e+04",
+"smart_241_raw=5.975e+10",
+"smart_194_mean_30d=29.87"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 14,
+"serial": "ZCH70000620",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.015526342205703259,
+"reason_codes": [
+"smart_242_raw=1.495e+10",
+"smart_241_raw=3.57e+10",
+"smart_194_max_30d=26"
+],
+"outcome": "pending",
+"days_to_failure": null
+}
+],
+"2025-01-30": [
+{
+"rank": 1,
+"serial": "ZCH70002607",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.03236079961061478,
+"reason_codes": [
+"smart_193_raw=3224",
+"smart_4_raw=11",
+"smart_194_mean_30d=29.74"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 2,
+"serial": "ZCH70002042",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.03201071918010712,
+"reason_codes": [
+"smart_197_delta_7d=8",
+"smart_193_raw=4683",
+"model_code=3"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 3,
+"serial": "ZCH70002848",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.030399538576602936,
+"reason_codes": [
+"smart_197_delta_7d=6",
+"smart_4_raw=13",
+"smart_241_raw=5.616e+10"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 4,
+"serial": "ZCH70000237",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.029074376448988914,
+"reason_codes": [
+"smart_240_raw=4.446e+04",
+"smart_241_raw=5.012e+10",
+"smart_4_raw=51"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 5,
+"serial": "ZCH70001493",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.02668977901339531,
+"reason_codes": [
+"smart_241_raw=4.712e+10",
+"smart_240_raw=3.768e+04",
+"smart_194_mean_30d=31.74"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 6,
+"serial": "ZCH70002693",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.02374940551817417,
+"reason_codes": [
+"smart_241_delta_30d=8.869e+08",
+"smart_4_raw=12",
+"smart_194_mean_30d=29.94"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 7,
+"serial": "ZCH70002651",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.02334599569439888,
+"reason_codes": [
+"smart_193_raw=3139",
+"smart_4_raw=11",
+"smart_194_mean_30d=28.84"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 8,
+"serial": "ZCH70000059",
+"model": "HGST HUH721212ALE604",
+"capacity_tb": 12.000138625024,
+"score": 0.018515421077609062,
+"reason_codes": [
+"smart_240_raw=4.007e+04",
+"smart_241_raw=5.633e+10",
+"smart_193_raw=4685"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 9,
+"serial": "ZCH70000182",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.01712719351053238,
+"reason_codes": [
+"smart_193_raw=3133",
+"smart_4_raw=13",
+"smart_194_mean_30d=28.74"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 10,
+"serial": "ZCH70002154",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.01680942252278328,
+"reason_codes": [
+"smart_240_raw=3.755e+04",
+"smart_241_raw=5.56e+10",
+"smart_194_mean_30d=28.94"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 11,
+"serial": "ZCH70001428",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.016614440828561783,
+"reason_codes": [
+"smart_240_raw=3.797e+04",
+"smart_241_raw=5.977e+10",
+"smart_194_mean_30d=29.9"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 12,
+"serial": "ZCH70000442",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.01602620631456375,
+"reason_codes": [
+"smart_197_delta_7d=6",
+"smart_194_mean_30d=31.42",
+"smart_199_raw=7"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 13,
+"serial": "ZCH70001271",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.015589989721775055,
+"reason_codes": [
+"smart_240_raw=3.829e+04",
+"smart_241_raw=5.098e+10",
+"smart_194_mean_30d=31.35"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 14,
+"serial": "ZCH70000620",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.015526342205703259,
+"reason_codes": [
+"smart_242_raw=1.497e+10",
+"smart_241_raw=3.57e+10",
+"smart_194_max_30d=26"
+],
+"outcome": "pending",
+"days_to_failure": null
+}
+],
+"2025-01-31": [
+{
+"rank": 1,
+"serial": "ZCH70002848",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.034831736236810684,
+"reason_codes": [
+"smart_197_delta_7d=6",
+"smart_4_raw=13",
+"smart_241_raw=5.616e+10"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 2,
+"serial": "ZCH70001493",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.03229229524731636,
+"reason_codes": [
+"smart_241_raw=4.715e+10",
+"smart_240_raw=3.77e+04",
+"smart_194_mean_30d=31.71"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 3,
+"serial": "ZCH70002042",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.03091920167207718,
+"reason_codes": [
+"smart_197_delta_7d=8",
+"smart_193_raw=4684",
+"model_code=3"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 4,
+"serial": "ZCH70000237",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.02874952182173729,
+"reason_codes": [
+"smart_240_raw=4.448e+04",
+"smart_241_raw=5.014e+10",
+"smart_4_raw=51"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 5,
+"serial": "ZCH70002693",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.02716154418885708,
+"reason_codes": [
+"smart_241_delta_30d=9.138e+08",
+"smart_4_raw=12",
+"smart_194_mean_30d=29.87"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 6,
+"serial": "ZCH70002651",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.02334599569439888,
+"reason_codes": [
+"smart_193_raw=3142",
+"smart_4_raw=11",
+"smart_194_mean_30d=28.9"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 7,
+"serial": "ZCH70000441",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.017310824245214462,
+"reason_codes": [
+"smart_240_raw=3.775e+04",
+"smart_241_raw=4.729e+10",
+"smart_194_mean_30d=28.81"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 8,
+"serial": "ZCH70000182",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.01712719351053238,
+"reason_codes": [
+"smart_193_raw=3137",
+"smart_4_raw=13",
+"smart_194_mean_30d=28.71"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 9,
+"serial": "ZCH70002154",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.01680942252278328,
+"reason_codes": [
+"smart_240_raw=3.757e+04",
+"smart_241_raw=5.562e+10",
+"smart_194_mean_30d=28.87"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 10,
+"serial": "ZCH70001271",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.01636476442217827,
+"reason_codes": [
+"smart_240_raw=3.831e+04",
+"smart_241_raw=5.1e+10",
+"smart_194_mean_30d=31.42"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 11,
+"serial": "ZCH70001146",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.015816861763596535,
+"reason_codes": [
+"smart_240_raw=3.789e+04",
+"smart_241_raw=5.901e+10",
+"smart_194_mean_30d=31.13"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 12,
+"serial": "ZCH70001428",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.01572098769247532,
+"reason_codes": [
+"smart_240_raw=3.799e+04",
+"smart_241_raw=5.977e+10",
+"smart_194_mean_30d=29.87"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 13,
+"serial": "ZCH70000620",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.015526342205703259,
+"reason_codes": [
+"smart_242_raw=1.504e+10",
+"smart_241_raw=3.572e+10",
+"smart_194_max_30d=26"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 14,
+"serial": "ZCH70000496",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.01548758614808321,
+"reason_codes": [
+"smart_240_raw=4.289e+04",
+"smart_241_raw=5.157e+10",
+"smart_193_raw=4762"
+],
+"outcome": "pending",
+"days_to_failure": null
+}
+],
+"2025-02-01": [
+{
+"rank": 1,
+"serial": "ZCH70000237",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.02874952182173729,
+"reason_codes": [
+"smart_240_raw=4.45e+04",
+"smart_241_raw=5.016e+10",
+"smart_4_raw=51"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 2,
+"serial": "ZCH70002693",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.02716154418885708,
+"reason_codes": [
+"smart_241_delta_30d=9.109e+08",
+"smart_4_raw=12",
+"smart_194_mean_30d=29.9"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 3,
+"serial": "ZCH70001493",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.025233004242181778,
+"reason_codes": [
+"smart_241_raw=4.717e+10",
+"smart_240_raw=3.772e+04",
+"smart_194_mean_30d=31.71"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 4,
+"serial": "ZCH70002651",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.02334599569439888,
+"reason_codes": [
+"smart_193_raw=3144",
+"smart_4_raw=11",
+"smart_194_mean_30d=28.97"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 5,
+"serial": "ZCH70000182",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.019207997247576714,
+"reason_codes": [
+"smart_193_raw=3144",
+"smart_4_raw=13",
+"smart_194_mean_30d=28.81"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 6,
+"serial": "ZCH70000441",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.01773279346525669,
+"reason_codes": [
+"smart_240_raw=3.777e+04",
+"smart_241_raw=4.733e+10",
+"smart_194_mean_30d=28.84"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 7,
+"serial": "ZCH70002154",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.01680942252278328,
+"reason_codes": [
+"smart_240_raw=3.759e+04",
+"smart_241_raw=5.563e+10",
+"smart_194_mean_30d=28.94"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 8,
+"serial": "ZCH70001428",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.016614440828561783,
+"reason_codes": [
+"smart_240_raw=3.802e+04",
+"smart_241_raw=5.978e+10",
+"smart_194_mean_30d=30"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 9,
+"serial": "ZCH70001271",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.01636476442217827,
+"reason_codes": [
+"smart_240_raw=3.833e+04",
+"smart_241_raw=5.1e+10",
+"smart_194_mean_30d=31.42"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 10,
+"serial": "ZCH70002207",
+"model": "HGST HUH721212ALE604",
+"capacity_tb": 12.000138625024,
+"score": 0.016355501487851143,
+"reason_codes": [
+"smart_197_delta_7d=6",
+"smart_241_raw=5.363e+10",
+"smart_4_raw=13"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 11,
+"serial": "ZCH70000620",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.015983372926712036,
+"reason_codes": [
+"smart_242_raw=1.507e+10",
+"smart_241_raw=3.573e+10",
+"smart_194_max_30d=26"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 12,
+"serial": "ZCH70000275",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.015643039718270302,
+"reason_codes": [
+"smart_240_raw=4.024e+04",
+"smart_241_raw=5.319e+10",
+"smart_194_mean_30d=30.58"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 13,
+"serial": "ZCH70001223",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.014777839183807373,
+"reason_codes": [
+"smart_240_raw=3.726e+04",
+"smart_241_raw=5.567e+10",
+"smart_194_mean_30d=30.48"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 14,
+"serial": "ZCH70002814",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.014423050917685032,
+"reason_codes": [
+"smart_240_raw=3.784e+04",
+"smart_241_raw=4.57e+10",
+"smart_194_mean_30d=29.58"
+],
+"outcome": "pending",
+"days_to_failure": null
+}
+],
+"2025-02-02": [
+{
+"rank": 1,
+"serial": "ZCH70001493",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.03059760481119156,
+"reason_codes": [
+"smart_241_raw=4.719e+10",
+"smart_240_raw=3.774e+04",
+"smart_194_mean_30d=31.65"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 2,
+"serial": "ZCH70000237",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.02689654938876629,
+"reason_codes": [
+"smart_241_raw=5.02e+10",
+"smart_240_raw=4.452e+04",
+"smart_4_raw=51"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 3,
+"serial": "ZCH70002651",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.02334599569439888,
+"reason_codes": [
+"smart_193_raw=3147",
+"smart_4_raw=11",
+"smart_194_mean_30d=28.94"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 4,
+"serial": "ZCH70001271",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.022197451442480087,
+"reason_codes": [
+"smart_240_raw=3.836e+04",
+"smart_241_raw=5.103e+10",
+"smart_194_mean_30d=31.35"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 5,
+"serial": "ZCH70002207",
+"model": "HGST HUH721212ALE604",
+"capacity_tb": 12.000138625024,
+"score": 0.019408995285630226,
+"reason_codes": [
+"smart_197_delta_7d=6",
+"smart_241_raw=5.363e+10",
+"smart_4_raw=13"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 6,
+"serial": "ZCH70000441",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.0190716739743948,
+"reason_codes": [
+"smart_240_raw=3.78e+04",
+"smart_241_raw=4.737e+10",
+"smart_194_mean_30d=28.81"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 7,
+"serial": "ZCH70000182",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.01712719351053238,
+"reason_codes": [
+"smart_193_raw=3145",
+"smart_4_raw=13",
+"smart_194_mean_30d=28.74"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 8,
+"serial": "ZCH70002154",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.01680942252278328,
+"reason_codes": [
+"smart_240_raw=3.761e+04",
+"smart_241_raw=5.564e+10",
+"smart_194_mean_30d=28.9"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 9,
+"serial": "ZCH70002693",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.01649949885904789,
+"reason_codes": [
+"smart_4_raw=12",
+"smart_241_delta_30d=8.986e+08",
+"smart_194_mean_30d=29.94"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 10,
+"serial": "ZCH70000620",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.015983372926712036,
+"reason_codes": [
+"smart_242_raw=1.509e+10",
+"smart_241_raw=3.575e+10",
+"smart_194_max_30d=26"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 11,
+"serial": "ZCH70001165",
+"model": "TOSHIBA MG08ACA16TA",
+"capacity_tb": 16.000900661248,
+"score": 0.015360083431005478,
+"reason_codes": [
+"smart_240_raw=4.046e+04",
+"smart_241_raw=5.88e+10",
+"smart_193_raw=4681"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 12,
+"serial": "ZCH70001223",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.014777839183807373,
+"reason_codes": [
+"smart_240_raw=3.728e+04",
+"smart_241_raw=5.57e+10",
+"smart_194_mean_30d=30.52"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 13,
+"serial": "ZCH70001038",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.01341058500111103,
+"reason_codes": [
+"smart_240_raw=4.164e+04",
+"smart_241_raw=4.797e+10",
+"smart_194_mean_30d=30.03"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 14,
+"serial": "ZCH70001464",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.013382828794419765,
+"reason_codes": [
+"smart_197_delta_7d=6",
+"smart_242_raw=3.301e+10",
+"smart_240_raw=4.278e+04"
+],
+"outcome": "pending",
+"days_to_failure": null
+}
+],
+"2025-02-03": [
+{
+"rank": 1,
+"serial": "ZCH70001493",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.03045636974275112,
+"reason_codes": [
+"smart_241_raw=4.723e+10",
+"smart_240_raw=3.776e+04",
+"smart_194_mean_30d=31.61"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 2,
+"serial": "ZCH70000237",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.028446555137634277,
+"reason_codes": [
+"smart_240_raw=4.454e+04",
+"smart_241_raw=5.024e+10",
+"smart_4_raw=51"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 3,
+"serial": "ZCH70002651",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.02334599569439888,
+"reason_codes": [
+"smart_193_raw=3149",
+"smart_4_raw=11",
+"smart_194_mean_30d=28.94"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 4,
+"serial": "ZCH70002207",
+"model": "HGST HUH721212ALE604",
+"capacity_tb": 12.000138625024,
+"score": 0.02088029682636261,
+"reason_codes": [
+"smart_197_delta_7d=6",
+"smart_241_raw=5.368e+10",
+"smart_4_raw=13"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 5,
+"serial": "ZCH70000254",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.019935881718993187,
+"reason_codes": [
+"smart_197_delta_7d=8",
+"smart_240_raw=9254",
+"smart_241_raw=4.748e+10"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 6,
+"serial": "ZCH70000441",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.0190716739743948,
+"reason_codes": [
+"smart_240_raw=3.782e+04",
+"smart_241_raw=4.738e+10",
+"smart_194_mean_30d=28.81"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 7,
+"serial": "ZCH70000182",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.01712719351053238,
+"reason_codes": [
+"smart_193_raw=3147",
+"smart_4_raw=13",
+"smart_194_mean_30d=28.74"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 8,
+"serial": "ZCH70001271",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.016649747267365456,
+"reason_codes": [
+"smart_240_raw=3.838e+04",
+"smart_241_raw=5.107e+10",
+"smart_194_mean_30d=31.45"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 9,
+"serial": "ZCH70000620",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.016593558713793755,
+"reason_codes": [
+"smart_242_raw=1.513e+10",
+"smart_241_raw=3.579e+10",
+"smart_194_max_30d=26"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 10,
+"serial": "ZCH70002154",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.016510924324393272,
+"reason_codes": [
+"smart_240_raw=3.763e+04",
+"smart_241_raw=5.566e+10",
+"smart_194_mean_30d=28.77"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 11,
+"serial": "ZCH70002693",
+"model": "ST12000NM0008",
+"capacity_tb": 12.000138625024,
+"score": 0.015934279188513756,
+"reason_codes": [
+"smart_4_raw=12",
+"smart_241_delta_30d=8.881e+08",
+"smart_194_mean_30d=30"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 12,
+"serial": "ZCH70000059",
+"model": "HGST HUH721212ALE604",
+"capacity_tb": 12.000138625024,
+"score": 0.015043237246572971,
+"reason_codes": [
+"smart_240_raw=4.016e+04",
+"smart_241_raw=5.642e+10",
+"smart_193_raw=4696"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 13,
+"serial": "ZCH70001223",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.014777839183807373,
+"reason_codes": [
+"smart_240_raw=3.731e+04",
+"smart_241_raw=5.574e+10",
+"smart_194_mean_30d=30.45"
+],
+"outcome": "pending",
+"days_to_failure": null
+},
+{
+"rank": 14,
+"serial": "ZCH70001038",
+"model": "WDC WUH721816ALE6L4",
+"capacity_tb": 16.000900661248,
+"score": 0.014140263199806213,
+"reason_codes": [
+"smart_240_raw=4.166e+04",
+"smart_241_raw=4.799e+10",
+"smart_194_mean_30d=30.13"
+],
+"outcome": "pending",
+"days_to_failure": null
+}
+]
+}

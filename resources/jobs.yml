@@ -22,6 +22,8 @@ resources:
           default: ${var.raw_path}
         - name: experiment
           default: ${var.experiment}
+        - name: replay_anchor
+          default: ${var.replay_anchor}
       tasks:
         - task_key: bronze
           environment_key: default
@@ -80,6 +82,8 @@ resources:
           default: ${var.raw_path}
         - name: experiment
           default: ${var.experiment}
+        - name: replay_anchor
+          default: ${var.replay_anchor}
       tasks:
         - task_key: bronze
           environment_key: default

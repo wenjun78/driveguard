@@ -4,10 +4,10 @@ export MLFLOW_DISABLE_AGENT_HINT = 1
 export DG_DATA_ROOT ?= ./data
 export DG_RAW_PATH ?= ./data/raw
 
-.PHONY: install lint test fixture demo clean wheel
+.PHONY: install lint test fixture demo clean wheel snapshot console
 
 install:
-	$(PY) -m pip install -e ".[local,dev]"
+	$(PY) -m pip install -e ".[local,dev,app]"
 
 lint:
 	ruff check . && ruff format --check .
@@ -22,6 +22,13 @@ fixture:
 # whole pipeline on whatever is in DG_RAW_PATH (fixture or a real subset from scripts/download_backblaze.py)
 demo:
 	driveguard bronze && driveguard silver && driveguard gold && driveguard train && driveguard backfill --days 45 && driveguard monitor
+
+# refresh the console's bundled demo snapshot from the local tables + MLflow store
+snapshot:
+	$(PY) scripts/export_snapshot.py --out app_snapshot
+
+console:
+	uvicorn driveguard.app.server:app --reload --port 8000
 
 wheel:
 	$(PY) -m build --wheel

@@ -23,7 +23,9 @@ dependencies = [
 [project.optional-dependencies]
 # Local development and CI. On Databricks, Spark and Delta are provided by the runtime.
 local = ["pyspark>=3.5,<5", "duckdb>=1.0", "requests>=2.31", "sqlalchemy>=2", "alembic>=1.12"]
-dev = ["pytest>=8", "ruff>=0.5", "build>=1.2"]
+dev = ["pytest>=8", "ruff>=0.5", "build>=1.2", "httpx>=0.27"]
+# The public fleet console (FastAPI). Reads Databricks live when configured, else the bundled snapshot.
+app = ["fastapi>=0.110", "uvicorn[standard]>=0.29", "databricks-sql-connector>=3.0", "databricks-sdk>=0.30", "python-multipart>=0.0.9"]
 
 [project.scripts]
 driveguard = "driveguard.cli:main"

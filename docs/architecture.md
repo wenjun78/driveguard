@@ -48,6 +48,8 @@ Delta, Unity Catalog and the workspace tracking server - nothing is rewritten be
 | `score.py` | daily / backfill scoring, alert table with `replaceWhere` idempotency |
 | `monitor.py` | PSI drift, matured-label performance, retraining decision |
 | `metrics.py` | budgeted alert metrics, PSI |
+| `replay.py` | the replay clock (`DG_REPLAY_ANCHOR`): which data day is "today" |
+| `app/` | the console: `server.py` (FastAPI, cache, fallback), `sources.py` (Databricks live + snapshot), `local_source.py` (DuckDB twin used to export the snapshot) |
 
 ## Design decisions worth defending in a review
 

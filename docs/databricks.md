@@ -70,6 +70,12 @@ ingest new files → features → score today → monitor → **condition task**
 request. The model is logged as an MLflow pyfunc with its own code path, so the endpoint needs no extra wheel. Free
 Edition limits the number of active endpoints and offers no GPU - neither matters here.
 
+## 4b. The console
+
+Once the build job has run, point the console at the workspace: `DATABRICKS_HOST`, a token, the SQL warehouse's
+`DATABRICKS_HTTP_PATH` (SQL Warehouses → your warehouse → Connection details), `DG_CATALOG` / `DG_SCHEMA`, and the
+same `DG_REPLAY_ANCHOR` as the job parameter. See [`console.md`](console.md).
+
 ## 5. CI/CD
 
 `.github/workflows/ci.yml` lints, runs the unit + end-to-end tests on local Spark, builds the wheel and validates the
@@ -90,6 +96,7 @@ as widgets and the bundle passes them as job parameters:
 | `DG_GROUP_HOLDOUT_FRAC` | 0 | unseen-drive-model holdout share |
 | `DG_NEGATIVE_SAMPLE_RATIO` | 20 | negatives per positive in the training set (weights restore the prior) |
 | `DG_PSI_ALERT` / `DG_PSI_FEATURES_FOR_RETRAIN` / `DG_MATURED_RECALL_FLOOR` | 0.2 / 3 / 0.5 | retraining trigger |
+| `DG_REPLAY_ANCHOR` (bundle variable `replay_anchor`) | empty | replay clock, `data_date@real_date`; the daily job then scores one data-day per real day |
 
 ## 7. Scaling up
 

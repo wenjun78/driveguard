@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#102018">
+<meta name="description" content="DriveGuard fleet console: which drives to replace this week, before they fail. Live view of an end-to-end ML system on Databricks - ranked alerts with reason codes, matured-label monitoring, model lifecycle and pipeline runs.">
+<title>DriveGuard · fleet console</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/app.css">
+<script src="/static/vendor/chart.umd.js"></script>
+</head>
+<body>
+<header class="top">
+  <div class="wrap top-inner">
+    <a class="brand" href="#overview"><span class="mark">DG</span><span>DriveGuard<small>fleet console</small></span></a>
+    <nav class="tabs" id="tabs" aria-label="Sections">
+      <a href="#overview" data-view="overview">Overview</a>
+      <a href="#alerts" data-view="alerts">Alerts</a>
+      <a href="#monitoring" data-view="monitoring">Monitoring</a>
+      <a href="#model" data-view="model">Model</a>
+      <a href="#pipeline" data-view="pipeline">Pipeline</a>
+      <a href="#predict" data-view="predict">What-if</a>
+    </nav>
+    <div class="status" id="status" title="Where the data on this page comes from"><span class="dot"></span><span id="status-text">connecting…</span></div>
+  </div>
+</header>
+
+<div class="banner" id="banner" hidden></div>
+
+<main class="wrap">
+  <!-- OVERVIEW -->
+  <section class="view" id="view-overview">
+    <div class="section-head">
+      <div><p class="label">Fleet · as of <span id="ov-asof">—</span></p><h1>Which drives to replace this week, <em>before</em> they fail.</h1></div>
+      <p class="lede">A ranked daily list, flagged at a fixed budget, from an XGBoost ranker trained on Backblaze SMART telemetry and run as a Databricks pipeline. Every number here is read from the pipeline's own tables.</p>
+    </div>
+    <div class="kpis" id="ov-kpis"></div>
+    <div class="grid-2">
+      <div class="card"><div class="card-head"><h3>Alerts per day</h3><span class="muted" id="ov-budget"></span></div><canvas id="chart-alerts" height="140"></canvas></div>
+      <div class="card"><div class="card-head"><h3>Matured performance</h3><span class="muted">real outcomes, once each snapshot's horizon has elapsed</span></div><canvas id="chart-matured" height="140"></canvas></div>
+    </div>
+    <div class="grid-2">
+      <div class="card"><div class="card-head"><h3>Fleet by drive model</h3><span class="muted">scored today · alerts</span></div><div id="ov-models"></div></div>
+      <div class="card"><div class="card-head"><h3>How to read this</h3></div>
+        <ul class="plain">
+          <li><b>Alert budget</b> — the top 0.5% of the fleet each day is flagged; that is the list an operator works.</li>
+          <li><b>Matured</b> — a snapshot's outcomes are known only 30 days later; recall and precision here are real, not validation numbers.</li>
+          <li><b>Reason codes</b> — per-alert TreeSHAP contributions from the booster: <i>why</i> this drive, today.</li>
+          <li><b>Replay</b> — Backblaze publishes history, so the daily job advances one data-day per real day; the fleet you see moves.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ALERTS -->
+  <section class="view" id="view-alerts" hidden>
+    <div class="section-head">
+      <div><p class="label">Ranked alerts</p><h2>The list for <span id="al-date">—</span></h2></div>
+      <div class="controls"><label>Snapshot <select id="al-select"></select></label><span class="muted" id="al-note"></span></div>
+    </div>
+    <div class="grid-split">
+      <div class="card table-card">
+        <table class="table" id="al-table"><thead><tr><th>#</th><th>Serial</th><th>Model</th><th>Score</th><th>Reason codes</th><th>Hindsight</th></tr></thead><tbody></tbody></table>
+      </div>
+      <div class="card" id="drive-card">
+        <div class="card-head"><h3 id="dr-title">Select a drive</h3><span class="muted" id="dr-sub"></span></div>
+        <div id="dr-meta" class="meta"></div>
+        <canvas id="chart-drive" height="170"></canvas>
+        <canvas id="chart-drive-score" height="90"></canvas>
+        <p class="muted small">Key counters (raw) for the last 120 observed days up to the snapshot; the lower chart is the model's daily score, with flagged days marked.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MONITORING -->
+  <section class="view" id="view-monitoring" hidden>
+    <div class="section-head">
+      <div><p class="label">Monitoring</p><h2>Drift, matured outcomes and the retraining decision.</h2></div>
+      <p class="lede">Each monitoring run compares today's fleet to the reference sample stored with the champion (PSI), back-fills real outcomes for snapshots whose horizon has elapsed, and sets a <code>retrain_recommended</code> task value that gates the retrain task in the daily job.</p>
+    </div>
+    <div class="grid-2">
+      <div class="card"><div class="card-head"><h3>Matured recall · precision at budget</h3></div><canvas id="chart-mon-matured" height="150"></canvas></div>
+      <div class="card"><div class="card-head"><h3>Lead time of the first alert (median days)</h3></div><canvas id="chart-mon-lead" height="150"></canvas></div>
+    </div>
+    <div class="card"><div class="card-head"><h3>Monitoring runs</h3><span class="muted">latest first</span></div>
+      <table class="table" id="mon-table"><thead><tr><th>Run</th><th>Snapshot</th><th>Drives</th><th>Score PSI</th><th>Drifted</th><th>Warned</th><th>Matured recall</th><th>Retrain?</th></tr></thead><tbody></tbody></table>
+    </div>
+    <div class="card"><div class="card-head"><h3>PSI by feature · latest run</h3><span class="muted">reference = training-period fleet · warn ≥ 0.10 · alert ≥ 0.20</span></div><div id="mon-psi" class="psi"></div></div>
+  </section>
+
+  <!-- MODEL -->
+  <section class="view" id="view-model" hidden>
+    <div class="section-head">
+      <div><p class="label">Model lifecycle</p><h2 id="md-title">—</h2></div>
+      <p class="lede" id="md-lede"></p>
+    </div>
+    <div class="grid-2">
+      <div class="card"><div class="card-head"><h3>Evaluation at the alert budget</h3><span class="muted" id="md-split"></span></div>
+        <table class="table" id="md-metrics"><thead><tr><th>metric</th><th>validation</th><th>test</th><th>operator rule</th></tr></thead><tbody></tbody></table>
+      </div>
+      <div class="card"><div class="card-head"><h3>Feature importance (gain)</h3></div><canvas id="chart-imp" height="260"></canvas></div>
+    </div>
+    <div class="card"><div class="card-head"><h3>Registered versions</h3><span class="muted">promotion to @champion requires val PR-AUC ≥ incumbent</span></div>
+      <table class="table" id="md-versions"><thead><tr><th>Version</th><th>Created</th><th>Val PR-AUC</th><th>Test PR-AUC</th><th>Run</th><th></th></tr></thead><tbody></tbody></table>
+    </div>
+  </section>
+
+  <!-- PIPELINE -->
+  <section class="view" id="view-pipeline" hidden>
+    <div class="section-head">
+      <div><p class="label">Pipeline</p><h2>Jobs, serving and the replay clock.</h2></div>
+      <p class="lede">Deployed as a Databricks Asset Bundle on serverless compute: a one-off build job and a daily job (ingest → features → score → monitor → condition → retrain). The console reads these through the Jobs API.</p>
+    </div>
+    <div class="stages" id="pl-stages"></div>
+    <div class="grid-2">
+      <div class="card"><div class="card-head"><h3>Replay clock</h3></div><div id="pl-replay" class="meta"></div></div>
+      <div class="card"><div class="card-head"><h3>Model Serving</h3></div><div id="pl-serving" class="meta"></div></div>
+    </div>
+    <div id="pl-jobs"></div>
+  </section>
+
+  <!-- PREDICT -->
+  <section class="view" id="view-predict" hidden>
+    <div class="section-head">
+      <div><p class="label">What-if</p><h2>Score a drive.</h2></div>
+      <p class="lede">Either a serial from the fleet (its latest features are used) or hand-entered SMART values. Anything you leave blank is treated as a healthy zero. The probability comes from the champion — through the Model Serving endpoint when it is up, otherwise a local copy of the same version — with TreeSHAP reason codes.</p>
+    </div>
+    <div class="grid-2">
+      <div class="card">
+        <form id="pf-serial" class="form"><label>Serial number <input name="serial" placeholder="e.g. a serial from the alerts list" autocomplete="off"></label><button type="submit" class="btn">Score this drive</button></form>
+        <hr>
+        <form id="pf-manual" class="form">
+          <div class="form-grid">
+            <label>Drive model <input name="model" value="ST12000NM0008"></label>
+            <label>Power-on hours (SMART 9) <input name="smart_9_raw" type="number" value="30000"></label>
+            <label>Temperature °C (194) <input name="smart_194_raw" type="number" value="31"></label>
+            <label>Reallocated sectors (5) <input name="smart_5_raw" type="number" value="0"></label>
+            <label>Δ reallocated, 30 d <input name="smart_5_delta_30d" type="number" value="0"></label>
+            <label>Pending sectors (197) <input name="smart_197_raw" type="number" value="0"></label>
+            <label>Δ pending, 7 d <input name="smart_197_delta_7d" type="number" value="0"></label>
+            <label>Days with pending, 30 d <input name="smart_197_nzdays_30d" type="number" value="0"></label>
+            <label>Offline uncorrectable (198) <input name="smart_198_raw" type="number" value="0"></label>
+            <label>Reported uncorrectable (187) <input name="smart_187_raw" type="number" value="0"></label>
+            <label>Command timeouts (188) <input name="smart_188_raw" type="number" value="0"></label>
+            <label>CRC errors (199) <input name="smart_199_raw" type="number" value="0"></label>
+          </div>
+          <div class="row"><button type="submit" class="btn">Score these values</button><button type="button" class="btn ghost" id="pf-preset">Load a degrading example</button></div>
+        </form>
+      </div>
+      <div class="card" id="pf-result"><div class="card-head"><h3>Result</h3></div><p class="muted">Nothing scored yet.</p></div>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap foot">
+  <span>DriveGuard · <a href="https://github.com/wenjun78/driveguard" target="_blank" rel="noopener">source</a> · <a href="https://wenjun78.github.io/portfolio/driveguard.html" target="_blank" rel="noopener">case study</a> · <a href="/api/docs" target="_blank" rel="noopener">API</a></span>
+  <span class="muted">Data: Backblaze Drive Stats, with attribution · Platform: Databricks (Free Edition) · © 2026 wjun78</span>
+</footer>
+<script src="/static/app.js"></script>
+</body>
+</html>

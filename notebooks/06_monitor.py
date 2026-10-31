@@ -13,11 +13,14 @@ dbutils.widgets.text("catalog", "workspace")
 dbutils.widgets.text("schema", "driveguard")
 dbutils.widgets.text("raw_path", "/Volumes/workspace/driveguard/raw")
 dbutils.widgets.text("experiment", "/Shared/driveguard")
+dbutils.widgets.text("replay_anchor", "")
 
 os.environ["DG_CATALOG"] = dbutils.widgets.get("catalog")
 os.environ["DG_SCHEMA"] = dbutils.widgets.get("schema")
 os.environ["DG_RAW_PATH"] = dbutils.widgets.get("raw_path")
 os.environ["DG_EXPERIMENT"] = dbutils.widgets.get("experiment")
+if dbutils.widgets.get("replay_anchor"):
+    os.environ["DG_REPLAY_ANCHOR"] = dbutils.widgets.get("replay_anchor")
 os.environ["DG_TABLE_FORMAT"] = "delta"
 
 from driveguard.config import Settings

@@ -6,7 +6,10 @@ End-to-end ML engineering on real hardware telemetry: **which drives in a fleet 
 this week, before they fail?** Built on [Backblaze Drive Stats](https://www.backblaze.com/cloud-storage/resources/hard-drive-test-data)
 (daily SMART snapshots of ~300k production drives), as a Databricks lakehouse pipeline — PySpark medallion tables,
 MLflow + Unity Catalog model lifecycle, budgeted batch alerting with reason codes, drift and matured-label monitoring,
-condition-triggered retraining, Asset Bundle jobs, CI. Runs on Databricks Free Edition; runs identically on a laptop.
+condition-triggered retraining, Asset Bundle jobs, CI — and a public **fleet console** that reads it all live.
+Runs on Databricks Free Edition; runs identically on a laptop.
+
+**Live console:** [driveguard.onrender.com](https://driveguard.onrender.com) — ranked alerts with reason codes and hindsight, matured-label monitoring, model lifecycle, job runs, what-if scoring ([how it works](docs/console.md)).
 
 ```mermaid
 flowchart LR
@@ -33,9 +36,10 @@ flowchart LR
 | **Lifecycle** | MLflow pyfunc with the feature spec and a drift reference sample inside the artefact; Unity Catalog registration; `@champion` alias assigned only if validation PR-AUC ≥ the current champion's, read from its own run. |
 | **Operations** | `gold_risk_alerts`: score, per-day rank, flag, top-3 TreeSHAP reason codes; `replaceWhere` makes re-runs idempotent. `ops_monitoring`: PSI on key features and on scores, **real** precision/recall back-filled once each snapshot's 30 days have elapsed, and a `retrain_recommended` task value that gates the retrain task in the daily job. |
 | **Platform** | Delta tables in UC, serverless jobs from a Databricks Asset Bundle, optional CPU serving endpoint, GitHub Actions running lint + unit + end-to-end tests on local Spark and building the wheel. |
+| **Console** | FastAPI + static UI over the same tables, model, endpoint and jobs (SQL warehouse, MLflow/UC, Model Serving, Jobs API), cached and quota-safe, with a bundled snapshot fallback that is always labelled as such. **Replay clock**: the daily job advances one data-day per real day, so the fleet visibly moves and matured outcomes catch up. |
 
 Details: [`docs/evaluation.md`](docs/evaluation.md) · [`docs/architecture.md`](docs/architecture.md) ·
-[`docs/data.md`](docs/data.md) · [`docs/databricks.md`](docs/databricks.md)
+[`docs/data.md`](docs/data.md) · [`docs/databricks.md`](docs/databricks.md) · [`docs/console.md`](docs/console.md)
 
 ## Quickstart
 
@@ -46,7 +50,8 @@ pip install -e ".[local,dev]"
 make fixture            # 3,000 synthetic drives × 400 days in the Backblaze file layout -> data/raw
 make demo               # bronze -> silver -> gold -> train -> 45-day scoring replay -> monitor
 python scripts/report.py
-pytest -q               # 17 tests incl. an end-to-end run
+pytest -q               # 27 tests incl. an end-to-end run and the console API
+uvicorn driveguard.app.server:app   # the console on http://localhost:8000 (demo snapshot until Databricks is configured)
 ```
 
 **Laptop or Databricks, real data:**
@@ -57,6 +62,7 @@ python scripts/download_backblaze.py --quarters 2024Q3 2024Q4 2025Q1 --serial-fr
 make demo                                                   # locally, or:
 databricks fs cp -r data/raw dbfs:/Volumes/workspace/driveguard/raw
 databricks bundle deploy -t dev && databricks bundle run -t dev driveguard_build
+# then point the console at the workspace (Render env vars or locally): DATABRICKS_HOST, DATABRICKS_TOKEN, DATABRICKS_HTTP_PATH
 ```
 
 Free Edition notes, table names, knobs and the daily job are in [`docs/databricks.md`](docs/databricks.md).
@@ -92,11 +98,14 @@ the comparison against the rule is wired in. Real-data numbers replace this sect
 ## Repository
 
 ```
-src/driveguard/        the system: config, spark/table store, bronze, silver, gold, splits, model, train, scoring, score, monitor, metrics, cli
+src/driveguard/        the system: config, spark/table store, bronze, silver, gold, splits, model, train, scoring, score, monitor, metrics, replay, cli
+src/driveguard/app/    the console: FastAPI server, Databricks live source, snapshot source (+ DuckDB twin for exports)
+web/, app_snapshot/    console UI (no build step) and the bundled demo snapshot
 notebooks/             Databricks notebooks 01-07 — thin wrappers that pass widgets to the package
 resources/jobs.yml     Asset Bundle jobs: one-off build; daily ingest -> score -> monitor -> condition -> retrain
 databricks.yml         bundle, variables, wheel artifact, targets
-scripts/               download_backblaze.py (subset by serial hash) · make_fixture.py (synthetic fleet) · report.py
+scripts/               download_backblaze.py (subset by serial hash) · make_fixture.py (synthetic fleet) · report.py · export_snapshot.py
+render.yaml, Dockerfile  deploy the console (Render free tier, or any container host)
 tests/                 label semantics, censoring, time safety, schema drift, splits, budgeted metrics, PSI, end-to-end
 docs/                  evaluation protocol, architecture, data notes, Databricks guide
 .github/workflows/     lint, tests on local Spark, wheel build, optional bundle deploy
@@ -109,6 +118,7 @@ docs/                  evaluation protocol, architecture, data notes, Databricks
 * Free Edition quotas mean "subset first". The pipeline is the same at 100 % of the fleet; the compute is not.
 * The synthetic fixture is for tests and dry runs. Nothing computed from it is a result.
 * Serving is a CPU endpoint for the champion; the operational surface is the batch alert table.
+* The console is read-only and cached; until the Backblaze subset has been run in a workspace it shows the synthetic demo snapshot, labelled as such on every page.
 
 ## Attribution and licence
 
