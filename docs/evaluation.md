@@ -93,7 +93,7 @@ Each monitoring run:
 2. back-fills real precision / recall / lead time for every past snapshot whose 30-day horizon has now elapsed
    (`matured_*`);
 3. writes a row to `ops_monitoring` and sets the job task value `retrain_recommended` when either at least three key
-   features exceed PSI 0.2 or matured recall at budget over the last snapshots falls below 0.5.
+   features exceed PSI 0.2 or matured recall at budget averaged over the last snapshots falls below 0.3 (real-fleet single-day values run 0.3–0.6).
 
 The Databricks daily job has a condition task on that value, so retraining happens when the evidence says so, not on
 a calendar.

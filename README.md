@@ -89,13 +89,35 @@ Free Edition notes, table names, knobs and the daily job are in [`docs/databrick
 
 ## Results
 
-### Real data
+### Real data — Backblaze 2024Q3–2025Q1, 10 % of the fleet
 
-> Pending — the Backblaze subset has to be downloaded on a machine with internet access and run (`make demo` or the
-> `driveguard_build` job). `python scripts/report.py` prints this table from the latest MLflow run; paste it here
-> with the subset used (quarters, serial fraction) and the number of drives / failures in the test period.
+33,144 drives with whole histories (hash-selected by serial), 366 failures, Jul 2024 – Mar 2025; run on Databricks
+Free Edition serverless by the `databricks-bootstrap` workflow. Time-ordered split with 30-day gaps; the test period
+is the last 90 days (Dec 2024 – Mar 2025). Alert budget 0.5 % of the fleet per day (≈157 drives).
 
-### Synthetic dry run — proves the pipeline, **not** the model
+| metric | validation | test | operator rule (test) |
+|---|---|---|---|
+| PR-AUC | 0.145 | 0.184 | 0.017 |
+| ROC-AUC | 0.839 | 0.924 | 0.863 |
+| Drive recall @ budget (flagged ≥ once in the 30 d before failure) | 57.0% | 70.8% | 5.0% |
+| Recall @ budget (drive-days) | 39.1% | 45.3% | 1.5% |
+| Precision @ budget | 8.6% | 13.5% | 0.5% |
+| Median lead time of first alert (days) | 23 | 18 | 8 |
+| Caught with ≥ 7 d lead | 84% | 79% | 67% |
+| False alerts / 1,000 healthy drive-days | 4.59 | 4.47 | 5.03 |
+| Failing drives in period | 100 | 120 | 120 |
+| Labeled drive-days | 1,773,979 | 1,845,383 | 1,845,383 |
+
+Read it as an operator would: **of the 120 drives that failed in the test period, 71 % were on the daily list at
+least once in their last 30 days, with a median 18 days' warning**; the list is 13.5 % "right" per drive-day at a
+budget of 0.5 % of the fleet, against a 0.15 % base rate. The five-counter rule operators are given is a *flag*, not
+a ranking: at the same budget it surfaces the drives with the largest counter values — mostly old survivors — and
+catches 5 % of failures. Live, matured-label recall on the replayed snapshots runs 0.3–0.6 per day (median ≈ 0.5),
+which is what the monitoring floor is now calibrated to.
+
+Regenerate: `python scripts/report.py` against the workspace (or read `app_snapshot/model.json`).
+
+### Synthetic dry run — proves the pipeline only
 
 3,000 synthetic drives × 400 days (1.03 M drive-days, 127 failures, exaggerated 4 % AFR), 2 CPU cores, local Spark:
 bronze 31 s · silver 21 s · gold 35 s · train 38 s · 45-day scoring replay 28 s · monitor 14 s.
