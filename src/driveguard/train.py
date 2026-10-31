@@ -28,6 +28,13 @@ log = logging.getLogger(__name__)
 EVAL_KEEP = ["serial_number", "day", "label", "days_to_failure"]
 
 
+def _plain(pdf: pd.DataFrame) -> pd.DataFrame:
+    """Drop DataFrame.attrs: Databricks serverless attaches Spark plan metrics there, which pandas then fails to
+    JSON-serialize into Parquet metadata / MLflow examples."""
+    pdf.attrs = {}
+    return pdf
+
+
 def setup_mlflow(s: Settings) -> None:
     if s.mlflow_tracking_uri:
         os.makedirs(s.data_root, exist_ok=True)
@@ -128,12 +135,12 @@ def run(spark: SparkSession, s: Settings) -> dict[str, Any]:
         df.filter("split = 'train' AND label IS NOT NULL"), s.negative_sample_ratio, s.seed
     )
     val_df, _ = sample_training(df.filter("split = 'val' AND label IS NOT NULL"), s.negative_sample_ratio, s.seed + 1)
-    train_pdf = train_df.select(*numeric, CATEGORICAL, "label", "weight").toPandas()
-    val_pdf = val_df.select(*numeric, CATEGORICAL, "label", "weight").toPandas()
+    train_pdf = _plain(train_df.select(*numeric, CATEGORICAL, "label", "weight").toPandas())
+    val_pdf = _plain(val_df.select(*numeric, CATEGORICAL, "label", "weight").toPandas())
     spec = make_spec(train_pdf, numeric, s)
     train_period = df.filter("split = 'train'")
     n_train_period = train_period.count()
-    reference_pdf = (
+    reference_pdf = _plain(
         train_period.sample(fraction=min(1.0, 25000 / max(1, n_train_period)), seed=s.seed)
         .select(*numeric, CATEGORICAL)
         .limit(20000)
