@@ -1,11 +1,14 @@
 # Databricks notebook source
-# MAGIC %md
-# MAGIC # DriveGuard · 03 · Gold
-# MAGIC Time-safe rolling SMART features and the right-censoring-aware 30-day failure label.
-# MAGIC
-# MAGIC Runs the same `driveguard` package as the CLI and the tests; this notebook only wires widgets to settings.
+# On serverless compute the `spark` global is created lazily; get the session explicitly so the notebook
+# never depends on injection order (DatabricksSession on serverless, plain SparkSession elsewhere).
+try:
+    from databricks.connect import DatabricksSession
 
-# COMMAND ----------
+    spark = DatabricksSession.builder.getOrCreate()
+except Exception:  # classic compute / local
+    from pyspark.sql import SparkSession
+
+    spark = SparkSession.builder.getOrCreate()
 
 import os
 
@@ -26,6 +29,14 @@ from driveguard.config import Settings
 
 settings = Settings.from_env()
 spark.sql(f"CREATE SCHEMA IF NOT EXISTS {settings.catalog}.{settings.schema}")
+
+# COMMAND ----------
+
+# MAGIC %md
+# MAGIC # DriveGuard · 03 · Gold
+# MAGIC Time-safe rolling SMART features and the right-censoring-aware 30-day failure label.
+# MAGIC
+# MAGIC Runs the same `driveguard` package as the CLI and the tests; this notebook only wires widgets to settings.
 
 # COMMAND ----------
 
