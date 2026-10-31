@@ -4,7 +4,13 @@ Everything below works on Databricks Free Edition: serverless compute only, CPU-
 tasks, one SQL warehouse. The bundle is written to those limits (a linear chain of tasks, one small CPU endpoint,
 scale-to-zero). Nothing in the project needs a classic cluster or a GPU.
 
-## 0. One-time setup
+## 0. The no-install path
+
+The `databricks-bootstrap` and `daily` GitHub workflows do everything in this document from a GitHub runner —
+see the README's "Run it from GitHub". What follows is the same procedure by hand, useful for debugging or for
+running against a workspace that GitHub should not have credentials for.
+
+## 0b. One-time setup
 
 ```bash
 pip install databricks-cli build          # Databricks CLI >= 0.218 (bundles)
@@ -38,7 +44,7 @@ least three quarters, or lower `DG_TEST_DAYS` / `DG_VAL_DAYS` for a first pass.
 
 ```bash
 databricks bundle validate
-databricks bundle deploy -t dev
+databricks bundle deploy -t dev                    # "dev" prefixes resource names with [dev <you>]; GitHub deploys "-t live"
 databricks bundle run -t dev driveguard_build      # bronze -> silver -> gold -> train -> 45-day scoring replay -> monitor
 ```
 

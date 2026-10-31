@@ -1,0 +1,64 @@
+# The daily operation, driven from GitHub: run the Databricks daily job (ingest -> features -> score -> monitor ->
+# condition -> retrain), then refresh the console's bundled snapshot from the live workspace and commit it, which
+# also redeploys the console on Render. Skips quietly when the Databricks secrets are not configured.
+name: daily
+
+on:
+  schedule:
+    - cron: "40 2 * * *" # 02:40 UTC = 10:40 MYT
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: databricks
+  cancel-in-progress: false
+
+jobs:
+  daily:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    if: ${{ vars.DATABRICKS_HOST != '' }}
+    env:
+      DATABRICKS_HOST: ${{ vars.DATABRICKS_HOST }}
+      DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
+      DG_CATALOG: workspace
+      DG_SCHEMA: driveguard
+      DG_REPLAY_ANCHOR: ${{ vars.DG_REPLAY_ANCHOR }}
+      MLFLOW_DISABLE_AGENT_HINT: "1"
+      MLFLOW_TRACKING_URI: databricks
+      MLFLOW_REGISTRY_URI: databricks-uc
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - uses: databricks/setup-cli@main
+      - name: Install
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[app]" build
+      - name: Workspace info
+        id: info
+        run: python scripts/databricks_bootstrap.py info
+      - name: Deploy bundle (picks up code changes)
+        run: databricks bundle deploy -t live --var="replay_anchor=${{ vars.DG_REPLAY_ANCHOR }}"
+      - name: Run the daily job
+        run: databricks bundle run -t live driveguard_daily --var="replay_anchor=${{ vars.DG_REPLAY_ANCHOR }}"
+      - name: Export console snapshot
+        env:
+          DATABRICKS_HTTP_PATH: ${{ vars.DATABRICKS_HTTP_PATH || steps.info.outputs.http_path }}
+        run: |
+          if [ -z "$DATABRICKS_HTTP_PATH" ]; then echo "::warning::no SQL warehouse; skipping snapshot"; exit 0; fi
+          python scripts/export_snapshot.py --source databricks --out app_snapshot
+      - name: Commit snapshot
+        run: |
+          git config user.name "wenjun78"
+          git config user.email "151641864+wenjun78@users.noreply.github.com"
+          git add app_snapshot
+          if git diff --cached --quiet; then echo "snapshot unchanged"; exit 0; fi
+          git commit -m "Console snapshot $(date -u +%Y-%m-%d) from the live workspace"
+          git pull --rebase origin main
+          git push origin HEAD:main

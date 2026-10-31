@@ -1,0 +1,106 @@
+# One click from GitHub: download the Backblaze subset, put it in the Databricks Volume, deploy the bundle, run the
+# build job, export the console snapshot from the live workspace and commit it.
+#
+# Needs (Settings -> Secrets and variables -> Actions):
+#   secret  DATABRICKS_TOKEN       personal access token for the workspace
+#   variable DATABRICKS_HOST       https://<workspace>.cloud.databricks.com
+#   variable DATABRICKS_HTTP_PATH  optional; SQL warehouse path. Detected from the workspace when absent.
+#   variable DG_REPLAY_ANCHOR      optional; e.g. 2025-01-01@2026-11-01 (replay clock for the daily job)
+name: databricks-bootstrap
+
+on:
+  workflow_dispatch:
+    inputs:
+      quarters:
+        description: "Backblaze quarters to load (space-separated, e.g. 2024Q3 2024Q4 2025Q1)"
+        default: "2024Q3 2024Q4 2025Q1"
+      serial_frac:
+        description: "Share of drives to keep (whole histories, by serial hash)"
+        default: "0.10"
+      urls:
+        description: "Optional explicit zip URLs (space-separated) if the quarter name guess fails"
+        default: ""
+      skip_download:
+        description: "true = data already in the Volume; only deploy + run"
+        default: "false"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: databricks
+  cancel-in-progress: false
+
+jobs:
+  bootstrap:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    env:
+      DATABRICKS_HOST: ${{ vars.DATABRICKS_HOST }}
+      DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
+      DG_CATALOG: workspace
+      DG_SCHEMA: driveguard
+      MLFLOW_DISABLE_AGENT_HINT: "1"
+      MLFLOW_TRACKING_URI: databricks
+      MLFLOW_REGISTRY_URI: databricks-uc
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check configuration
+        run: |
+          if [ -z "$DATABRICKS_HOST" ] || [ -z "$DATABRICKS_TOKEN" ]; then
+            echo "::error::Set the DATABRICKS_HOST variable and DATABRICKS_TOKEN secret first (Settings -> Secrets and variables -> Actions)."; exit 1; fi
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - uses: databricks/setup-cli@main
+      - name: Install
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[app]" requests build
+
+      - name: Workspace info (warehouse HTTP path)
+        id: info
+        run: python scripts/databricks_bootstrap.py info
+      - name: Ensure schema + raw Volume
+        run: python scripts/databricks_bootstrap.py ensure
+
+      - name: Download Backblaze subset
+        if: ${{ inputs.skip_download != 'true' }}
+        run: |
+          if [ -n "${{ inputs.urls }}" ]; then
+            python scripts/download_backblaze.py --url ${{ inputs.urls }} --serial-frac ${{ inputs.serial_frac }} --out data/raw --cache data/zips
+          else
+            python scripts/download_backblaze.py --quarters ${{ inputs.quarters }} --serial-frac ${{ inputs.serial_frac }} --out data/raw --cache data/zips
+          fi
+          rm -rf data/zips
+          du -sh data/raw && find data/raw -name "*.parquet" | wc -l
+      - name: Upload subset to the Volume
+        if: ${{ inputs.skip_download != 'true' }}
+        run: python scripts/databricks_bootstrap.py upload --src data/raw
+
+      - name: Deploy bundle (live target)
+        run: |
+          databricks bundle validate -t live --var="replay_anchor=${{ vars.DG_REPLAY_ANCHOR }}"
+          databricks bundle deploy   -t live --var="replay_anchor=${{ vars.DG_REPLAY_ANCHOR }}"
+      - name: Run the build job (bronze -> silver -> gold -> train -> 45-day scoring replay -> monitor)
+        run: databricks bundle run -t live driveguard_build --var="replay_anchor=${{ vars.DG_REPLAY_ANCHOR }}"
+
+      - name: Export console snapshot from the workspace
+        env:
+          DATABRICKS_HTTP_PATH: ${{ vars.DATABRICKS_HTTP_PATH || steps.info.outputs.http_path }}
+          DG_REPLAY_ANCHOR: ${{ vars.DG_REPLAY_ANCHOR }}
+        run: |
+          if [ -z "$DATABRICKS_HTTP_PATH" ]; then echo "::warning::no SQL warehouse found; skipping snapshot export"; exit 0; fi
+          python scripts/export_snapshot.py --source databricks --out app_snapshot
+          python scripts/report.py > /tmp/report.md || true
+          cat /tmp/report.md || true
+      - name: Commit snapshot
+        run: |
+          git config user.name "wenjun78"
+          git config user.email "151641864+wenjun78@users.noreply.github.com"
+          git add app_snapshot
+          if git diff --cached --quiet; then echo "snapshot unchanged"; exit 0; fi
+          git commit -m "Console snapshot from the live workspace (bootstrap run)"
+          git pull --rebase origin main
+          git push origin HEAD:main

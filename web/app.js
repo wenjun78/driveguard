@@ -56,7 +56,7 @@
       b.hidden = true;
     } else {
       s.classList.add("snapshot");
-      t.textContent = "demo snapshot";
+      t.textContent = `snapshot · as of ${j.data.as_of || "—"}`;
       b.hidden = false;
       b.textContent = j.data.note || "Serving the bundled snapshot. Point the console at a Databricks workspace to go live.";
       if (j.data.primary === "databricks" && !j.live_ok) b.textContent = `Databricks workspace unreachable (${j.data.last_error || "unknown"}) — showing the bundled snapshot meanwhile.`;

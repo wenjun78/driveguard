@@ -41,9 +41,29 @@ flowchart LR
 Details: [`docs/evaluation.md`](docs/evaluation.md) · [`docs/architecture.md`](docs/architecture.md) ·
 [`docs/data.md`](docs/data.md) · [`docs/databricks.md`](docs/databricks.md) · [`docs/console.md`](docs/console.md)
 
-## Quickstart
+## Run it from GitHub (nothing to install)
 
-**Laptop, synthetic fleet (3 minutes, no download):**
+Everything runs from this repository: tests and the wheel in CI, data loading and the first pipeline run in a
+one-click workflow, daily operation on a schedule, and the console on Render straight from the repo.
+
+1. **Databricks Free Edition** workspace → create a personal access token (Settings → Developer → Access tokens)
+   and a SQL warehouse (SQL Warehouses → Create; the default is fine).
+2. **Repository settings → Secrets and variables → Actions**: secret `DATABRICKS_TOKEN`; variable `DATABRICKS_HOST`
+   (`https://<workspace>.cloud.databricks.com`). Optional variables: `DATABRICKS_HTTP_PATH` (detected if absent),
+   `DG_REPLAY_ANCHOR` (e.g. `2025-01-01@2026-11-01` — the replay clock).
+3. **Actions → `databricks-bootstrap` → Run workflow.** It downloads the Backblaze quarters on the runner, keeps ~10 %
+   of drives with whole histories, uploads them to the Unity Catalog Volume, deploys the bundle, runs the build job
+   (bronze → silver → gold → train → 45-day scoring replay → monitor), exports the console snapshot from the live
+   workspace and commits it. 1–2 hours, mostly download and the first Spark run.
+4. **Render → New Blueprint → this repo** (`render.yaml`). Add the same `DATABRICKS_HOST`, `DATABRICKS_TOKEN`,
+   `DATABRICKS_HTTP_PATH` and `DG_REPLAY_ANCHOR` as environment variables and the console goes live; without them
+   it serves the committed snapshot, which after step 3 is real data too.
+5. The **`daily`** workflow (02:40 UTC) runs the Databricks daily job — one data-day per real day on the replay
+   clock, retrain only when the monitor says so — and refreshes the committed snapshot, which redeploys Render.
+
+## Quickstart on a laptop
+
+**Synthetic fleet (3 minutes, no download):**
 
 ```bash
 pip install -e ".[local,dev]"
@@ -54,7 +74,7 @@ pytest -q               # 27 tests incl. an end-to-end run and the console API
 uvicorn driveguard.app.server:app   # the console on http://localhost:8000 (demo snapshot until Databricks is configured)
 ```
 
-**Laptop or Databricks, real data:**
+**Real data, by hand (the workflows do exactly this):**
 
 ```bash
 # whole drive histories for ~10 % of the fleet, three quarters, the SMART columns the pipeline uses
@@ -108,7 +128,7 @@ scripts/               download_backblaze.py (subset by serial hash) · make_fix
 render.yaml, Dockerfile  deploy the console (Render free tier, or any container host)
 tests/                 label semantics, censoring, time safety, schema drift, splits, budgeted metrics, PSI, end-to-end
 docs/                  evaluation protocol, architecture, data notes, Databricks guide
-.github/workflows/     lint, tests on local Spark, wheel build, optional bundle deploy
+.github/workflows/     ci (lint, tests on local Spark, wheel, bundle deploy) · databricks-bootstrap (data -> Volume -> deploy -> build run -> snapshot) · daily (job run + snapshot refresh)
 ```
 
 ## Limitations, stated plainly

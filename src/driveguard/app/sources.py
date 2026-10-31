@@ -468,8 +468,10 @@ class DatabricksSource:
     def pipeline(self) -> dict:
         w = self._ws()
         jobs_out = []
+        all_jobs = [j for j in w.jobs.list() if j.settings and j.settings.name]
         for job_name in (self.daily_job_name, self.build_job_name):
-            for job in w.jobs.list(name=job_name):
+            # bundle targets in development mode prefix names with "[dev user]"; match on the suffix
+            for job in [j for j in all_jobs if j.settings.name == job_name or j.settings.name.endswith(job_name)]:
                 runs = []
                 for r in w.jobs.list_runs(job_id=job.job_id, limit=8):
                     st = r.state
@@ -516,9 +518,10 @@ class DatabricksSource:
 
     def run_daily_job(self) -> dict:
         w = self._ws()
-        for job in w.jobs.list(name=self.daily_job_name):
-            run = w.jobs.run_now(job_id=job.job_id)
-            return {"job_id": job.job_id, "run_id": run.run_id}
+        for job in w.jobs.list():
+            if job.settings and job.settings.name and job.settings.name.endswith(self.daily_job_name):
+                run = w.jobs.run_now(job_id=job.job_id)
+                return {"job_id": job.job_id, "run_id": run.run_id}
         raise RuntimeError(f"job {self.daily_job_name!r} not found")
 
     def feature_names(self) -> list[str]:

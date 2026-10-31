@@ -39,10 +39,10 @@ include:
 
 targets:
   dev:
-    mode: development
+    mode: development # resources get a "[dev <user>]" prefix; good for hand-editing in the workspace
     default: true
     # host comes from the CLI profile: `databricks configure` or DATABRICKS_HOST / DATABRICKS_TOKEN
-  prod:
-    mode: production
+  live:
+    # what GitHub Actions deploys: plain resource names (the console looks jobs up by name), no dev prefixes
     variables:
       schema: driveguard
