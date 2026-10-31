@@ -1,0 +1,50 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "driveguard"
+version = "0.1.0"
+description = "DriveGuard - predictive storage failure intelligence on Backblaze SMART telemetry (PySpark, MLflow, XGBoost, Databricks)"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "wjun78" }]
+dependencies = [
+  "pandas>=2.0",
+  "numpy>=1.24",
+  "pyarrow>=12",
+  "scikit-learn>=1.3",
+  "xgboost>=2.0",
+  "mlflow-skinny>=2.12",
+  "pyyaml>=6",
+]
+
+[project.optional-dependencies]
+# Local development and CI. On Databricks, Spark and Delta are provided by the runtime.
+local = ["pyspark>=3.5,<5", "duckdb>=1.0", "requests>=2.31", "sqlalchemy>=2", "alembic>=1.12"]
+dev = ["pytest>=8", "ruff>=0.5", "build>=1.2"]
+
+[project.scripts]
+driveguard = "driveguard.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+src = ["src", "tests", "scripts"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "W"]
+ignore = ["E501"]
+
+[tool.ruff.lint.per-file-ignores]
+# Databricks notebooks: `spark`, `dbutils` and `display` are injected by the runtime
+"notebooks/*.py" = ["F821", "E402"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q -p no:cacheprovider"
+filterwarnings = ["ignore::DeprecationWarning", "ignore::FutureWarning"]

@@ -1,0 +1,45 @@
+# Databricks Asset Bundle for DriveGuard.
+#
+#   databricks bundle validate
+#   databricks bundle deploy  -t dev
+#   databricks bundle run     -t dev driveguard_build     # one-off: bronze -> silver -> gold -> train -> backfill scores
+#   databricks bundle run     -t dev driveguard_daily     # what the schedule runs: ingest -> features -> score -> monitor -> (retrain)
+#
+# Works on Databricks Free Edition: every task runs on serverless compute with the project wheel installed into the
+# task environment. Free Edition caps concurrent job tasks (5) and allows one SQL warehouse, which this bundle
+# respects - the daily job is a straight line of tasks.
+
+bundle:
+  name: driveguard
+
+variables:
+  catalog:
+    description: Unity Catalog catalog (Free Edition default is `workspace`)
+    default: workspace
+  schema:
+    description: Schema that holds every DriveGuard table
+    default: driveguard
+  raw_path:
+    description: Volume folder with the Backblaze daily CSVs or the Parquet subset from scripts/download_backblaze.py
+    default: /Volumes/workspace/driveguard/raw
+  experiment:
+    default: /Shared/driveguard
+
+artifacts:
+  driveguard_wheel:
+    type: whl
+    build: python -m build --wheel
+    path: .
+
+include:
+  - resources/*.yml
+
+targets:
+  dev:
+    mode: development
+    default: true
+    # host comes from the CLI profile: `databricks configure` or DATABRICKS_HOST / DATABRICKS_TOKEN
+  prod:
+    mode: production
+    variables:
+      schema: driveguard

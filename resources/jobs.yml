@@ -1,0 +1,119 @@
+resources:
+  jobs:
+    # -------------------------------------------------------------------------------------------------------
+    # One-off build: land the subset, build features, train the first champion, replay scoring so that
+    # monitoring has matured snapshots from day one.
+    # -------------------------------------------------------------------------------------------------------
+    driveguard_build:
+      name: "driveguard - build"
+      max_concurrent_runs: 1
+      environments:
+        - environment_key: default
+          spec:
+            client: "2"
+            dependencies:
+              - ../dist/*.whl
+      parameters:
+        - name: catalog
+          default: ${var.catalog}
+        - name: schema
+          default: ${var.schema}
+        - name: raw_path
+          default: ${var.raw_path}
+        - name: experiment
+          default: ${var.experiment}
+      tasks:
+        - task_key: bronze
+          environment_key: default
+          notebook_task:
+            notebook_path: ../notebooks/01_bronze.py
+        - task_key: silver
+          depends_on: [{ task_key: bronze }]
+          environment_key: default
+          notebook_task:
+            notebook_path: ../notebooks/02_silver.py
+        - task_key: gold
+          depends_on: [{ task_key: silver }]
+          environment_key: default
+          notebook_task:
+            notebook_path: ../notebooks/03_gold.py
+        - task_key: train
+          depends_on: [{ task_key: gold }]
+          environment_key: default
+          notebook_task:
+            notebook_path: ../notebooks/04_train.py
+        - task_key: backfill_scores
+          depends_on: [{ task_key: train }]
+          environment_key: default
+          notebook_task:
+            notebook_path: ../notebooks/05_score.py
+            base_parameters:
+              backfill_days: "45"
+        - task_key: monitor
+          depends_on: [{ task_key: backfill_scores }]
+          environment_key: default
+          notebook_task:
+            notebook_path: ../notebooks/06_monitor.py
+
+    # -------------------------------------------------------------------------------------------------------
+    # Daily operations: new files -> features -> rank the fleet -> monitor -> retrain only when the monitor says so.
+    # -------------------------------------------------------------------------------------------------------
+    driveguard_daily:
+      name: "driveguard - daily"
+      max_concurrent_runs: 1
+      schedule:
+        quartz_cron_expression: "0 0 2 * * ?"
+        timezone_id: UTC
+        pause_status: PAUSED # unpause once the Volume receives files on a cadence
+      environments:
+        - environment_key: default
+          spec:
+            client: "2"
+            dependencies:
+              - ../dist/*.whl
+      parameters:
+        - name: catalog
+          default: ${var.catalog}
+        - name: schema
+          default: ${var.schema}
+        - name: raw_path
+          default: ${var.raw_path}
+        - name: experiment
+          default: ${var.experiment}
+      tasks:
+        - task_key: bronze
+          environment_key: default
+          notebook_task:
+            notebook_path: ../notebooks/01_bronze.py
+        - task_key: silver
+          depends_on: [{ task_key: bronze }]
+          environment_key: default
+          notebook_task:
+            notebook_path: ../notebooks/02_silver.py
+        - task_key: gold
+          depends_on: [{ task_key: silver }]
+          environment_key: default
+          notebook_task:
+            notebook_path: ../notebooks/03_gold.py
+        - task_key: score
+          depends_on: [{ task_key: gold }]
+          environment_key: default
+          notebook_task:
+            notebook_path: ../notebooks/05_score.py
+        - task_key: monitor
+          depends_on: [{ task_key: score }]
+          environment_key: default
+          notebook_task:
+            notebook_path: ../notebooks/06_monitor.py
+        - task_key: should_retrain
+          depends_on: [{ task_key: monitor }]
+          condition_task:
+            op: EQUAL_TO
+            left: "{{tasks.monitor.values.retrain_recommended}}"
+            right: "true"
+        - task_key: retrain
+          depends_on: [{ task_key: should_retrain, outcome: "true" }]
+          environment_key: default
+          notebook_task:
+            notebook_path: ../notebooks/04_train.py
+      email_notifications: {}
