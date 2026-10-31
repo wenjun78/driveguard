@@ -46,6 +46,15 @@ def _d(v) -> str | None:
     return str(v)[:10]
 
 
+def _list(v) -> list:
+    """ARRAY columns arrive as Python lists locally but as numpy arrays from the Databricks SQL connector."""
+    if v is None:
+        return []
+    if hasattr(v, "tolist"):
+        return [str(x) for x in v.tolist()]
+    return [str(x) for x in v]
+
+
 def _f(v) -> float | None:
     try:
         if v is None or (isinstance(v, float) and v != v):
@@ -364,7 +373,7 @@ class DatabricksSource:
                     "model": r["model"],
                     "capacity_tb": _f(r["capacity_tb"]),
                     "score": _f(r["score"]),
-                    "reason_codes": list(r["reason_codes"] or []),
+                    "reason_codes": _list(r["reason_codes"]),
                     "outcome": Outcome(
                         None if label is None else int(label), _f(r["days_to_failure"]) if matured else None
                     ).text,
