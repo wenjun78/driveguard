@@ -16,6 +16,7 @@ def client():
     for k in ("DATABRICKS_HOST", "DATABRICKS_TOKEN", "DATABRICKS_HTTP_PATH"):
         os.environ.pop(k, None)
     os.environ["DG_APP_ROOT"] = ROOT
+    os.environ["DG_APP_SNAPSHOT_URL"] = ""  # bundled snapshot only; no network in tests
     from fastapi.testclient import TestClient
 
     from driveguard.app import server

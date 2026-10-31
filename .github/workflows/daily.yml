@@ -64,13 +64,15 @@ jobs:
         run: |
           if [ -z "$DATABRICKS_HTTP_PATH" ]; then echo "::warning::no SQL warehouse; skipping snapshot"; exit 0; fi
           python scripts/export_snapshot.py --source databricks --out app_snapshot
-      - name: Commit snapshot
+      - name: Publish snapshot branch (single commit, force-pushed; the console fetches it)
         if: steps.cfg.outputs.configured == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          git config user.name "wenjun78"
-          git config user.email "151641864+wenjun78@users.noreply.github.com"
-          git add app_snapshot
-          if git diff --cached --quiet; then echo "snapshot unchanged"; exit 0; fi
-          git commit -m "Console snapshot $(date -u +%Y-%m-%d) from the live workspace"
-          git pull --rebase origin main
-          git push origin HEAD:main
+          set -e
+          test -f app_snapshot/overview.json
+          d=$(mktemp -d); cp -r app_snapshot "$d/"; cd "$d"
+          git init -q -b snapshot
+          git config user.name "wenjun78"; git config user.email "151641864+wenjun78@users.noreply.github.com"
+          git add app_snapshot && git commit -qm "Console snapshot $(date -u +%Y-%m-%dT%H:%MZ) from the live workspace"
+          git push -f "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD:snapshot

@@ -52,6 +52,45 @@ ROOT = _find_root()
 WEB_DIR = os.environ.get("DG_APP_WEB_DIR", os.path.join(ROOT, "web"))
 SNAPSHOT_DIR = os.environ.get("DG_APP_SNAPSHOT_DIR", os.path.join(ROOT, "app_snapshot"))
 TTL = int(os.environ.get("DG_APP_CACHE_TTL", "600"))
+# The daily workflow force-pushes a fresh snapshot to the `snapshot` branch (single commit, so the repo never grows);
+# the console pulls it at start-up and every few hours. Empty string disables; the bundled app_snapshot/ is the floor.
+SNAPSHOT_URL = os.environ.get(
+    "DG_APP_SNAPSHOT_URL", "https://raw.githubusercontent.com/wenjun78/driveguard/snapshot/app_snapshot"
+)
+SNAPSHOT_FILES = [
+    "meta.json",
+    "overview.json",
+    "alerts.json",
+    "drives.json",
+    "monitoring.json",
+    "model.json",
+    "pipeline.json",
+    "model_dir/booster.ubj",
+    "model_dir/feature_spec.json",
+]
+
+
+def fetch_remote_snapshot(url: str, dest: str, timeout: int = 30) -> bool:
+    """Download the published snapshot into ``dest``; True on success (all files), False otherwise."""
+    import shutil
+    import tempfile
+    import urllib.request
+
+    url = url.rstrip("/")
+    tmp = tempfile.mkdtemp(prefix="dg-snapshot-")
+    try:
+        for name in SNAPSHOT_FILES:
+            target = os.path.join(tmp, name)
+            os.makedirs(os.path.dirname(target), exist_ok=True)
+            with urllib.request.urlopen(f"{url}/{name}", timeout=timeout) as r, open(target, "wb") as fh:
+                shutil.copyfileobj(r, fh)
+        shutil.rmtree(dest, ignore_errors=True)
+        shutil.move(tmp, dest)
+        return True
+    except Exception as exc:
+        log.info("remote snapshot unavailable (%s): %s", url, str(exc)[:120])
+        shutil.rmtree(tmp, ignore_errors=True)
+        return False
 
 
 class Cache:
@@ -105,9 +144,19 @@ class Cache:
             self._v.clear()
 
 
+def _snapshot_source() -> SnapshotSource | None:
+    """Prefer the published snapshot (real, recent); fall back to the one bundled in the repo."""
+    if SNAPSHOT_URL:
+        remote_dir = os.path.join(os.environ.get("TMPDIR", "/tmp"), "driveguard_snapshot")
+        if fetch_remote_snapshot(SNAPSHOT_URL, remote_dir):
+            log.info("using published snapshot from %s", SNAPSHOT_URL)
+            return SnapshotSource(remote_dir)
+    return SnapshotSource(SNAPSHOT_DIR) if os.path.isdir(SNAPSHOT_DIR) else None
+
+
 def build_sources() -> tuple[Any, Any | None]:
     """(primary, fallback). Primary is Databricks when configured, else the snapshot."""
-    snapshot = SnapshotSource(SNAPSHOT_DIR) if os.path.isdir(SNAPSHOT_DIR) else None
+    snapshot = _snapshot_source()
     host, token, http_path = (
         os.environ.get("DATABRICKS_HOST"),
         os.environ.get("DATABRICKS_TOKEN"),
@@ -329,6 +378,26 @@ def _warm():
             log.warning("warm-up %s failed: %s", name, exc)
 
 
+def _refresh_snapshot_loop():
+    """Every 6 h, pick up the latest published snapshot without a redeploy."""
+    global FALLBACK, PRIMARY
+    while True:
+        time.sleep(6 * 3600)
+        try:
+            fresh = _snapshot_source()
+            if fresh is None:
+                continue
+            if PRIMARY.kind == "databricks":
+                FALLBACK = fresh
+            else:
+                PRIMARY = fresh
+            cache.clear()
+        except Exception as exc:
+            log.warning("snapshot refresh failed: %s", exc)
+
+
 @app.on_event("startup")
 def _startup():
     threading.Thread(target=_warm, daemon=True).start()
+    if SNAPSHOT_URL:
+        threading.Thread(target=_refresh_snapshot_loop, daemon=True).start()

@@ -96,7 +96,18 @@ jobs:
           python scripts/export_snapshot.py --source databricks --out app_snapshot
           python scripts/report.py > /tmp/report.md || true
           cat /tmp/report.md || true
-      - name: Commit snapshot
+      - name: Publish snapshot branch (what the console fetches daily)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -e
+          if [ ! -f app_snapshot/overview.json ]; then echo "no snapshot"; exit 0; fi
+          d=$(mktemp -d); cp -r app_snapshot "$d/"; cd "$d"
+          git init -q -b snapshot
+          git config user.name "wenjun78"; git config user.email "151641864+wenjun78@users.noreply.github.com"
+          git add app_snapshot && git commit -qm "Console snapshot $(date -u +%Y-%m-%dT%H:%MZ) from the live workspace"
+          git push -f "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD:snapshot
+      - name: Commit the first real snapshot to main (replaces the synthetic demo bundle)
         run: |
           git config user.name "wenjun78"
           git config user.email "151641864+wenjun78@users.noreply.github.com"

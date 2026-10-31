@@ -11,7 +11,7 @@ data sources with one interface:
 | source | when | what it talks to |
 |---|---|---|
 | **Databricks (live)** | `DATABRICKS_HOST`, `DATABRICKS_TOKEN`, `DATABRICKS_HTTP_PATH` set | Unity Catalog tables through the SQL warehouse (`databricks-sql-connector`), the registered model through MLflow (`databricks-uc`), job runs through the Jobs API, the champion through Model Serving (falls back to a local copy of the same version for reason codes and when the endpoint is asleep) |
-| **Snapshot (demo)** | credentials absent, or the workspace fails | JSON exported by `scripts/export_snapshot.py` from a local run, with the champion's model files - the same shapes, produced by the same query code (`app/local_source.py` swaps the SQL engine for DuckDB) |
+| **Snapshot** | credentials absent, or the workspace fails | JSON exported by `scripts/export_snapshot.py` with the champion's model files - the same shapes, produced by the same query code. The daily workflow exports it from the live workspace and force-pushes it to the single-commit `snapshot` branch; the console fetches that at start-up and every 6 h (`DG_APP_SNAPSHOT_URL`), falling back to the `app_snapshot/` bundled in the repo. (`app/local_source.py` produces the same files from a local run through DuckDB.) |
 
 Every response carries `source` and the UI shows a status pill (live / demo snapshot) and a banner when it is
 degraded, so a visitor is never shown snapshot numbers as if they were live.
