@@ -10,7 +10,7 @@ resources:
       environments:
         - environment_key: default
           spec:
-            client: "2"
+            client: "3" # serverless environment version 3: Python 3.12, numpy 2, pandas 2
             dependencies:
               - ../dist/*.whl
       parameters:
@@ -70,7 +70,7 @@ resources:
       environments:
         - environment_key: default
           spec:
-            client: "2"
+            client: "3" # serverless environment version 3: Python 3.12, numpy 2, pandas 2
             dependencies:
               - ../dist/*.whl
       parameters:
