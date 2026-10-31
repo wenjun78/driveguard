@@ -84,11 +84,13 @@ class Outcome:
 
     label: int | None
     days_to_failure: float | None
+    matured: bool = False
 
     @property
     def text(self) -> str:
         if self.label is None:
-            return "pending"
+            # after the horizon has elapsed a missing label means the drive left the fleet without failing (censored)
+            return "censored" if self.matured else "pending"
         return "failed" if self.label == 1 else "healthy"
 
 
@@ -389,7 +391,7 @@ class DatabricksSource:
                     "score": _f(r["score"]),
                     "reason_codes": _list(r["reason_codes"]),
                     "outcome": Outcome(
-                        None if label is None else int(label), _f(r["days_to_failure"]) if matured else None
+                        None if label is None else int(label), _f(r["days_to_failure"]) if matured else None, matured
                     ).text,
                     "days_to_failure": _f(r["days_to_failure"]) if matured and r["label"] == 1 else None,
                 }

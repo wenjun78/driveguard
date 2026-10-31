@@ -44,7 +44,9 @@ def test_alerts_and_hindsight(client):
     assert latest["matured"] is False and all(r["outcome"] == "pending" for r in latest["rows"])
     first = latest["dates"][0]
     old = client.get(f"/api/alerts?date={first}").json()["data"]
-    assert old["matured"] is True and {r["outcome"] for r in old["rows"]} <= {"failed", "healthy"}
+    outcomes = {r["outcome"] for r in old["rows"]}
+    # "censored" = left the fleet before the horizon elapsed; older snapshots exported before that label existed say "pending"
+    assert old["matured"] is True and outcomes <= {"failed", "healthy", "censored", "pending"} and "failed" in outcomes
     assert any(r["days_to_failure"] is not None for r in old["rows"] if r["outcome"] == "failed")
     assert client.get("/api/alerts?date=2020-13-01").status_code == 422
 
