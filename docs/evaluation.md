@@ -100,10 +100,12 @@ a calendar.
 
 ## Replay and retraining
 
-On the replay clock (`DG_REPLAY_ANCHOR`) "now" is a cursor inside the historical data. Scoring and monitoring only
-look at days up to the cursor, and a retrain triggered by the monitor trains only on rows whose 30-day label window
-closed before the cursor (`date <= now − horizon`). Nothing after the cursor is visible to any stage, so the replay
-is a genuine forward simulation, not a replay of answers the model has seen.
+On the replay clock (`DG_REPLAY_ANCHOR`) "now" is a cursor inside the historical data. **Bronze lands only files dated
+up to the cursor** - later quarters can sit in the Volume and each daily run ingests exactly one more day, like a
+live feed - so silver, gold, scoring, monitoring and any retrain can only ever see the past. (If a cursor is set on
+tables that already contain later days, a retrain additionally cuts at `now − horizon`; the clean way is to reset
+the tables and rebuild, which the bootstrap workflow's `reset_tables` input does.) The replay is a genuine forward
+simulation, not a replay of answers the model has seen.
 
 ## What the synthetic dry run can and cannot show
 

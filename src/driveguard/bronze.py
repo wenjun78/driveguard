@@ -13,12 +13,13 @@ from __future__ import annotations
 import glob
 import os
 import re
-from datetime import datetime, timezone
+from datetime import date, datetime, timezone
 
 from pyspark.sql import DataFrame, SparkSession
 from pyspark.sql import functions as F
 from pyspark.sql import types as T
 
+from driveguard import replay
 from driveguard.config import TABLES, Settings
 from driveguard.spark import TableStore
 
@@ -27,10 +28,29 @@ CONTEXT_COLUMNS = ("datacenter", "cluster_id", "vault_id", "pod_id", "pod_slot_n
 _SMART = re.compile(r"^smart_(\d+)_(raw|normalized)$")
 
 
-def discover_files(raw_path: str) -> dict[str, list[str]]:
-    """Return {"csv": [...], "parquet": [...]} found under ``raw_path`` (recursively), sorted."""
+_FILE_DATE = re.compile(r"(\d{4}-\d{2}-\d{2})")
+
+
+def file_date(path: str) -> date | None:
+    """Backblaze names daily files YYYY-MM-DD.csv (and the subset keeps that), so the day is in the file name."""
+    m = _FILE_DATE.search(os.path.basename(path))
+    try:
+        return date.fromisoformat(m.group(1)) if m else None
+    except ValueError:
+        return None
+
+
+def discover_files(raw_path: str, up_to: date | None = None) -> dict[str, list[str]]:
+    """Return {"csv": [...], "parquet": [...]} found under ``raw_path`` (recursively), sorted.
+
+    With ``up_to`` (the replay cursor), files dated after it are held back: they stay in the Volume and are landed
+    one day at a time as the cursor advances - the daily job then ingests exactly one new day, like a live feed.
+    """
     csvs = sorted(glob.glob(os.path.join(raw_path, "**", "*.csv"), recursive=True))
     parquet = sorted(glob.glob(os.path.join(raw_path, "**", "*.parquet"), recursive=True))
+    if up_to is not None:
+        csvs = [p for p in csvs if (file_date(p) or up_to) <= up_to]
+        parquet = [p for p in parquet if (file_date(p) or up_to) <= up_to]
     return {"csv": csvs, "parquet": parquet}
 
 
@@ -98,7 +118,7 @@ def run(spark: SparkSession, settings: Settings, raw_path: str | None = None) ->
     store = TableStore(spark, settings)
     store.ensure_schema()
     raw_path = raw_path or settings.raw_path
-    found = discover_files(raw_path)
+    found = discover_files(raw_path, up_to=replay.cursor())
     done = already_ingested(store)
     # Spark reports file names as URIs (file:///...); normalise both sides to absolute paths for the comparison.
     done_abs = {os.path.abspath(p.replace("file:", "")) for p in done}

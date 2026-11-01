@@ -85,3 +85,21 @@ def test_silver_rules(spark, settings):
     lc = store.read(TABLES["lifecycle"]).toPandas().set_index("serial_number")
     assert lc.loc["S2", "failed"] == 1 and str(lc.loc["S2", "failure_date"]) == "2024-01-02"
     assert lc.loc["S1", "failed"] == 0 and lc.loc["S1", "n_days_observed"] == 3
+
+
+def test_bronze_holds_back_files_after_the_replay_cursor(spark, settings, monkeypatch):
+    raw = settings.raw_path
+    for d in ("2024-01-01", "2024-01-02", "2024-01-03"):
+        _write(f"{raw}/data_Q1_2024/{d}.csv", EARLY, [f"{d},S1,M,1000,0,100,0,10"])
+    monkeypatch.setenv("DG_REPLAY_ANCHOR", "2024-01-02@2030-01-01")  # far-future real date -> cursor stays before 2024-01-02
+    from datetime import date
+
+    from driveguard import replay
+
+    assert replay.cursor(today=date(2030, 1, 1)) == date(2024, 1, 2)
+    monkeypatch.setattr(replay, "cursor", lambda today=None, anchor=None: date(2024, 1, 2))
+    assert bronze.run(spark, settings) == 2  # the 3rd day waits in the Volume
+    store = TableStore(spark, settings)
+    assert store.read(TABLES["bronze"]).count() == 2
+    monkeypatch.setattr(replay, "cursor", lambda today=None, anchor=None: date(2024, 1, 3))
+    assert bronze.run(spark, settings) == 1  # the cursor advanced: exactly one new day lands

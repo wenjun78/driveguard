@@ -58,8 +58,9 @@ one-click workflow, daily operation on a schedule, and the console on Render str
 4. **Render → New Blueprint → this repo** (`render.yaml`). Add the same `DATABRICKS_HOST`, `DATABRICKS_TOKEN`,
    `DATABRICKS_HTTP_PATH` and `DG_REPLAY_ANCHOR` as environment variables and the console goes live; without them
    it serves the committed snapshot, which after step 3 is real data too.
-5. The **`daily`** workflow (02:40 UTC) runs the Databricks daily job — one data-day per real day on the replay
-   clock, retrain only when the monitor says so — and publishes a fresh console snapshot.
+5. The **`daily`** workflow (02:40 UTC) runs the Databricks daily job — with `DG_REPLAY_ANCHOR` set, bronze lands
+   exactly one more historical day per real day (later days wait in the Volume), scoring and monitoring follow, and
+   retraining happens only when the monitor says so — then publishes a fresh console snapshot.
 6. The **`fetch-quarters`** workflow (Mondays) looks for Backblaze quarters newer than the Volume holds, downloads
    and uploads them; the next daily run ingests them, so the fleet keeps moving as Backblaze publishes.
 

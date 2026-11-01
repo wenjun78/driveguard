@@ -5,6 +5,7 @@ needed for the setup itself).
     python scripts/databricks_bootstrap.py info                       # workspace, warehouses (prints the HTTP path)
     python scripts/databricks_bootstrap.py ensure                     # catalog schema + raw Volume exist
     python scripts/databricks_bootstrap.py upload --src data/raw      # copy new files into the Volume (skips existing)
+    python scripts/databricks_bootstrap.py reset                      # drop the tables; next build re-ingests from the Volume
 
 Auth: DATABRICKS_HOST + DATABRICKS_TOKEN (or a CLI profile). Catalog/schema from DG_CATALOG / DG_SCHEMA.
 """
@@ -102,16 +103,29 @@ def upload(w: WorkspaceClient, args) -> None:
     print(f"uploaded {n} files, skipped {skipped} already present, raw_path={root}")
 
 
+def reset(w: WorkspaceClient, args) -> None:
+    """Drop every DriveGuard table so the next build re-ingests from the Volume (e.g. to start a day-by-day replay)."""
+    from driveguard.config import TABLES
+
+    for name in TABLES.values():
+        full = f"{args.catalog}.{args.schema}.{name}"
+        try:
+            w.tables.delete(full)
+            print(f"dropped {full}")
+        except Exception as exc:
+            print(f"skip {full}: {str(exc)[:80]}")
+
+
 def main() -> None:
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    p.add_argument("cmd", choices=["info", "ensure", "upload"])
+    p.add_argument("cmd", choices=["info", "ensure", "upload", "reset"])
     p.add_argument("--catalog", default=os.environ.get("DG_CATALOG", "workspace"))
     p.add_argument("--schema", default=os.environ.get("DG_SCHEMA", "driveguard"))
     p.add_argument("--volume", default="raw")
     p.add_argument("--src", default="data/raw")
     a = p.parse_args()
     w = client()
-    {"info": info, "ensure": ensure, "upload": upload}[a.cmd](w, a)
+    {"info": info, "ensure": ensure, "upload": upload, "reset": reset}[a.cmd](w, a)
 
 
 if __name__ == "__main__":

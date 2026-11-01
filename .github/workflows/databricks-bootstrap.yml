@@ -23,6 +23,9 @@ on:
       skip_download:
         description: "true = data already in the Volume; only deploy + run"
         default: "false"
+      reset_tables:
+        description: "true = drop the DriveGuard tables first so the build re-ingests from the Volume (needed when switching to a day-by-day replay)"
+        default: "false"
 
 permissions:
   contents: write
@@ -79,6 +82,10 @@ jobs:
       - name: Upload subset to the Volume
         if: ${{ inputs.skip_download != 'true' }}
         run: python scripts/databricks_bootstrap.py upload --src data/raw
+
+      - name: Reset tables
+        if: ${{ inputs.reset_tables == 'true' }}
+        run: python scripts/databricks_bootstrap.py reset
 
       - name: Deploy bundle (live target)
         run: |
