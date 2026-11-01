@@ -59,7 +59,9 @@ one-click workflow, daily operation on a schedule, and the console on Render str
    `DATABRICKS_HTTP_PATH` and `DG_REPLAY_ANCHOR` as environment variables and the console goes live; without them
    it serves the committed snapshot, which after step 3 is real data too.
 5. The **`daily`** workflow (02:40 UTC) runs the Databricks daily job — one data-day per real day on the replay
-   clock, retrain only when the monitor says so — and refreshes the committed snapshot, which redeploys Render.
+   clock, retrain only when the monitor says so — and publishes a fresh console snapshot.
+6. The **`fetch-quarters`** workflow (Mondays) looks for Backblaze quarters newer than the Volume holds, downloads
+   and uploads them; the next daily run ingests them, so the fleet keeps moving as Backblaze publishes.
 
 ## Quickstart on a laptop
 
@@ -150,7 +152,7 @@ scripts/               download_backblaze.py (subset by serial hash) · make_fix
 render.yaml, Dockerfile  deploy the console (Render free tier, or any container host)
 tests/                 label semantics, censoring, time safety, schema drift, splits, budgeted metrics, PSI, end-to-end
 docs/                  evaluation protocol, architecture, data notes, Databricks guide
-.github/workflows/     ci (lint, tests on local Spark, wheel, bundle deploy) · databricks-bootstrap (data -> Volume -> deploy -> build run -> snapshot) · daily (job run + snapshot refresh)
+.github/workflows/     ci (lint, tests, wheel, bundle deploy) · databricks-bootstrap (data -> Volume -> deploy -> build run -> snapshot) · daily (job run + snapshot) · fetch-quarters (new Backblaze data)
 ```
 
 ## Limitations, stated plainly

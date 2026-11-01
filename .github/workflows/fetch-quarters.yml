@@ -1,0 +1,64 @@
+# Keeps the fleet moving: every week, look for Backblaze quarters newer than what the Volume holds, download and
+# upload them (same serial hash, so the same drives' histories extend). The next daily run ingests them; the replay
+# cursor then keeps advancing instead of parking at the end of the data.
+name: fetch-quarters
+
+on:
+  schedule:
+    - cron: "15 3 * * 1" # Mondays 03:15 UTC
+  workflow_dispatch:
+    inputs:
+      serial_frac:
+        description: "Share of drives to keep (must match the original load)"
+        default: "0.10"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: databricks
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    env:
+      DATABRICKS_HOST: ${{ vars.DATABRICKS_HOST || secrets.DATABRICKS_HOST }}
+      DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
+      DG_CATALOG: workspace
+      DG_SCHEMA: driveguard
+    steps:
+      - name: Skip when Databricks is not configured
+        id: cfg
+        run: |
+          if [ -z "$DATABRICKS_HOST" ] || [ -z "$DATABRICKS_TOKEN" ]; then echo "configured=false" >> "$GITHUB_OUTPUT"; echo "Databricks not configured; nothing to do."; else echo "configured=true" >> "$GITHUB_OUTPUT"; fi
+      - uses: actions/checkout@v5
+        if: steps.cfg.outputs.configured == 'true'
+      - uses: actions/setup-python@v6
+        if: steps.cfg.outputs.configured == 'true'
+        with:
+          python-version: "3.11"
+          cache: pip
+      - name: Install
+        if: steps.cfg.outputs.configured == 'true'
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[app]" requests
+      - name: Which quarters are missing?
+        if: steps.cfg.outputs.configured == 'true'
+        id: q
+        run: |
+          q=$(python scripts/next_quarters.py)
+          echo "quarters=$q" >> "$GITHUB_OUTPUT"
+          echo "candidate quarters: ${q:-none}"
+      - name: Download new quarters (skips ones Backblaze has not published yet)
+        if: steps.cfg.outputs.configured == 'true' && steps.q.outputs.quarters != ''
+        run: |
+          python scripts/download_backblaze.py --quarters ${{ steps.q.outputs.quarters }} --serial-frac ${{ inputs.serial_frac || '0.10' }} --out data/raw --cache data/zips --skip-missing
+          rm -rf data/zips
+          find data/raw -name "*.parquet" | wc -l
+      - name: Upload to the Volume
+        if: steps.cfg.outputs.configured == 'true' && steps.q.outputs.quarters != ''
+        run: |
+          if [ -d data/raw ]; then python scripts/databricks_bootstrap.py upload --src data/raw; else echo "nothing downloaded"; fi

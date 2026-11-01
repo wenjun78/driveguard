@@ -110,6 +110,9 @@ def main() -> None:
     )
     p.add_argument("--start", default=None, help="first day to keep, YYYY-MM-DD")
     p.add_argument("--end", default=None, help="last day to keep, YYYY-MM-DD")
+    p.add_argument(
+        "--skip-missing", action="store_true", help="quarters not published yet are skipped instead of failing"
+    )
     a = p.parse_args()
     os.makedirs(a.cache, exist_ok=True)
 
@@ -125,10 +128,16 @@ def main() -> None:
             except FileNotFoundError as exc:
                 last_err = exc
         else:
+            if a.skip_missing:
+                print(f"{q}: not published yet ({last_err})", file=sys.stderr)
+                continue
             raise SystemExit(
                 f"could not find a zip for {q}: {last_err}. Pass --url with the exact link from the Backblaze page."
             )
     if not zips:
+        if a.skip_missing:
+            print("no new quarters available")
+            return
         raise SystemExit("nothing to do: give --quarters, --url or --zip")
     for zp in zips:
         print(f"== {zp}", file=sys.stderr)
