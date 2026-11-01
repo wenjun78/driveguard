@@ -45,19 +45,29 @@ jobs:
   # Data loading and the first run are the databricks-bootstrap workflow; daily operation is the daily workflow.
   deploy:
     needs: test
-    if: github.ref == 'refs/heads/main' && (vars.DATABRICKS_HOST != '' || secrets.DATABRICKS_HOST != '')
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
+    env:
+      DATABRICKS_HOST: ${{ vars.DATABRICKS_HOST || secrets.DATABRICKS_HOST }}
+      DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
     steps:
+      # `secrets` cannot be used in a job-level `if`, so the check happens here and later steps key off it
+      - name: Skip when Databricks is not configured
+        id: cfg
+        run: |
+          if [ -z "$DATABRICKS_HOST" ] || [ -z "$DATABRICKS_TOKEN" ]; then echo "configured=false" >> "$GITHUB_OUTPUT"; echo "Databricks not configured; skipping deploy."; else echo "configured=true" >> "$GITHUB_OUTPUT"; fi
       - uses: actions/checkout@v5
+        if: steps.cfg.outputs.configured == 'true'
       - uses: actions/setup-python@v6
+        if: steps.cfg.outputs.configured == 'true'
         with:
           python-version: "3.11"
       - run: pip install build
+        if: steps.cfg.outputs.configured == 'true'
       - uses: databricks/setup-cli@main
-      - name: Deploy bundle (dev target)
-        env:
-          DATABRICKS_HOST: ${{ vars.DATABRICKS_HOST || secrets.DATABRICKS_HOST }}
-          DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
+        if: steps.cfg.outputs.configured == 'true'
+      - name: Deploy bundle (live target)
+        if: steps.cfg.outputs.configured == 'true'
         run: |
           databricks bundle validate -t live --var="replay_anchor=${{ vars.DG_REPLAY_ANCHOR || secrets.DG_REPLAY_ANCHOR }}"
           databricks bundle deploy -t live --var="replay_anchor=${{ vars.DG_REPLAY_ANCHOR || secrets.DG_REPLAY_ANCHOR }}"
