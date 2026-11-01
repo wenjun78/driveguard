@@ -29,7 +29,7 @@ DG_CATALOG=workspace DG_SCHEMA=driveguard \
 uvicorn driveguard.app.server:app                     # live
 ```
 
-`render.yaml` deploys it on Render's free tier (`driveguard.onrender.com`); fill the three Databricks values in
+`render.yaml` deploys it on Render's free tier (`driveguard-kf09.onrender.com`); fill the three Databricks values in
 the dashboard to go live, leave them blank for demo mode. A `Dockerfile` is included for anywhere else.
 
 ## Why it does not hammer the warehouse

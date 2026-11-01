@@ -9,7 +9,7 @@ MLflow + Unity Catalog model lifecycle, budgeted batch alerting with reason code
 condition-triggered retraining, Asset Bundle jobs, CI — and a public **fleet console** that reads it all live.
 Runs on Databricks Free Edition; runs identically on a laptop.
 
-**Live console:** [driveguard.onrender.com](https://driveguard.onrender.com) — ranked alerts with reason codes and hindsight, matured-label monitoring, model lifecycle, job runs, what-if scoring ([how it works](docs/console.md)).
+**Live console:** [driveguard-kf09.onrender.com](https://driveguard-kf09.onrender.com) — ranked alerts with reason codes and hindsight, matured-label monitoring, model lifecycle, job runs, what-if scoring ([how it works](docs/console.md)).
 
 ```mermaid
 flowchart LR
