@@ -9,7 +9,9 @@ MLflow + Unity Catalog model lifecycle, budgeted batch alerting with reason code
 condition-triggered retraining, Asset Bundle jobs, CI — and a public **fleet console** that reads it all live.
 Runs on Databricks Free Edition; runs identically on a laptop.
 
-**Live console:** [driveguard-kf09.onrender.com](https://driveguard-kf09.onrender.com) — ranked alerts with reason codes and hindsight, matured-label monitoring, model lifecycle, job runs, what-if scoring ([how it works](docs/console.md)).
+**Live console:** [driveguard-kf09.onrender.com](https://driveguard-kf09.onrender.com) — ranked alerts with reason codes and hindsight, matured-label monitoring, model lifecycle, job runs, what-if scoring ([how it works](docs/console.md)). Reads the Databricks workspace live; replaying the held-out period one day per real day since 1 Nov 2026.
+
+**Headline (real data, 90-day held-out test):** 71 % of the 120 drives that failed were on the daily list within their last 30 days, median lead 18 days, at a budget of 0.5 % of the fleet; the operator's five-counter rule catches 5 % at the same budget.
 
 ```mermaid
 flowchart LR
@@ -95,8 +97,9 @@ Free Edition notes, table names, knobs and the daily job are in [`docs/databrick
 ### Real data — Backblaze 2024Q3–2025Q1, 10 % of the fleet
 
 33,144 drives with whole histories (hash-selected by serial), 366 failures, Jul 2024 – Mar 2025; run on Databricks
-Free Edition serverless by the `databricks-bootstrap` workflow. Time-ordered split with 30-day gaps; the test period
-is the last 90 days (Dec 2024 – Mar 2025). Alert budget 0.5 % of the fleet per day (≈157 drives).
+Free Edition serverless by the `databricks-bootstrap` workflow. Time-ordered split with 30-day gaps: training ends
+2 Sep 2024, validation 3 Oct – 1 Dec 2024, test 1 Jan – 31 Mar 2025 (90 days). Alert budget 0.5 % of the fleet per
+day (≈155 drives). Champion: `workspace.driveguard.driveguard_failure_30d` v4.
 
 | metric | validation | test | operator rule (test) |
 |---|---|---|---|
@@ -118,7 +121,13 @@ a ranking: at the same budget it surfaces the drives with the largest counter va
 catches 5 % of failures. Live, matured-label recall on the replayed snapshots runs 0.3–0.6 per day (median ≈ 0.5),
 which is what the monitoring floor is now calibrated to.
 
-Regenerate: `python scripts/report.py` against the workspace (or read `app_snapshot/model.json`).
+**Live replay (since 1 Nov 2026).** The daily job runs on the replay clock with `DG_REPLAY_ANCHOR=2025-01-01@2026-11-01`:
+the console's "today" started at 1 Jan 2025 and advances one data-day per real day, walking through the champion's
+held-out test period — every replayed alert is on a day the model never trained or validated on. Matured outcomes,
+drift and the retraining decision accrue day by day at [driveguard-kf09.onrender.com](https://driveguard-kf09.onrender.com);
+the `fetch-quarters` workflow adds Backblaze quarters as they are published so the replay never runs out of road.
+
+Regenerate the table: `python scripts/report.py` against the workspace (or read `app_snapshot/model.json`).
 
 ### Synthetic dry run — proves the pipeline only
 
