@@ -76,7 +76,7 @@ pip install -e ".[local,dev]"
 make fixture            # 3,000 synthetic drives × 400 days in the Backblaze file layout -> data/raw
 make demo               # bronze -> silver -> gold -> train -> 45-day scoring replay -> monitor
 python scripts/report.py
-pytest -q               # 27 tests incl. an end-to-end run and the console API
+pytest -q               # 28 tests incl. an end-to-end run and the console API
 uvicorn driveguard.app.server:app   # the console on http://localhost:8000 (demo snapshot until Databricks is configured)
 ```
 
