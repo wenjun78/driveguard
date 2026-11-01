@@ -18,6 +18,7 @@ from typing import Any
 import mlflow
 import numpy as np
 import pandas as pd
+from mlflow.tracking import MlflowClient
 from pyspark.sql import SparkSession
 from pyspark.sql import functions as F
 from pyspark.sql import types as T
@@ -43,6 +44,41 @@ def load_reference(model_uri: str) -> tuple[DriveGuardModel, pd.DataFrame]:
     ref_path = os.path.join(local, "reference_sample.parquet")
     ref = pd.read_parquet(ref_path) if os.path.exists(ref_path) else pd.DataFrame()
     return model, ref
+
+
+def champion_metrics(model_uri: str) -> dict[str, float]:
+    """Metrics logged by the run that produced ``model_uri`` (empty if the registry/run cannot be read)."""
+    try:
+        run_id = mlflow.models.get_model_info(model_uri).run_id
+        return dict(MlflowClient().get_run(run_id).data.metrics) if run_id else {}
+    except Exception:
+        return {}
+
+
+def recall_floor(s: Settings, champ: dict[str, float]) -> tuple[float, str]:
+    """Retraining floor for matured recall@budget: a fraction of the champion's own held-out value when known."""
+    own = champ.get("test_recall_at_budget")
+    if own is not None and own > 0:
+        floor = s.matured_recall_floor_ratio * float(own)
+        return floor, f"{s.matured_recall_floor_ratio:g} x champion test recall@budget {own:.3f}"
+    return s.matured_recall_floor, "absolute fallback"
+
+
+def retrain_decision(
+    drifted: list[str], recent_recalls: list[float], floor: float, floor_basis: str, s: Settings
+) -> tuple[bool, list[str], float]:
+    """The retraining rule, kept pure so it is unit-testable: drift on several key features, or matured recall
+    at the budget (mean over the recent window) below the floor."""
+    reasons = []
+    if len(drifted) >= s.psi_features_for_retrain:
+        reasons.append(f"{len(drifted)} key features drifted (PSI >= {s.psi_alert}): {', '.join(drifted)}")
+    recent_recall = float(np.mean(recent_recalls)) if recent_recalls else float("nan")
+    if recent_recalls and recent_recall < floor:
+        reasons.append(
+            f"matured recall@budget over last {len(recent_recalls)} snapshots = {recent_recall:.3f} "
+            f"< floor {floor:.3f} ({floor_basis})"
+        )
+    return bool(reasons), reasons, recent_recall
 
 
 def feature_psi(ref: pd.DataFrame, cur: pd.DataFrame, features: list[str]) -> dict[str, float]:
@@ -105,17 +141,9 @@ def run(spark: SparkSession, s: Settings, as_of: str | None = None, model_uri: s
         score_psi = M.psi(ref_scores.astype(float), cur_scores.astype(float))
 
     matured = matured_performance(spark, store, s, now=snapshot_day)
-    recent = [r for r in matured if "recall_at_budget" in r][-7:]
-    recent_recall = float(np.mean([r["recall_at_budget"] for r in recent])) if recent else float("nan")
-
-    reasons = []
-    if len(drifted) >= s.psi_features_for_retrain:
-        reasons.append(f"{len(drifted)} key features drifted (PSI >= {s.psi_alert}): {', '.join(drifted)}")
-    if recent and recent_recall < s.matured_recall_floor:
-        reasons.append(
-            f"matured recall@budget over last {len(recent)} snapshots = {recent_recall:.3f} < {s.matured_recall_floor}"
-        )
-    retrain = bool(reasons)
+    recent = [r["recall_at_budget"] for r in matured if "recall_at_budget" in r][-s.matured_recall_window :]
+    floor, floor_basis = recall_floor(s, champion_metrics(uri))
+    retrain, reasons, recent_recall = retrain_decision(drifted, recent, floor, floor_basis, s)
 
     row = {
         "monitored_at": datetime.now(timezone.utc).isoformat(),
@@ -128,6 +156,7 @@ def run(spark: SparkSession, s: Settings, as_of: str | None = None, model_uri: s
         "score_psi": None if np.isnan(score_psi) else float(score_psi),
         "matured_snapshots": len(matured),
         "matured_recent_recall_at_budget": None if np.isnan(recent_recall) else recent_recall,
+        "matured_recall_floor": float(floor),
         "matured_latest": json.dumps(matured[-1], default=float) if matured else None,
         "matured_all": json.dumps(matured, default=float),
         "retrain_recommended": retrain,
@@ -145,6 +174,7 @@ def run(spark: SparkSession, s: Settings, as_of: str | None = None, model_uri: s
             T.StructField("score_psi", T.DoubleType()),
             T.StructField("matured_snapshots", T.IntegerType()),
             T.StructField("matured_recent_recall_at_budget", T.DoubleType()),
+            T.StructField("matured_recall_floor", T.DoubleType()),
             T.StructField("matured_latest", T.StringType()),
             T.StructField("matured_all", T.StringType()),
             T.StructField("retrain_recommended", T.BooleanType()),

@@ -11,7 +11,7 @@ Runs on Databricks Free Edition; runs identically on a laptop.
 
 **Live console:** [driveguard-kf09.onrender.com](https://driveguard-kf09.onrender.com) — ranked alerts with reason codes and hindsight, matured-label monitoring, model lifecycle, job runs, what-if scoring ([how it works](docs/console.md)). Reads the Databricks workspace live; replaying the held-out period one day per real day since 1 Nov 2026.
 
-**Headline (real data, 90-day held-out test):** 71 % of the 120 drives that failed were on the daily list within their last 30 days, median lead 18 days, at a budget of 0.5 % of the fleet; the operator's five-counter rule catches 5 % at the same budget.
+**Headline (real data, <!--dg:split.test_days-->90<!--/dg-->-day held-out test):** <!--dg:test.drive_recall0-->71<!--/dg--> % of the <!--dg:test.failing_drives-->120<!--/dg--> drives that failed were on the daily list within their last 30 days, median lead <!--dg:test.lead_median-->18<!--/dg--> days, at a budget of 0.5 % of the fleet; the operator's five-counter rule catches <!--dg:rule.drive_recall0-->5<!--/dg--> % at the same budget.
 
 ```mermaid
 flowchart LR
@@ -35,7 +35,7 @@ flowchart LR
 | **Evaluation** | Strictly time-ordered train / val / test with **horizon-long unlabeled gaps**, so training labels never depend on validation-period outcomes. Optional held-out drive *models* (`test_unseen`). |
 | **Metrics that match the decision** | Per day the top 0.5 % of the fleet is flagged. Reported: recall / precision **at that budget**, per-drive recall, **lead time** of the first alert, false alerts per 1,000 healthy drive-days — alongside PR-AUC. |
 | **The bar** | The operator's rule (Backblaze's five SMART counters, non-zero ⇒ alert) goes through the identical budgeted evaluation. The model must beat it on the same test days. |
-| **Lifecycle** | MLflow pyfunc with the feature spec and a drift reference sample inside the artefact; Unity Catalog registration; `@champion` alias assigned only if validation PR-AUC ≥ the current champion's, read from its own run. |
+| **Lifecycle** | MLflow pyfunc with the feature spec and a drift reference sample inside the artefact; Unity Catalog registration; `@champion` reassigned only once the incumbent's held-out test period has elapsed on the replay clock *and* validation PR-AUC ≥ the incumbent's (read from its own run); challengers trained before that are registered without the alias. |
 | **Operations** | `gold_risk_alerts`: score, per-day rank, flag, top-3 TreeSHAP reason codes; `replaceWhere` makes re-runs idempotent. `ops_monitoring`: PSI on key features and on scores, **real** precision/recall back-filled once each snapshot's 30 days have elapsed, and a `retrain_recommended` task value that gates the retrain task in the daily job. |
 | **Platform** | Delta tables in UC, serverless jobs from a Databricks Asset Bundle, optional CPU serving endpoint, GitHub Actions running lint + unit + end-to-end tests on local Spark and building the wheel. |
 | **Console** | FastAPI + static UI over the same tables, model, endpoint and jobs (SQL warehouse, MLflow/UC, Model Serving, Jobs API), cached and quota-safe, with a bundled snapshot fallback that is always labelled as such. **Replay clock**: the daily job advances one data-day per real day, so the fleet visibly moves and matured outcomes catch up. |
@@ -76,7 +76,7 @@ pip install -e ".[local,dev]"
 make fixture            # 3,000 synthetic drives × 400 days in the Backblaze file layout -> data/raw
 make demo               # bronze -> silver -> gold -> train -> 45-day scoring replay -> monitor
 python scripts/report.py
-pytest -q               # 28 tests incl. an end-to-end run and the console API
+pytest -q               # 34 tests incl. an end-to-end run, the console API and the lifecycle gates
 uvicorn driveguard.app.server:app   # the console on http://localhost:8000 (demo snapshot until Databricks is configured)
 ```
 
@@ -97,30 +97,34 @@ Free Edition notes, table names, knobs and the daily job are in [`docs/databrick
 
 ### Real data — Backblaze 2024Q3–2025Q1, 10 % of the fleet
 
-33,144 drives with whole histories (hash-selected by serial), 366 failures, Jul 2024 – Mar 2025; run on Databricks
-Free Edition serverless by the `databricks-bootstrap` workflow. Time-ordered split with 30-day gaps: training ends
-2 Sep 2024, validation 3 Oct – 1 Dec 2024, test 1 Jan – 31 Mar 2025 (90 days). Alert budget 0.5 % of the fleet per
-day (≈155 drives). Champion: `workspace.driveguard.driveguard_failure_30d` v4.
+<!--dg:data.drives-->33,144<!--/dg--> drives with whole histories (hash-selected by serial), <!--dg:data.failures-->366<!--/dg--> failures, Jul 2024 – Mar 2025; run on Databricks
+Free Edition serverless by the `databricks-bootstrap` workflow. Time-ordered split with <!--dg:split.gap-->30<!--/dg-->-day gaps: training ends
+<!--dg:split.train_end-->2 Sep 2024<!--/dg-->, validation <!--dg:split.val_start-->3 Oct 2024<!--/dg--> – <!--dg:split.val_end-->1 Dec 2024<!--/dg-->, test <!--dg:split.test_start-->1 Jan 2025<!--/dg--> – <!--dg:split.test_end-->31 Mar 2025<!--/dg--> (<!--dg:split.test_days-->90<!--/dg--> days). Alert budget 0.5 % of the fleet per
+day (≈<!--dg:test.alerts_per_day-->156<!--/dg--> drives). Champion: `workspace.driveguard.driveguard_failure_30d` v<!--dg:champion.version-->4<!--/dg-->.
 
 | metric | validation | test | operator rule (test) |
 |---|---|---|---|
-| PR-AUC | 0.145 | 0.184 | 0.017 |
-| ROC-AUC | 0.839 | 0.924 | 0.863 |
-| Drive recall @ budget (flagged ≥ once in the 30 d before failure) | 57.0% | 70.8% | 5.0% |
-| Recall @ budget (drive-days) | 39.1% | 45.3% | 1.5% |
-| Precision @ budget | 8.6% | 13.5% | 0.5% |
-| Median lead time of first alert (days) | 23 | 18 | 8 |
-| Caught with ≥ 7 d lead | 84% | 79% | 67% |
-| False alerts / 1,000 healthy drive-days | 4.59 | 4.47 | 5.03 |
-| Failing drives in period | 100 | 120 | 120 |
-| Labeled drive-days | 1,773,979 | 1,845,383 | 1,845,383 |
+| PR-AUC | <!--dg:val.pr_auc-->0.145<!--/dg--> | <!--dg:test.pr_auc-->0.184<!--/dg--> | <!--dg:rule.pr_auc-->0.017<!--/dg--> |
+| ROC-AUC | <!--dg:val.roc_auc-->0.839<!--/dg--> | <!--dg:test.roc_auc-->0.924<!--/dg--> | <!--dg:rule.roc_auc-->0.863<!--/dg--> |
+| Drive recall @ budget (flagged ≥ once in the 30 d before failure) | <!--dg:val.drive_recall-->57.0<!--/dg-->% | <!--dg:test.drive_recall-->70.8<!--/dg-->% | <!--dg:rule.drive_recall-->5.0<!--/dg-->% |
+| Recall @ budget (drive-days) | <!--dg:val.recall-->39.1<!--/dg-->% | <!--dg:test.recall-->45.3<!--/dg-->% | <!--dg:rule.recall-->1.5<!--/dg-->% |
+| Precision @ budget | <!--dg:val.precision-->8.6<!--/dg-->% | <!--dg:test.precision-->13.5<!--/dg-->% | <!--dg:rule.precision-->0.5<!--/dg-->% |
+| Median lead time of first alert (days) | <!--dg:val.lead_median-->23<!--/dg--> | <!--dg:test.lead_median-->18<!--/dg--> | <!--dg:rule.lead_median-->8<!--/dg--> |
+| Caught with ≥ 7 d lead | <!--dg:val.caught_7d-->84<!--/dg-->% | <!--dg:test.caught_7d-->79<!--/dg-->% | <!--dg:rule.caught_7d-->67<!--/dg-->% |
+| False alerts / 1,000 healthy drive-days | <!--dg:val.false_alerts-->4.59<!--/dg--> | <!--dg:test.false_alerts-->4.47<!--/dg--> | <!--dg:rule.false_alerts-->5.03<!--/dg--> |
+| Failing drives in period | <!--dg:val.failing_drives-->100<!--/dg--> | <!--dg:test.failing_drives-->120<!--/dg--> | <!--dg:rule.failing_drives-->120<!--/dg--> |
+| Labeled drive-days | <!--dg:val.rows_labeled-->1,773,979<!--/dg--> | <!--dg:test.rows_labeled-->1,845,383<!--/dg--> | <!--dg:rule.rows_labeled-->1,845,383<!--/dg--> |
 
-Read it as an operator would: **of the 120 drives that failed in the test period, 71 % were on the daily list at
-least once in their last 30 days, with a median 18 days' warning**; the list is 13.5 % "right" per drive-day at a
-budget of 0.5 % of the fleet, against a 0.15 % base rate. The five-counter rule operators are given is a *flag*, not
+Read it as an operator would: **of the <!--dg:test.failing_drives-->120<!--/dg--> drives that failed in the test period, <!--dg:test.drive_recall0-->71<!--/dg--> % were on the daily list at
+least once in their last 30 days, with a median <!--dg:test.lead_median-->18<!--/dg--> days' warning**; the list is <!--dg:test.precision-->13.5<!--/dg--> % "right" per drive-day at a
+budget of 0.5 % of the fleet, against a <!--dg:test.base_rate-->0.15<!--/dg--> % base rate. The five-counter rule operators are given is a *flag*, not
 a ranking: at the same budget it surfaces the drives with the largest counter values — mostly old survivors — and
-catches 5 % of failures. Live, matured-label recall on the replayed snapshots runs 0.3–0.6 per day (median ≈ 0.5),
-which is what the monitoring floor is now calibrated to.
+catches <!--dg:rule.drive_recall0-->5<!--/dg--> % of failures. Live, matured-label recall on the replayed snapshots in the bundled snapshot (as of <!--dg:data.as_of-->1 Jan 2025<!--/dg-->)
+runs <!--dg:live.matured_range-->0.3–0.4 per day (median ≈ 0.3)<!--/dg-->; the retraining floor is half the champion's own held-out recall (<!--dg:live.floor-->23<!--/dg--> %).
+
+These figures are rewritten by `scripts/refresh_docs.py` from the console snapshot whenever the champion changes,
+and `@champion` is only reassigned once the replay has passed the incumbent's held-out period, so the numbers above
+are always those of the model that is scoring the fleet.
 
 **Live replay (since 1 Nov 2026).** The daily job runs on the replay clock with `DG_REPLAY_ANCHOR=2025-01-01@2026-11-01`:
 the console's "today" started at 1 Jan 2025 and advances one data-day per real day, walking through the champion's

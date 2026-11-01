@@ -118,8 +118,9 @@ jobs:
         run: |
           git config user.name "wenjun78"
           git config user.email "151641864+wenjun78@users.noreply.github.com"
-          git add app_snapshot
+          python scripts/refresh_docs.py   # README / case-study figures follow the (re)built champion
+          git add app_snapshot README.md PROJECT_CASE_STUDY.md
           if git diff --cached --quiet; then echo "snapshot unchanged"; exit 0; fi
-          git commit -m "Console snapshot from the live workspace (bootstrap run)"
+          git commit -m "Console snapshot and docs from the live workspace (bootstrap run)"
           git pull --rebase origin main
           git push origin HEAD:main

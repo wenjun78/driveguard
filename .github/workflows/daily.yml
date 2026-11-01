@@ -1,6 +1,8 @@
 # The daily operation, driven from GitHub: run the Databricks daily job (ingest -> features -> score -> monitor ->
-# condition -> retrain), then refresh the console's bundled snapshot from the live workspace and commit it, which
-# also redeploys the console on Render. Skips quietly when the Databricks secrets are not configured.
+# condition -> retrain), export a fresh console snapshot from the live workspace to the `snapshot` branch, and - only
+# when the champion model version changed - commit the new snapshot plus the docs rewritten by
+# scripts/refresh_docs.py to main, so README and case study always describe the model scoring the fleet.
+# Skips quietly when the Databricks secrets are not configured.
 name: daily
 
 on:
@@ -59,11 +61,29 @@ jobs:
         run: databricks bundle run -t live driveguard_daily --var="replay_anchor=${{ vars.DG_REPLAY_ANCHOR || secrets.DG_REPLAY_ANCHOR }}"
       - name: Export console snapshot
         if: steps.cfg.outputs.configured == 'true'
+        id: export
         env:
           DATABRICKS_HTTP_PATH: ${{ vars.DATABRICKS_HTTP_PATH || secrets.DATABRICKS_HTTP_PATH || steps.info.outputs.http_path }}
         run: |
           if [ -z "$DATABRICKS_HTTP_PATH" ]; then echo "::warning::no SQL warehouse; skipping snapshot"; exit 0; fi
+          before=$(python -c "import json;print(json.load(open('app_snapshot/model.json'))['champion']['version'])")
           python scripts/export_snapshot.py --source databricks --out app_snapshot
+          after=$(python -c "import json;print(json.load(open('app_snapshot/model.json'))['champion']['version'])")
+          echo "champion_before=$before" >> "$GITHUB_OUTPUT"; echo "champion_after=$after" >> "$GITHUB_OUTPUT"
+          echo "champion: v$before -> v$after"
+      - name: New champion -> refresh docs and commit snapshot to main
+        if: steps.cfg.outputs.configured == 'true' && steps.export.outputs.champion_after != '' && steps.export.outputs.champion_before != steps.export.outputs.champion_after
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -e
+          python scripts/refresh_docs.py
+          git config user.name "wenjun78"; git config user.email "151641864+wenjun78@users.noreply.github.com"
+          git add app_snapshot README.md PROJECT_CASE_STUDY.md
+          printf '%s\n\n%s\n' "New champion v${{ steps.export.outputs.champion_after }}: refresh bundled snapshot and docs" \
+            "Automated by the daily workflow: scripts/refresh_docs.py rewrote every marked figure in README.md and PROJECT_CASE_STUDY.md from the exported console snapshot." > /tmp/msg
+          git commit -qF /tmp/msg
+          git push "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD:main
       - name: Publish snapshot branch (single commit, force-pushed; the console fetches it)
         if: steps.cfg.outputs.configured == 'true'
         env:

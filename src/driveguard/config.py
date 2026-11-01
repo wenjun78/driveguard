@@ -84,8 +84,12 @@ class Settings:
     psi_warn: float = 0.1
     psi_alert: float = 0.2
     psi_features_for_retrain: int = 3  # retrain when at least this many key features exceed psi_alert
-    matured_recall_floor: float = 0.3  # or when matured recall@budget (mean of recent snapshots) drops below this;
-    # on the real fleet single-day matured recall runs ~0.3-0.6 (median ~0.5), so 0.3 marks real degradation
+    # ... or when matured recall@budget (mean of the last ``matured_recall_window`` snapshots) drops below the floor.
+    # The floor is relative to the champion's own held-out recall@budget (ratio x that metric, read from its run),
+    # so it tracks whatever model is scoring; the absolute value is the fallback when the run cannot be read.
+    matured_recall_floor_ratio: float = 0.5
+    matured_recall_floor: float = 0.3
+    matured_recall_window: int = 7
 
     @classmethod
     def from_env(cls) -> Settings:

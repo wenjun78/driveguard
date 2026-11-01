@@ -86,7 +86,7 @@
       <div class="card"><div class="card-head"><h3>Lead time of the first alert (median days)</h3></div><canvas id="chart-mon-lead" height="150"></canvas></div>
     </div>
     <div class="card"><div class="card-head"><h3>Monitoring runs</h3><span class="muted">latest first</span></div>
-      <table class="table" id="mon-table"><thead><tr><th>Run</th><th>Snapshot</th><th>Drives</th><th>Score PSI</th><th>Drifted</th><th>Warned</th><th>Matured recall</th><th>Retrain?</th></tr></thead><tbody></tbody></table>
+      <table class="table" id="mon-table"><thead><tr><th>Run</th><th>Snapshot</th><th>Drives</th><th>Score PSI</th><th>Drifted</th><th>Warned</th><th title="mean over the last 7 matured snapshots / retrain floor">Matured recall / floor</th><th>Retrain?</th></tr></thead><tbody></tbody></table>
     </div>
     <div class="card"><div class="card-head"><h3>PSI by feature · latest run</h3><span class="muted">reference = training-period fleet · warn ≥ 0.10 · alert ≥ 0.20</span></div><div id="mon-psi" class="psi"></div></div>
   </section>

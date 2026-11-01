@@ -91,7 +91,9 @@ def test_bronze_holds_back_files_after_the_replay_cursor(spark, settings, monkey
     raw = settings.raw_path
     for d in ("2024-01-01", "2024-01-02", "2024-01-03"):
         _write(f"{raw}/data_Q1_2024/{d}.csv", EARLY, [f"{d},S1,M,1000,0,100,0,10"])
-    monkeypatch.setenv("DG_REPLAY_ANCHOR", "2024-01-02@2030-01-01")  # far-future real date -> cursor stays before 2024-01-02
+    monkeypatch.setenv(
+        "DG_REPLAY_ANCHOR", "2024-01-02@2030-01-01"
+    )  # far-future real date -> cursor stays before 2024-01-02
     from datetime import date
 
     from driveguard import replay

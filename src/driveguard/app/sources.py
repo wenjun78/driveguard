@@ -519,6 +519,7 @@ class DatabricksSource:
                     "score_psi": _f(r["score_psi"]),
                     "matured_snapshots": int(r["matured_snapshots"] or 0),
                     "matured_recent_recall_at_budget": _f(r["matured_recent_recall_at_budget"]),
+                    "matured_recall_floor": _f(r.get("matured_recall_floor")),
                     "retrain_recommended": bool(r["retrain_recommended"]),
                     "retrain_reasons": json.loads(r["retrain_reasons"] or "[]"),
                 }

@@ -207,7 +207,7 @@
     for (const r of runs) {
       tb.append(el("tr", {}, el("td", { class: "mono" }, fmt.ts(r.monitored_at)), el("td", { class: "mono" }, r.snapshot_date), el("td", { class: "mono" }, fmt.int(r.drives_scored)), el("td", { class: "mono" }, fmt.num(r.score_psi, 3)),
         el("td", {}, el("div", { class: "chips" }, ...(r.features_drifted || []).map((c) => el("span", { class: "chip" }, c)))), el("td", {}, el("div", { class: "chips" }, ...(r.features_warned || []).map((c) => el("span", { class: "chip" }, c)))),
-        el("td", { class: "mono" }, fmt.pct(r.matured_recent_recall_at_budget, 0)), el("td", {}, el("span", { class: "pill " + (r.retrain_recommended ? "yes" : "no"), title: (r.retrain_reasons || []).join("; ") }, r.retrain_recommended ? "retrain" : "keep"))));
+        el("td", { class: "mono", title: r.matured_recall_floor != null ? `retrain floor ${fmt.pct(r.matured_recall_floor, 0)} (half the champion's held-out recall)` : "" }, fmt.pct(r.matured_recent_recall_at_budget, 0) + (r.matured_recall_floor != null ? ` / ${fmt.pct(r.matured_recall_floor, 0)}` : "")), el("td", {}, el("span", { class: "pill " + (r.retrain_recommended ? "yes" : "no"), title: (r.retrain_reasons || []).join("; ") }, r.retrain_recommended ? "retrain" : "keep"))));
     }
     if (!runs.length) tb.append(el("tr", {}, el("td", { colspan: "8", class: "muted" }, "No monitoring runs yet.")));
     const psi = $("#mon-psi"); psi.innerHTML = "";

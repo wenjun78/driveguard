@@ -93,10 +93,20 @@ Each monitoring run:
 2. back-fills real precision / recall / lead time for every past snapshot whose 30-day horizon has now elapsed
    (`matured_*`);
 3. writes a row to `ops_monitoring` and sets the job task value `retrain_recommended` when either at least three key
-   features exceed PSI 0.2 or matured recall at budget averaged over the last snapshots falls below 0.3 (real-fleet single-day values run 0.3–0.6).
+   features exceed PSI 0.2 or matured recall at budget averaged over the last 7 snapshots falls below the floor. The floor is
+   half the champion's own held-out `test_recall_at_budget` (read from its run; `DG_MATURED_RECALL_FLOOR_RATIO`), falling
+   back to the absolute `DG_MATURED_RECALL_FLOOR` when the run cannot be read — single-day matured recall is noisy
+   (tens of positives per day), so the floor marks a collapse, not a weak week.
 
 The Databricks daily job has a condition task on that value, so retraining happens when the evidence says so, not on
 a calendar.
+
+Retraining and promotion are separate gates. A retrain registers a challenger; `@champion` moves only when (1) the
+incumbent's held-out test period has fully elapsed on the replay clock — a challenger trained before that is fitted
+on data overlapping that period and validated on a different window, so its metrics are not comparable — and
+(2) the challenger's validation PR-AUC is at least the incumbent's. Until then the published results stay the results
+of the model that is scoring the fleet; when the champion does change, `scripts/refresh_docs.py` rewrites the
+figures in the README and case study from the console snapshot and the `daily` workflow commits them.
 
 ## Replay and retraining
 

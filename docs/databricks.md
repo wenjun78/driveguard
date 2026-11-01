@@ -101,7 +101,8 @@ as widgets and the bundle passes them as job parameters:
 | `DG_TEST_DAYS` / `DG_VAL_DAYS` / `DG_GAP_DAYS` | 90 / 60 / 30 | evaluation protocol |
 | `DG_GROUP_HOLDOUT_FRAC` | 0 | unseen-drive-model holdout share |
 | `DG_NEGATIVE_SAMPLE_RATIO` | 20 | negatives per positive in the training set (weights restore the prior) |
-| `DG_PSI_ALERT` / `DG_PSI_FEATURES_FOR_RETRAIN` / `DG_MATURED_RECALL_FLOOR` | 0.2 / 3 / 0.3 | retraining trigger |
+| `DG_PSI_ALERT` / `DG_PSI_FEATURES_FOR_RETRAIN` | 0.2 / 3 | retraining trigger: drift |
+| `DG_MATURED_RECALL_FLOOR_RATIO` / `DG_MATURED_RECALL_FLOOR` / `DG_MATURED_RECALL_WINDOW` | 0.5 / 0.3 / 7 | retraining trigger: matured recall over the window below ratio × the champion's held-out recall (absolute floor when the run is unreadable) |
 | `DG_REPLAY_ANCHOR` (bundle variable `replay_anchor`) | empty | replay clock, `data_date@real_date`; the daily job then scores one data-day per real day |
 
 ## 7. Scaling up

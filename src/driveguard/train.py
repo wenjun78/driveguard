@@ -6,6 +6,7 @@ import json
 import logging
 import os
 import tempfile
+from datetime import date, timedelta
 from typing import Any
 
 import mlflow
@@ -110,13 +111,41 @@ def evaluate_baseline(df: DataFrame, s: Settings) -> dict[str, float]:
     return M.evaluate(pdf, "score", s.alert_budget, s.horizon_days, flag_col="flagged")
 
 
-def promote_if_better(client: MlflowClient, name: str, version: str, alias: str, new_val_pr_auc: float) -> str:
+def promote_if_better(
+    client: MlflowClient,
+    name: str,
+    version: str,
+    alias: str,
+    new_val_pr_auc: float,
+    now: date | None = None,
+) -> str:
+    """Assign ``@champion`` to ``version`` only when the comparison with the incumbent is fair and favourable.
+
+    Two gates:
+
+    * **Hold** while the incumbent's held-out test period has not fully elapsed (``now`` <= its ``split_end_day``).
+      A challenger trained before that day is fitted on data overlapping the incumbent's test period and validated
+      on a different window, so its metrics are not comparable to the incumbent's. The challenger is registered
+      (visible in the registry and the console) but not promoted; the incumbent's published results stay the
+      results of the model that is actually scoring the fleet. On the replay clock this is the whole replayed
+      period; in real time it is only "no new data since the champion was trained".
+    * **Beat** the incumbent's validation PR-AUC, read from the incumbent's own run.
+    """
     try:
         champ = client.get_model_version_by_alias(name, alias)
     except Exception:
         champ = None
     if champ is not None:
-        prev = client.get_run(champ.run_id).data.metrics.get("val_pr_auc", float("-inf"))
+        run = client.get_run(champ.run_id)
+        end_day = run.data.params.get("split_end_day")
+        if now is not None and end_day is not None:
+            held_out_end = date(1970, 1, 1) + timedelta(days=int(end_day))
+            if now <= held_out_end:
+                return (
+                    f"held champion v{champ.version}: its held-out test period runs to {held_out_end.isoformat()} "
+                    f"and now is {now.isoformat()}; v{version} registered as challenger without alias"
+                )
+        prev = run.data.metrics.get("val_pr_auc", float("-inf"))
         if new_val_pr_auc < prev:
             return f"kept champion v{champ.version} (val_pr_auc {prev:.4f} >= {new_val_pr_auc:.4f})"
     client.set_registered_model_alias(name, alias, version)
@@ -129,8 +158,6 @@ def run(spark: SparkSession, s: Settings) -> dict[str, Any]:
     gold = store.read(TABLES["gold"])
     # Replay honesty: "now" may be a cursor inside the historical data. Train only on rows whose label window closed
     # before the cursor, so a retrain triggered mid-replay never sees outcomes that have not "happened" yet.
-    from datetime import timedelta
-
     from driveguard import replay
 
     latest = gold.agg(F.max("date")).first()[0]
@@ -251,7 +278,7 @@ def run(spark: SparkSession, s: Settings) -> dict[str, Any]:
                 client = MlflowClient()
                 mv = mlflow.register_model(logged.model_uri, name)
                 promotion = promote_if_better(
-                    client, name, mv.version, s.champion_alias, report.get("val", {}).get("pr_auc", 0.0)
+                    client, name, mv.version, s.champion_alias, report.get("val", {}).get("pr_auc", 0.0), now=now
                 )
             except Exception as exc:  # registry unavailable (e.g. plain file store without alias support)
                 promotion = f"registration skipped: {type(exc).__name__}: {exc}"
