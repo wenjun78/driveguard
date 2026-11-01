@@ -171,6 +171,9 @@ def build_sources() -> tuple[Any, Any | None]:
     host = host.rstrip("/")
     if host and token and http_path:
         os.environ["DATABRICKS_HOST"], os.environ["DATABRICKS_TOKEN"] = host, token  # the SDK and MLflow read these
+        _state["credential_hint"] = (
+            f"token {len(token)} chars, starts with {token[:4]!r}; host {host}; http_path {http_path}"
+        )
         settings = Settings.from_env()
         if not settings.catalog:
             settings.catalog = os.environ.get("DG_CATALOG", "workspace")
@@ -185,8 +188,9 @@ def build_sources() -> tuple[Any, Any | None]:
 
 app = FastAPI(title="DriveGuard console", version=__version__, docs_url="/api/docs", redoc_url=None)
 cache = Cache(TTL)
+_state: dict[str, Any] = {"live_ok": False, "last_error": None, "degraded_since": None}
 PRIMARY, FALLBACK = build_sources()
-_state: dict[str, Any] = {"live_ok": PRIMARY.kind == "databricks", "last_error": None, "degraded_since": None}
+_state.update(live_ok=PRIMARY.kind == "databricks", last_error=None, degraded_since=None)
 
 
 def _call(name: str, fn_name: str, *args, key: str | None = None) -> tuple[Any, str]:
@@ -232,6 +236,7 @@ def status():
             "fallback": FALLBACK.kind if FALLBACK else None,
             "last_error": _state["last_error"],
             "errors": _state.get("errors", {}),
+            "credential_hint": _state.get("credential_hint"),
             "cache_ttl_s": TTL,
             "version": __version__,
         },
