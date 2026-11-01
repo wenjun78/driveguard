@@ -133,9 +133,13 @@ def run(spark: SparkSession, s: Settings) -> dict[str, Any]:
 
     from driveguard import replay
 
-    now = replay.resolve_as_of(None, gold.agg(F.max("date")).first()[0])
-    cutoff = now - timedelta(days=s.horizon_days)
-    gold = gold.filter(F.col("date") <= F.lit(cutoff))
+    latest = gold.agg(F.max("date")).first()[0]
+    now = replay.resolve_as_of(None, latest)
+    cutoff = (
+        now - timedelta(days=s.horizon_days) if now < latest else latest
+    )  # without a cursor the tail is censored already
+    if cutoff < latest:
+        gold = gold.filter(F.col("date") <= F.lit(cutoff))
     df, b = splits.assign(gold, s)
     df = df.filter("is_failure_row = 0")
     numeric = [c for c in gold_mod.feature_columns(gold) if c not in (CATEGORICAL,)]
