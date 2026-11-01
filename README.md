@@ -40,8 +40,9 @@ flowchart LR
 | **Platform** | Delta tables in UC, serverless jobs from a Databricks Asset Bundle, optional CPU serving endpoint, GitHub Actions running lint + unit + end-to-end tests on local Spark and building the wheel. |
 | **Console** | FastAPI + static UI over the same tables, model, endpoint and jobs (SQL warehouse, MLflow/UC, Model Serving, Jobs API), cached and quota-safe, with a bundled snapshot fallback that is always labelled as such. **Replay clock**: the daily job advances one data-day per real day, so the fleet visibly moves and matured outcomes catch up. |
 
-Details: [`docs/evaluation.md`](docs/evaluation.md) · [`docs/architecture.md`](docs/architecture.md) ·
-[`docs/data.md`](docs/data.md) · [`docs/databricks.md`](docs/databricks.md) · [`docs/console.md`](docs/console.md)
+Details: [`docs/facts.md`](docs/facts.md) (one-page fact sheet) · [`docs/evaluation.md`](docs/evaluation.md) ·
+[`docs/architecture.md`](docs/architecture.md) · [`docs/data.md`](docs/data.md) · [`docs/databricks.md`](docs/databricks.md) ·
+[`docs/console.md`](docs/console.md)
 
 ## Run it from GitHub (nothing to install)
 
