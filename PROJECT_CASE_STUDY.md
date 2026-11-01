@@ -1,6 +1,6 @@
 # DriveGuard — Engineering Case Study
 
-> **Project type:** Portfolio implementation / end-to-end ML engineering on real hardware telemetry (Backblaze Drive Stats), built and executed on Databricks; ongoing scheduled operation requires verification  
+> **Project type:** Portfolio implementation / end-to-end ML engineering on real hardware telemetry (Backblaze Drive Stats), built and run on Databricks; the daily replay is driven by a GitHub Actions workflow with a public run history  
 > **Core stack:** Python, PySpark, Delta Lake, Unity Catalog, MLflow, XGBoost, Databricks Asset Bundles (serverless jobs), FastAPI, GitHub Actions  
 > **Data and platform options:** Databricks Free Edition (serverless, CPU model serving) or any workspace; local mode with Parquet, local Spark and a sqlite MLflow store  
 > **Repository:** https://github.com/wenjun78/driveguard  
@@ -186,7 +186,7 @@ The figures in this section, the README and the executive summary are rewritten 
 | The label respects right-censoring and features are time-safe | Directly supported by code and tests |
 | <!--dg:test.drive_recall0-->71<!--/dg--> % drive recall at <!--dg:test.lead_median-->18<!--/dg--> days' median lead on a <!--dg:split.test_days-->90<!--/dg-->-day held-out test | **Computed by the project's evaluation code** on the 10 % subset; recorded in the champion's MLflow run and `app_snapshot/model.json`; not independently reproduced |
 | The model beats the operator rule | Supported at the 0.5 % budget on the same test days; the rule's ROC-AUC is comparable, its ranking is not |
-| The historical replay is configured and has been executed | One GitHub Actions `daily` run succeeded on 1 Nov 2026; the last saved Databricks snapshot shows one successful manual job run and a paused native schedule. Continued daily execution is not yet established |
+| The replay advances one data-day per calendar day | Driven by the `daily` workflow since 1 Nov 2026. How many days have been replayed is not a claim in this document: the evidence is the workflow's [run history](https://github.com/wenjun78/driveguard/actions/workflows/daily.yml) and the job runs and replay cursor in the console's Pipeline view. The job's native Databricks schedule is paused on purpose — GitHub is the scheduler |
 | Results hold at 100 % of the fleet or on newer quarters | **Not established** — the code is unchanged, the numbers are not re-run |
 | An operator saved money or avoided data loss | **Not measured**; no operator is in the loop |
 | The serving endpoint meets a latency or availability target | **Not measured** |

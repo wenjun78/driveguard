@@ -9,7 +9,7 @@ MLflow + Unity Catalog model lifecycle, budgeted batch alerting with reason code
 condition-triggered retraining, Asset Bundle jobs, CI — and a public **fleet console** that reads it all live.
 Runs on Databricks Free Edition with a subset; the same package also supports local Spark and Parquet.
 
-**Fleet console:** [driveguard-kf09.onrender.com](https://driveguard-kf09.onrender.com) — ranked alerts with reason codes and hindsight, matured-label monitoring, model lifecycle, job runs, what-if scoring ([how it works](docs/console.md)). Reads the Databricks workspace when available and otherwise displays a labelled snapshot. A historical replay is configured to advance one data-day per calendar day through the GitHub Actions daily workflow; continued execution depends on that workflow running.
+**Fleet console:** [driveguard-kf09.onrender.com](https://driveguard-kf09.onrender.com) — ranked alerts with reason codes and hindsight, matured-label monitoring, model lifecycle, job runs, what-if scoring ([how it works](docs/console.md)). Reads the Databricks workspace live and falls back to a labelled snapshot. The `daily` workflow advances the historical replay one data-day per calendar day; its [run history](https://github.com/wenjun78/driveguard/actions/workflows/daily.yml) and the console's Pipeline view (job runs, replay cursor) are the record of how far the replay has got.
 
 **Headline (real data, <!--dg:split.test_days-->90<!--/dg-->-day held-out test):** <!--dg:test.drive_recall0-->71<!--/dg--> % of the <!--dg:test.failing_drives-->120<!--/dg--> drives that failed were on the daily list within their last 30 days, median lead <!--dg:test.lead_median-->18<!--/dg--> days, at a budget of 0.5 % of the fleet; the operator's five-counter rule catches <!--dg:rule.drive_recall0-->5<!--/dg--> % at the same budget.
 
@@ -47,7 +47,7 @@ Details: [`PROJECT_CASE_STUDY.md`](PROJECT_CASE_STUDY.md) (full engineering case
 ## Run it from GitHub (nothing to install)
 
 Everything runs from this repository: tests and the wheel in CI, data loading and the first pipeline run in a
-one-click workflow, a scheduled daily workflow (execution must be verified), and the console on Render straight from the repo.
+one-click workflow, a scheduled daily workflow whose run history is public on the Actions tab, and the console on Render straight from the repo.
 
 1. **Databricks Free Edition** workspace → create a personal access token (Settings → Developer → Access tokens)
    and a SQL warehouse (SQL Warehouses → Create; the default is fine).
@@ -126,7 +126,7 @@ These figures are rewritten by `scripts/refresh_docs.py` from the console snapsh
 and `@champion` is only reassigned once the replay has passed the incumbent's held-out period, so the numbers above
 are always those of the model that is scoring the fleet.
 
-**Historical replay (configured 1 Nov 2026; first manual/scheduled workflow run recorded).** The daily job runs on the replay clock with `DG_REPLAY_ANCHOR=2025-01-01@2026-11-01`:
+**Historical replay (started 1 Nov 2026).** The daily job runs on the replay clock with `DG_REPLAY_ANCHOR=2025-01-01@2026-11-01`:
 the console's "today" started at 1 Jan 2025 and advances one data-day per real day, walking through the champion's
 held-out test period — every replayed alert is on a day the model never trained or validated on. Matured outcomes,
 drift and the retraining decision accrue day by day at [driveguard-kf09.onrender.com](https://driveguard-kf09.onrender.com);
