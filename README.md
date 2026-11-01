@@ -7,9 +7,9 @@ this week, before they fail?** Built on [Backblaze Drive Stats](https://www.back
 (daily SMART snapshots of ~300k production drives), as a Databricks lakehouse pipeline — PySpark medallion tables,
 MLflow + Unity Catalog model lifecycle, budgeted batch alerting with reason codes, drift and matured-label monitoring,
 condition-triggered retraining, Asset Bundle jobs, CI — and a public **fleet console** that reads it all live.
-Runs on Databricks Free Edition; runs identically on a laptop.
+Runs on Databricks Free Edition with a subset; the same package also supports local Spark and Parquet.
 
-**Live console:** [driveguard-kf09.onrender.com](https://driveguard-kf09.onrender.com) — ranked alerts with reason codes and hindsight, matured-label monitoring, model lifecycle, job runs, what-if scoring ([how it works](docs/console.md)). Reads the Databricks workspace live; replaying the held-out period one day per real day since 1 Nov 2026.
+**Fleet console:** [driveguard-kf09.onrender.com](https://driveguard-kf09.onrender.com) — ranked alerts with reason codes and hindsight, matured-label monitoring, model lifecycle, job runs, what-if scoring ([how it works](docs/console.md)). Reads the Databricks workspace when available and otherwise displays a labelled snapshot. A historical replay is configured to advance one data-day per calendar day through the GitHub Actions daily workflow; continued execution depends on that workflow running.
 
 **Headline (real data, <!--dg:split.test_days-->90<!--/dg-->-day held-out test):** <!--dg:test.drive_recall0-->71<!--/dg--> % of the <!--dg:test.failing_drives-->120<!--/dg--> drives that failed were on the daily list within their last 30 days, median lead <!--dg:test.lead_median-->18<!--/dg--> days, at a budget of 0.5 % of the fleet; the operator's five-counter rule catches <!--dg:rule.drive_recall0-->5<!--/dg--> % at the same budget.
 
@@ -47,7 +47,7 @@ Details: [`PROJECT_CASE_STUDY.md`](PROJECT_CASE_STUDY.md) (full engineering case
 ## Run it from GitHub (nothing to install)
 
 Everything runs from this repository: tests and the wheel in CI, data loading and the first pipeline run in a
-one-click workflow, daily operation on a schedule, and the console on Render straight from the repo.
+one-click workflow, a scheduled daily workflow (execution must be verified), and the console on Render straight from the repo.
 
 1. **Databricks Free Edition** workspace → create a personal access token (Settings → Developer → Access tokens)
    and a SQL warehouse (SQL Warehouses → Create; the default is fine).
@@ -59,7 +59,7 @@ one-click workflow, daily operation on a schedule, and the console on Render str
    (bronze → silver → gold → train → 45-day scoring replay → monitor), exports the console snapshot from the live
    workspace and commits it. 1–2 hours, mostly download and the first Spark run.
 4. **Render → New Blueprint → this repo** (`render.yaml`). Add the same `DATABRICKS_HOST`, `DATABRICKS_TOKEN`,
-   `DATABRICKS_HTTP_PATH` and `DG_REPLAY_ANCHOR` as environment variables and the console goes live; without them
+   `DATABRICKS_HTTP_PATH` and `DG_REPLAY_ANCHOR` as environment variables and the console can query the workspace; without them
    it serves the committed snapshot, which after step 3 is real data too.
 5. The **`daily`** workflow (02:40 UTC) runs the Databricks daily job — with `DG_REPLAY_ANCHOR` set, bronze lands
    exactly one more historical day per real day (later days wait in the Volume), scoring and monitoring follow, and
@@ -126,7 +126,7 @@ These figures are rewritten by `scripts/refresh_docs.py` from the console snapsh
 and `@champion` is only reassigned once the replay has passed the incumbent's held-out period, so the numbers above
 are always those of the model that is scoring the fleet.
 
-**Live replay (since 1 Nov 2026).** The daily job runs on the replay clock with `DG_REPLAY_ANCHOR=2025-01-01@2026-11-01`:
+**Historical replay (configured 1 Nov 2026; first manual/scheduled workflow run recorded).** The daily job runs on the replay clock with `DG_REPLAY_ANCHOR=2025-01-01@2026-11-01`:
 the console's "today" started at 1 Jan 2025 and advances one data-day per real day, walking through the champion's
 held-out test period — every replayed alert is on a day the model never trained or validated on. Matured outcomes,
 drift and the retraining decision accrue day by day at [driveguard-kf09.onrender.com](https://driveguard-kf09.onrender.com);
@@ -176,7 +176,7 @@ docs/                  evaluation protocol, architecture, data notes, Databricks
   trade at fleet scale for a tabular model, but it is not distributed training.
 * Free Edition quotas mean "subset first". The pipeline is the same at 100 % of the fleet; the compute is not.
 * The synthetic fixture is for tests and dry runs. Nothing computed from it is a result.
-* Serving is a CPU endpoint for the champion; the operational surface is the batch alert table.
+* A CPU Model Serving endpoint is optional and is **not present in the latest committed workspace snapshot**; batch alerts and a local model fallback power the operational console.
 * The console is read-only and cached; until the Backblaze subset has been run in a workspace it shows the synthetic demo snapshot, labelled as such on every page.
 
 ## Attribution and licence
