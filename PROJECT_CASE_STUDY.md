@@ -5,7 +5,7 @@
 > **Data and platform options:** Databricks Free Edition (serverless, CPU model serving) or any workspace; local mode with Parquet, local Spark and a sqlite MLflow store  
 > **Repository:** https://github.com/wenjun78/driveguard  
 > **Live deployment supplied by the project owner:** https://driveguard-kf09.onrender.com/  
-> **Related documentation:** [README](README.md) · [Fact sheet](docs/facts.md) · [Evaluation protocol](docs/evaluation.md) · [Architecture](docs/architecture.md) · [Data notes](docs/data.md) · [Databricks guide](docs/databricks.md) · [Console](docs/console.md)
+> **Related documentation:** [README](README.md) · [Portfolio page](https://wenjun78.github.io/portfolio/driveguard.html) · [Evaluation protocol](docs/evaluation.md) · [Architecture](docs/architecture.md) · [Data notes](docs/data.md) · [Databricks guide](docs/databricks.md) · [Console](docs/console.md)
 
 ## The data
 
@@ -145,7 +145,7 @@ bronze_smart_daily ──► silver.py ──► silver_smart_daily + silver_dri
 - **Idempotency.** Bronze logs every landed file; the alerts table is overwritten per snapshot date with `replaceWhere`; monitoring appends one row per run; re-running any day is safe.
 - **Degradation.** The console tries the workspace, falls back per endpoint to the published snapshot and shows a per-view source tag; the status endpoint lists the error per endpoint; the warm-up and background refresh keep a cold warehouse invisible to visitors.
 - **Quotas.** All reads are cached; one warehouse connection is reused; the exporter uses bulk queries (a few dozen statements rather than thousands).
-- **Serverless-specific failures encountered and fixed during bring-up:** `input_file_name()` rejected on Unity Catalog compute; no `SparkContext` for `broadcast`; the `spark` global injected lazily; pip upgrading numpy to 2.x and breaking the preinstalled pyarrow; `toPandas()` attaching query-plan metrics to `DataFrame.attrs`; the SQL connector returning ARRAY columns as numpy arrays; `secrets.*` not permitted in a job-level `if:` in GitHub Actions. Each is a one-line fix once seen and a day lost if not; they are recorded in [`docs/facts.md`](docs/facts.md).
+- **Serverless-specific failures encountered and fixed during bring-up:** `input_file_name()` rejected on Unity Catalog compute; no `SparkContext` for `broadcast`; the `spark` global injected lazily; pip upgrading numpy to 2.x and breaking the preinstalled pyarrow; `toPandas()` attaching query-plan metrics to `DataFrame.attrs`; the SQL connector returning ARRAY columns as numpy arrays; `secrets.*` not permitted in a job-level `if:` in GitHub Actions. Each is a one-line fix once seen and a day lost if not; the fixes are in [`docs/databricks.md`](docs/databricks.md) and the notebooks' first cells.
 - **Credentials.** A personal access token in a GitHub secret and a Render environment variable; the workspace's maximum token lifetime is raised so the schedule does not stop every two weeks; rotation is manual.
 - **What is not handled.** Backfilling features when a late file arrives for a past day (bronze appends; silver/gold recompute fully each run, which covers it at this scale but would not at 100 % of the fleet); multi-workspace promotion; per-user access control on the console (it is read-only and public by design).
 

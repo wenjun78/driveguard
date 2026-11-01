@@ -110,3 +110,13 @@ The code is the same at 5 % and 100 % of the fleet; what changes is where it run
 bronze/silver/gold are plain Spark jobs; training still happens on the driver because the negatives-sampled training
 set is small (all positives + 20× negatives), and scoring is distributed with `mapInPandas`. Beyond Free Edition,
 point `databricks.yml` at a workspace with classic compute and nothing else needs to change.
+
+## Serverless lessons learned (things the first runs broke on)
+
+- `input_file_name()` is rejected on Unity Catalog compute → `_metadata.file_path`.
+- No `SparkContext` on serverless → no `broadcast`; ship the model inside the `mapInPandas` closure.
+- The `spark` global is injected lazily → create `DatabricksSession` explicitly in the first cell.
+- Pin `numpy<3`, `pandas<3`: letting pip upgrade numpy breaks the preinstalled pyarrow (`numpy.core.multiarray failed to import`).
+- `toPandas()` attaches query-plan metrics to `DataFrame.attrs`, which `to_parquet` cannot JSON-serialize → strip them.
+- The SQL connector returns ARRAY columns as numpy arrays; UC `search_model_versions` may not populate `aliases`.
+- `secrets.*` is not allowed in a job-level `if:` in GitHub Actions — the whole workflow file is refused.
