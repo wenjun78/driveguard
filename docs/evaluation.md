@@ -98,6 +98,13 @@ Each monitoring run:
 The Databricks daily job has a condition task on that value, so retraining happens when the evidence says so, not on
 a calendar.
 
+## Replay and retraining
+
+On the replay clock (`DG_REPLAY_ANCHOR`) "now" is a cursor inside the historical data. Scoring and monitoring only
+look at days up to the cursor, and a retrain triggered by the monitor trains only on rows whose 30-day label window
+closed before the cursor (`date <= now − horizon`). Nothing after the cursor is visible to any stage, so the replay
+is a genuine forward simulation, not a replay of answers the model has seen.
+
 ## What the synthetic dry run can and cannot show
 
 `scripts/make_fixture.py` produces a fleet with the same file layout, lifecycle mechanics and quirks as the real

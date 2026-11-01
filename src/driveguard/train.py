@@ -127,6 +127,15 @@ def run(spark: SparkSession, s: Settings) -> dict[str, Any]:
     setup_mlflow(s)
     store = TableStore(spark, s)
     gold = store.read(TABLES["gold"])
+    # Replay honesty: "now" may be a cursor inside the historical data. Train only on rows whose label window closed
+    # before the cursor, so a retrain triggered mid-replay never sees outcomes that have not "happened" yet.
+    from datetime import timedelta
+
+    from driveguard import replay
+
+    now = replay.resolve_as_of(None, gold.agg(F.max("date")).first()[0])
+    cutoff = now - timedelta(days=s.horizon_days)
+    gold = gold.filter(F.col("date") <= F.lit(cutoff))
     df, b = splits.assign(gold, s)
     df = df.filter("is_failure_row = 0")
     numeric = [c for c in gold_mod.feature_columns(gold) if c not in (CATEGORICAL,)]
@@ -149,6 +158,7 @@ def run(spark: SparkSession, s: Settings) -> dict[str, Any]:
 
     with mlflow.start_run(run_name="driveguard-xgb") as run:
         mlflow.log_params({f"split_{k}": v for k, v in b.as_dict().items()})
+        mlflow.log_params({"data_cutoff": cutoff.isoformat(), "replay_now": now.isoformat()})
         mlflow.log_params(
             {
                 "horizon_days": s.horizon_days,
