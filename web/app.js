@@ -45,7 +45,19 @@
     const j = await r.json().catch(() => ({}));
     if (!r.ok) throw new Error(j.detail || r.statusText);
     if (!opts) cache[path] = j;
+    if (!opts && j.source) tagSource(path, j.source, j.cache_age_s);
     return j;
+  }
+  // each view shows where its own data came from (one endpoint can fall back while the rest stay live)
+  function tagSource(path, source, age) {
+    const view = (path.match(/^\/api\/(\w+)/) || [])[1];
+    const map = { overview: "overview", alerts: "alerts", drive: "alerts", monitoring: "monitoring", model: "model", pipeline: "pipeline" };
+    const sec = $("#view-" + (map[view] || ""));
+    if (!sec) return;
+    let tag = sec.querySelector(".source-tag");
+    if (!tag) { tag = el("span", { class: "source-tag" }); const lbl = sec.querySelector(".label"); if (lbl) lbl.append(" ", tag); }
+    tag.textContent = source === "databricks" ? `· live${age ? ` · ${Math.round(age / 60)} min ago` : ""}` : "· snapshot";
+    tag.className = "source-tag " + (source === "databricks" ? "live" : "snapshot");
   }
   function setStatus(j) {
     const s = $("#status"), t = $("#status-text"), b = $("#banner");

@@ -157,12 +157,20 @@ def _snapshot_source() -> SnapshotSource | None:
 def build_sources() -> tuple[Any, Any | None]:
     """(primary, fallback). Primary is Databricks when configured, else the snapshot."""
     snapshot = _snapshot_source()
+
+    def clean(v: str | None) -> str:  # pasted env values often carry quotes, spaces or a newline
+        return (v or "").strip().strip("'\"").strip()
+
     host, token, http_path = (
-        os.environ.get("DATABRICKS_HOST"),
-        os.environ.get("DATABRICKS_TOKEN"),
-        os.environ.get("DATABRICKS_HTTP_PATH"),
+        clean(os.environ.get("DATABRICKS_HOST")),
+        clean(os.environ.get("DATABRICKS_TOKEN")),
+        clean(os.environ.get("DATABRICKS_HTTP_PATH")),
     )
+    if host and not host.startswith("http"):
+        host = "https://" + host
+    host = host.rstrip("/")
     if host and token and http_path:
+        os.environ["DATABRICKS_HOST"], os.environ["DATABRICKS_TOKEN"] = host, token  # the SDK and MLflow read these
         settings = Settings.from_env()
         if not settings.catalog:
             settings.catalog = os.environ.get("DG_CATALOG", "workspace")
@@ -185,20 +193,23 @@ def _call(name: str, fn_name: str, *args, key: str | None = None) -> tuple[Any, 
     """Run ``fn_name`` on the primary source through the cache; fall back to the snapshot on failure."""
     key = key or f"{fn_name}:{args}"
 
+    core = name in ("status", "overview", "alerts")  # only these decide whether the console counts as live
+
     def primary():
         try:
             out = getattr(PRIMARY, fn_name)(*args)
-            _state.update(live_ok=PRIMARY.kind == "databricks", last_error=None, degraded_since=None)
+            if core:
+                _state.update(live_ok=PRIMARY.kind == "databricks", last_error=None, degraded_since=None)
+            _state.setdefault("errors", {}).pop(name, None)
             return (out, PRIMARY.kind)
         except Exception as exc:
             if FALLBACK is None:
                 raise
-            log.warning("%s failed on %s, using snapshot: %s", name, PRIMARY.kind, exc)
-            _state.update(
-                live_ok=False,
-                last_error=f"{type(exc).__name__}: {str(exc)[:160]}",
-                degraded_since=_state["degraded_since"] or time.time(),
-            )
+            msg = f"{type(exc).__name__}: {str(exc)[:200]}"
+            log.warning("%s failed on %s, using snapshot: %s", name, PRIMARY.kind, msg)
+            _state.setdefault("errors", {})[name] = msg
+            if core:
+                _state.update(live_ok=False, last_error=msg, degraded_since=_state["degraded_since"] or time.time())
             return (getattr(FALLBACK, fn_name)(*args), FALLBACK.kind)
 
     return cache.get(key, primary)
@@ -220,6 +231,7 @@ def status():
             "primary": PRIMARY.kind,
             "fallback": FALLBACK.kind if FALLBACK else None,
             "last_error": _state["last_error"],
+            "errors": _state.get("errors", {}),
             "cache_ttl_s": TTL,
             "version": __version__,
         },
