@@ -1,10 +1,10 @@
 # DriveGuard — Engineering Case Study
 
-> **Project type:** Portfolio implementation / end-to-end ML engineering on real hardware telemetry (Backblaze Drive Stats), built and operated on Databricks  
+> **Project type:** Portfolio implementation / end-to-end ML engineering on real hardware telemetry (Backblaze Drive Stats), built and executed on Databricks; ongoing scheduled operation requires verification  
 > **Core stack:** Python, PySpark, Delta Lake, Unity Catalog, MLflow, XGBoost, Databricks Asset Bundles (serverless jobs), FastAPI, GitHub Actions  
 > **Data and platform options:** Databricks Free Edition (serverless, CPU model serving) or any workspace; local mode with Parquet, local Spark and a sqlite MLflow store  
 > **Repository:** https://github.com/wenjun78/driveguard  
-> **Live deployment supplied by the project owner:** https://driveguard-kf09.onrender.com/  
+> **Public console URL supplied by the project owner (live workspace reads or labelled snapshot fallback):** https://driveguard-kf09.onrender.com/  
 > **Related documentation:** [README](README.md) · [Portfolio page](https://wenjun78.github.io/portfolio/driveguard.html) · [Evaluation protocol](docs/evaluation.md) · [Architecture](docs/architecture.md) · [Data notes](docs/data.md) · [Databricks guide](docs/databricks.md) · [Console](docs/console.md)
 
 ## The data
@@ -158,7 +158,7 @@ bronze_smart_daily ──► silver.py ──► silver_smart_daily + silver_dri
 - Time-ordered split on the real subset: train ≤ <!--dg:split.train_end-->2 Sep 2024<!--/dg--> · validation <!--dg:split.val_start-->3 Oct 2024<!--/dg--> – <!--dg:split.val_end-->1 Dec 2024<!--/dg--> · test <!--dg:split.test_start-->1 Jan 2025<!--/dg--> – <!--dg:split.test_end-->31 Mar 2025<!--/dg--> (<!--dg:split.test_days-->90<!--/dg--> days), with <!--dg:split.gap-->30<!--/dg-->-day gaps. The last 30 days of each period are censored by construction.
 - Metrics at a 0.5 % daily budget (≈<!--dg:test.alerts_per_day-->156<!--/dg--> drives) for the model and for the operator rule on the same test days; PR-AUC, ROC-AUC and Brier alongside.
 - Live monitoring back-fills real outcomes for every scored snapshot whose horizon has elapsed; the console shows them per day.
-- 34 automated tests run on local Spark in CI (label semantics, censoring, time safety, schema drift, replay hold-back, splits, budgeted metrics, PSI, end-to-end pipeline, console API, promotion hold and retraining floor, docs–champion consistency).
+- 34 test functions are defined and the latest CI completed successfully; tests run on local Spark in CI (label semantics, censoring, time safety, schema drift, replay hold-back, splits, budgeted metrics, PSI, end-to-end pipeline, console API, promotion hold and retraining floor, docs–champion consistency).
 
 ### Results — champion `workspace.driveguard.driveguard_failure_30d` v<!--dg:champion.version-->4<!--/dg-->
 
@@ -182,11 +182,11 @@ The figures in this section, the README and the executive summary are rewritten 
 
 | Claim | Evidence status |
 |---|---|
-| A PySpark medallion pipeline, MLflow/UC lifecycle, daily scoring and monitoring run on Databricks serverless | Directly supported: job runs in the workspace, tables in `workspace.driveguard`, registered model v1–v<!--dg:champion.version-->4<!--/dg--> |
+| A PySpark medallion pipeline, MLflow/UC lifecycle, scoring and monitoring have run on Databricks serverless | Directly supported: job runs in the workspace, tables in `workspace.driveguard`, registered model v1–v<!--dg:champion.version-->4<!--/dg--> |
 | The label respects right-censoring and features are time-safe | Directly supported by code and tests |
 | <!--dg:test.drive_recall0-->71<!--/dg--> % drive recall at <!--dg:test.lead_median-->18<!--/dg--> days' median lead on a <!--dg:split.test_days-->90<!--/dg-->-day held-out test | **Computed by the project's evaluation code** on the 10 % subset; recorded in the champion's MLflow run and `app_snapshot/model.json`; not independently reproduced |
 | The model beats the operator rule | Supported at the 0.5 % budget on the same test days; the rule's ROC-AUC is comparable, its ranking is not |
-| The replay has been running since 1 Nov 2026 | Supported by the `daily` workflow runs and `ops_monitoring`; the rhythm is simulated from historical data and labelled as such |
+| The historical replay is configured and has been executed | One GitHub Actions `daily` run succeeded on 1 Nov 2026; the last saved Databricks snapshot shows one successful manual job run and a paused native schedule. Continued daily execution is not yet established |
 | Results hold at 100 % of the fleet or on newer quarters | **Not established** — the code is unchanged, the numbers are not re-run |
 | An operator saved money or avoided data loss | **Not measured**; no operator is in the loop |
 | The serving endpoint meets a latency or availability target | **Not measured** |
