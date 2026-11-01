@@ -1,20 +1,28 @@
 {
 "name": "workspace.driveguard.driveguard_failure_30d",
 "champion": {
-"version": 3,
-"run_id": "f49c98655ed7496098aa1b3c21527d8f",
-"created": "2026-10-31T10:03:48.452000+00:00",
-"promotion": "promoted v3 to @champion"
+"version": 4,
+"run_id": "5d71a5743592455e96921faa771a90a7",
+"created": "2026-11-01T09:23:55.919000+00:00",
+"promotion": "promoted v4 to @champion"
 },
 "versions": [
 {
-"version": 3,
-"created": "2026-10-31T10:03:48.452000+00:00",
+"version": 4,
+"created": "2026-11-01T09:23:55.919000+00:00",
 "val_pr_auc": 0.1453387000483076,
 "test_pr_auc": 0.18395078622862426,
 "aliases": [
 "champion"
 ],
+"run_id": "5d71a5743592455e96921faa771a90a7"
+},
+{
+"version": 3,
+"created": "2026-10-31T10:03:48.452000+00:00",
+"val_pr_auc": 0.1453387000483076,
+"test_pr_auc": 0.18395078622862426,
+"aliases": [],
 "run_id": "f49c98655ed7496098aa1b3c21527d8f"
 },
 {

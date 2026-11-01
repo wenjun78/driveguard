@@ -14,6 +14,14 @@
 "paused": null,
 "runs": [
 {
+"run_id": 984302792049029,
+"state": "TERMINATED",
+"result": "SUCCESS",
+"start": "2026-11-01T09:17:29.505000+00:00",
+"duration_s": 535.992,
+"url": "https://dbc-0a677603-5d07.cloud.databricks.com/?o=7474647782481883#job/428995231543134/run/984302792049029"
+},
+{
 "run_id": 576099510344129,
 "state": "TERMINATED",
 "result": "SUCCESS",
@@ -78,8 +86,8 @@
 "error": "Endpoint with name 'driveguard-failure-30d' does not exist."
 },
 "replay": {
-"anchor": null,
-"cursor": null
+"anchor": "2025-01-01@2026-11-01",
+"cursor": "2025-01-01"
 },
 "workspace": "https://dbc-0a677603-5d07.cloud.databricks.com"
 }
