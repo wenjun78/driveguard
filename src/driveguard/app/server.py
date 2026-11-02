@@ -367,7 +367,7 @@ def refresh(x_admin_token: str | None = Header(default=None)):
     return JSONResponse({"data": {"cleared": True}})
 
 
-@app.get("/healthz")
+@app.api_route("/healthz", methods=["GET", "HEAD"])  # uptime monitors probe with HEAD
 def healthz():
     return {"ok": True, "primary": PRIMARY.kind, "live_ok": _state["live_ok"]}
 
