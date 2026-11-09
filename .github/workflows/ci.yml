@@ -64,7 +64,7 @@ jobs:
           python-version: "3.11"
       - run: pip install build
         if: steps.cfg.outputs.configured == 'true'
-      - uses: databricks/setup-cli@main
+      - uses: ./.github/actions/setup-databricks-cli
         if: steps.cfg.outputs.configured == 'true'
       - name: Deploy bundle (live target)
         if: steps.cfg.outputs.configured == 'true'
