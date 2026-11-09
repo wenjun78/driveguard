@@ -42,7 +42,7 @@ jobs:
         with:
           python-version: "3.11"
           cache: pip
-      - uses: databricks/setup-cli@main
+      - uses: ./.github/actions/setup-databricks-cli
         if: steps.cfg.outputs.configured == 'true'
       - name: Install
         if: steps.cfg.outputs.configured == 'true'
@@ -95,4 +95,12 @@ jobs:
           git init -q -b snapshot
           git config user.name "wenjun78"; git config user.email "151641864+wenjun78@users.noreply.github.com"
           git add app_snapshot && git commit -qm "Console snapshot $(date -u +%Y-%m-%dT%H:%MZ) from the live workspace"
-          git push -f "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD:snapshot
+
+          # GitHub can reject writes transiently (e.g. remote 'fatal error in commit_refs').
+          # A persistent rejection still fails the run, so stale snapshots are visible.
+          for attempt in 1 2 3; do
+            if git push -f "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD:snapshot; then exit 0; fi
+            if [ "$attempt" -eq 3 ]; then echo "::error::Failed to publish snapshot after 3 attempts"; exit 1; fi
+            echo "::warning::Snapshot push failed (attempt $attempt); retrying"
+            sleep $((10 * attempt))
+          done
