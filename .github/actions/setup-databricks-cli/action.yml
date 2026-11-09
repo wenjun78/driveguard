@@ -1,0 +1,27 @@
+# Keep CI, bootstrap, and daily jobs resilient to transient GitHub release/CDN errors.
+# setup-cli downloads a CLI archive with curl but does not retry HTTP 5xx itself.
+name: Set up Databricks CLI with retries
+description: Retry transient Databricks CLI download failures without masking persistent errors
+runs:
+  using: composite
+  steps:
+    - name: Install Databricks CLI (attempt 1)
+      id: first
+      uses: databricks/setup-cli@main
+      continue-on-error: true
+    - name: Back off before second attempt
+      if: steps.first.outcome == 'failure'
+      shell: bash
+      run: sleep 15
+    - name: Install Databricks CLI (attempt 2)
+      id: second
+      if: steps.first.outcome == 'failure'
+      uses: databricks/setup-cli@main
+      continue-on-error: true
+    - name: Back off before final attempt
+      if: steps.first.outcome == 'failure' && steps.second.outcome == 'failure'
+      shell: bash
+      run: sleep 30
+    - name: Install Databricks CLI (final attempt)
+      if: steps.first.outcome == 'failure' && steps.second.outcome == 'failure'
+      uses: databricks/setup-cli@main
